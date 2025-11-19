@@ -8,9 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
-    /* ========================================
-       リセット＆ベーススタイル
-    ======================================== */
     * {
       margin: 0;
       padding: 0;
@@ -26,7 +23,7 @@
       font-size: 16px;
       line-height: 1.8;
       color: #333;
-      background: #fff;
+      background: #f5f7fb;
     }
 
     img {
@@ -45,9 +42,6 @@
       list-style: none;
     }
 
-    /* ========================================
-       コンテナ
-    ======================================== */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -60,62 +54,58 @@
       padding: 0 20px;
     }
 
-    /* ========================================
-       ボタン共通スタイル
-    ======================================== */
     .btn {
       display: inline-block;
-      padding: 14px 32px;
+      padding: 12px 28px;
       border-radius: 4px;
       font-weight: 500;
       text-align: center;
       cursor: pointer;
       transition: all 0.2s;
       border: none;
-      font-size: 15px;
+      font-size: 14px;
     }
 
     .btn-primary {
-      background: #1a3a5c;
+      background: #1a5490;
       color: #fff;
     }
 
     .btn-primary:hover {
-      background: #0f2840;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(26, 58, 92, 0.3);
+      background: #0f3d6f;
     }
 
     .btn-outline {
       background: transparent;
-      color: #1a3a5c;
-      border: 2px solid #1a3a5c;
+      color: #1a5490;
+      border: 2px solid #1a5490;
     }
 
     .btn-outline:hover {
-      background: #1a3a5c;
+      background: #1a5490;
       color: #fff;
     }
 
-    /* ========================================
-       ヘッダー（固定ナビゲーション）
-    ======================================== */
+    .btn-small {
+      padding: 8px 20px;
+      font-size: 13px;
+    }
+
     .header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(10px);
+      background: #fff;
       z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      border-bottom: 1px solid #e5e8ed;
     }
 
     .header-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 20px;
+      padding: 12px 20px;
       max-width: 1400px;
       margin: 0 auto;
     }
@@ -127,27 +117,63 @@
     }
 
     .logo-en {
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 700;
-      color: #1a3a5c;
-      letter-spacing: 1px;
+      color: #1a5490;
+      letter-spacing: 0.5px;
     }
 
     .logo-jp {
-      font-size: 11px;
+      font-size: 10px;
       color: #666;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
+    }
+
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-end;
+    }
+
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      color: #555;
+      padding: 6px 16px;
+      border: 1px solid #e5e8ed;
+      border-radius: 4px;
+      background: #fff;
+    }
+
+    .header-contact-phone {
+      font-weight: 600;
+      color: #1a5490;
+      font-size: 16px;
+    }
+
+    .header-contact-time {
+      font-size: 12px;
+      color: #777;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
     }
 
     .nav-list {
       display: flex;
-      gap: 36px;
+      gap: 28px;
       align-items: center;
     }
 
     .nav-list a {
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 400;
       color: #333;
       position: relative;
     }
@@ -159,7 +185,7 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: #1a3a5c;
+      background: #1a5490;
       transition: width 0.2s;
     }
 
@@ -167,11 +193,6 @@
       width: 100%;
     }
 
-    .nav-list .btn {
-      padding: 10px 24px;
-    }
-
-    /* ハンバーガーメニュー */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -184,7 +205,7 @@
       display: block;
       width: 28px;
       height: 3px;
-      background: #1a3a5c;
+      background: #1a5490;
       border-radius: 2px;
       transition: all 0.3s;
     }
@@ -201,104 +222,106 @@
       transform: rotate(-45deg) translate(7px, -7px);
     }
 
-    /* ========================================
-       ヒーローセクション
-    ======================================== */
     .hero {
       position: relative;
-      height: 80vh;
-      min-height: 600px;
+      min-height: 560px;
       display: flex;
       align-items: center;
-      background: linear-gradient(135deg, #1a3a5c 0%, #2d5a7b 100%);
-      margin-top: 70px;
-      overflow: hidden;
+      background: linear-gradient(135deg, #f5f8fc 0%, #e9f3ff 100%);
+      margin-top: 90px;
+      padding: 64px 0;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background:
-        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    .hero-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
     }
 
     .hero-content {
-      position: relative;
-      z-index: 1;
-      color: #fff;
-      max-width: 700px;
+      color: #333;
     }
 
     .hero-label {
-      font-size: 14px;
+      font-size: 11px;
       letter-spacing: 3px;
       text-transform: uppercase;
-      margin-bottom: 16px;
-      opacity: 0.9;
+      margin-bottom: 14px;
+      color: #1a5490;
+      font-weight: 500;
     }
 
     .hero-title {
-      font-size: 52px;
+      font-size: 36px;
       font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 24px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      color: #1a3a5c;
     }
 
-    .hero-text {
-      font-size: 17px;
+    .hero-lead {
+      font-size: 15px;
       line-height: 1.9;
-      margin-bottom: 36px;
-      opacity: 0.95;
+      margin-bottom: 28px;
+      color: #555;
     }
 
-    /* ========================================
-       セクション共通スタイル
-    ======================================== */
+    .hero-visual {
+      width: 100%;
+      height: 420px;
+      background: #fff;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(26, 84, 144, 0.12);
+      border-top: 4px solid #1a5490;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .section {
-      padding: 100px 0;
+      padding: 64px 0;
+      background: #fff;
     }
 
     .section-bg-gray {
-      background: #f8f9fa;
+      background: #f3f5f9;
     }
 
     .section-header {
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 56px;
     }
 
     .section-label {
-      font-size: 13px;
+      font-size: 11px;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: #1a3a5c;
-      margin-bottom: 12px;
+      color: #1a5490;
+      margin-bottom: 10px;
       font-weight: 500;
     }
 
     .section-title {
-      font-size: 36px;
-      font-weight: 700;
+      font-size: 28px;
+      font-weight: 600;
       color: #1a3a5c;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .section-desc {
-      font-size: 16px;
+      font-size: 14px;
       color: #666;
       max-width: 700px;
       margin: 0 auto;
       line-height: 1.9;
     }
 
-    /* ========================================
-       About Usセクション
-    ======================================== */
     .about-content {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -309,12 +332,13 @@
     .about-text h3 {
       font-size: 24px;
       color: #1a3a5c;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
       font-weight: 600;
+      line-height: 1.5;
     }
 
     .about-text p {
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       color: #555;
       line-height: 2;
     }
@@ -322,153 +346,137 @@
     .about-image {
       width: 100%;
       height: 400px;
-      background: linear-gradient(135deg, #e8eef3 0%, #d0dbe5 100%);
-      border-radius: 4px;
+      background: #fff;
+      border-radius: 8px;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     }
 
     .about-image::before {
       content: '';
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 150px;
-      height: 150px;
-      background: rgba(26, 58, 92, 0.1);
-      border-radius: 50%;
-    }
-
-    /* ========================================
-       Serviceセクション
-    ======================================== */
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      margin-bottom: 30px;
-    }
-
-    .service-card {
-      background: #fff;
-      border: 1px solid #e5e5e5;
-      border-radius: 4px;
-      padding: 36px 28px;
-      transition: all 0.2s;
-      cursor: pointer;
-    }
-
-    .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-      border-color: #1a3a5c;
-    }
-
-    .service-card-tag {
-      display: inline-block;
-      font-size: 11px;
-      padding: 4px 12px;
-      background: #f0f4f8;
-      color: #1a3a5c;
-      border-radius: 3px;
-      margin-bottom: 16px;
-      font-weight: 500;
-      letter-spacing: 1px;
-    }
-
-    .service-card h3 {
-      font-size: 20px;
-      color: #1a3a5c;
-      margin-bottom: 16px;
-      font-weight: 600;
-    }
-
-    .service-card p {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
-    .service-card-link {
-      font-size: 13px;
-      color: #1a3a5c;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .service-card-link::after {
-      content: '→';
-      transition: transform 0.2s;
-    }
-
-    .service-card:hover .service-card-link::after {
-      transform: translateX(4px);
-    }
-
-    /* ========================================
-       Worksセクション（導入事例）
-    ======================================== */
-    .works-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      margin-bottom: 50px;
-    }
-
-    .works-card {
-      background: #fff;
-      border: 1px solid #e5e5e5;
-      border-radius: 4px;
-      overflow: hidden;
-      transition: all 0.2s;
-      cursor: pointer;
-    }
-
-    .works-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    }
-
-    .works-image {
-      width: 100%;
+      top: -10%;
+      left: -10%;
+      width: 200px;
       height: 200px;
-      background: linear-gradient(135deg, #d0dbe5 0%, #e8eef3 100%);
-      position: relative;
+      background: radial-gradient(circle, rgba(26, 84, 144, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
     }
 
-    .works-image::after {
-      content: '';
+    .about-image-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-image-caption {
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 100%;
-      height: 4px;
-      background: #1a3a5c;
+      right: 0;
+      background: rgba(26, 58, 92, 0.85);
+      color: #fff;
+      padding: 12px 16px;
+      font-size: 13px;
+      text-align: center;
     }
 
-    .works-content {
-      padding: 24px;
+    .service-list {
+      max-width: 900px;
+      margin: 0 auto 40px;
+    }
+
+    .service-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      border-bottom: 1px solid #e5e8ed;
+      transition: all 0.15s;
+      cursor: pointer;
+    }
+
+    .service-item:hover {
+      background: #f5f7fb;
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    .service-item-name {
+      font-size: 17px;
+      font-weight: 600;
+      color: #1a3a5c;
+      min-width: 200px;
+    }
+
+    .service-item-desc {
+      flex: 1;
+      font-size: 14px;
+      color: #666;
+      padding: 0 24px;
+    }
+
+    .service-item-arrow {
+      font-size: 18px;
+      color: #1a5490;
+      transition: transform 0.15s;
+    }
+
+    .service-item:hover .service-item-arrow {
+      transform: translateX(3px);
+    }
+
+    .service-footer {
+      text-align: center;
+      margin-top: 36px;
+    }
+
+    .works-list {
+      max-width: 900px;
+      margin: 0 auto 40px;
+    }
+
+    .works-item {
+      display: flex;
+      gap: 24px;
+      padding: 18px 0;
+      border-bottom: 1px solid #e5e8ed;
+      transition: all 0.15s;
+      cursor: pointer;
+    }
+
+    .works-item:hover {
+      background: #f5f7fb;
+      padding-left: 12px;
     }
 
     .works-industry {
-      font-size: 12px;
-      color: #1a3a5c;
+      font-size: 11px;
+      color: #1a5490;
       font-weight: 500;
-      margin-bottom: 8px;
+      min-width: 100px;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
 
-    .works-card h3 {
-      font-size: 18px;
+    .works-info {
+      flex: 1;
+    }
+
+    .works-item h3 {
+      font-size: 15px;
       color: #333;
-      margin-bottom: 16px;
-      font-weight: 600;
-      line-height: 1.5;
+      margin-bottom: 8px;
+      font-weight: 500;
     }
 
     .works-tags {
@@ -478,10 +486,10 @@
     }
 
     .works-tag {
-      font-size: 11px;
-      padding: 4px 10px;
-      background: #f0f4f8;
-      color: #555;
+      font-size: 10px;
+      padding: 3px 10px;
+      background: #e9f3ff;
+      color: #1a5490;
       border-radius: 3px;
     }
 
@@ -489,69 +497,66 @@
       text-align: center;
     }
 
-    /* ========================================
-       Newsセクション（タブ切り替え）
-    ======================================== */
     .news-tabs {
       display: flex;
       justify-content: center;
-      gap: 12px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
+      gap: 0;
+      margin-bottom: 36px;
+      border-bottom: 2px solid #e5e8ed;
     }
 
     .news-tab {
       padding: 10px 28px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 500;
       color: #666;
-      background: #fff;
-      transition: all 0.2s;
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      transition: all 0.15s;
+      margin-bottom: -2px;
     }
 
     .news-tab.active {
-      background: #1a3a5c;
-      color: #fff;
-      border-color: #1a3a5c;
+      color: #1a5490;
+      border-bottom-color: #1a5490;
     }
 
     .news-tab:hover {
-      border-color: #1a3a5c;
+      color: #1a5490;
     }
 
     .news-list {
       max-width: 900px;
-      margin: 0 auto 40px;
+      margin: 0 auto 36px;
     }
 
     .news-item {
       display: flex;
-      gap: 24px;
-      padding: 20px 0;
-      border-bottom: 1px solid #e5e5e5;
-      transition: all 0.2s;
+      gap: 18px;
+      padding: 16px 10px;
+      border-bottom: 1px solid #e5e8ed;
+      transition: all 0.15s;
+      align-items: center;
     }
 
     .news-item:hover {
-      background: #f8f9fa;
-      padding-left: 12px;
+      background: #f5f7fb;
     }
 
     .news-date {
-      font-size: 14px;
+      font-size: 12px;
       color: #999;
       min-width: 100px;
     }
 
     .news-category {
-      font-size: 12px;
-      padding: 4px 12px;
+      font-size: 10px;
+      padding: 4px 10px;
       border-radius: 3px;
       font-weight: 500;
-      min-width: 80px;
+      min-width: 75px;
       text-align: center;
     }
 
@@ -573,184 +578,342 @@
     .news-title {
       flex: 1;
       color: #333;
-      font-size: 15px;
+      font-size: 14px;
     }
 
     .news-footer {
       text-align: center;
     }
 
-    /* ========================================
-       Recruitセクション
-    ======================================== */
     .recruit {
-      background: linear-gradient(135deg, #1a3a5c 0%, #2d5a7b 100%);
-      color: #fff;
+      background: linear-gradient(135deg, #e0ebf5 0%, #d4e7ff 100%);
       position: relative;
       overflow: hidden;
     }
 
-    .recruit::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 50%;
-      height: 100%;
-      background:
-        radial-gradient(circle at 70% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+    .recruit-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
+      align-items: center;
     }
 
     .recruit-content {
       position: relative;
       z-index: 1;
-      max-width: 700px;
     }
 
     .recruit .section-label {
-      color: rgba(255, 255, 255, 0.8);
+      color: #1a5490;
+      text-align: left;
     }
 
     .recruit .section-title {
-      color: #fff;
+      color: #1a3a5c;
+      font-size: 32px;
+      margin-bottom: 20px;
       text-align: left;
     }
 
     .recruit-text {
-      font-size: 17px;
+      font-size: 15px;
       line-height: 2;
-      margin-bottom: 36px;
-      opacity: 0.95;
+      margin-bottom: 28px;
+      color: #555;
     }
 
-    .recruit .btn-primary {
+    .recruit-visual {
+      width: 100%;
+      height: 360px;
       background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(26, 84, 144, 0.12);
+      position: relative;
+    }
+
+    .recruit-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .recruit-visual-label {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(26, 84, 144, 0.9);
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    .connecting {
+      background: #fff;
+      padding: 64px 0;
+    }
+
+    .connecting-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .connecting-title {
+      font-size: 26px;
       color: #1a3a5c;
+      font-weight: 600;
+      margin-bottom: 14px;
     }
 
-    .recruit .btn-primary:hover {
-      background: #f0f4f8;
+    .connecting-subtitle {
+      font-size: 13px;
+      color: #666;
     }
 
-    /* ========================================
-       Contactセクション
-    ======================================== */
+    .life-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .life-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      transition: all 0.2s;
+    }
+
+    .life-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .life-image {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .life-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .life-body {
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .life-card h3 {
+      font-size: 17px;
+      color: #1a3a5c;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .life-card p {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.8;
+    }
+
     .contact-content {
       display: grid;
       grid-template-columns: 1.5fr 1fr;
       gap: 60px;
       align-items: center;
+      margin-bottom: 48px;
     }
 
     .contact-cta h3 {
-      font-size: 22px;
+      font-size: 20px;
       color: #1a3a5c;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       font-weight: 600;
     }
 
     .contact-info {
       background: #fff;
-      padding: 32px;
-      border-radius: 4px;
-      border: 1px solid #e5e5e5;
+      padding: 28px;
+      border-radius: 8px;
+      border: 1px solid #e5e8ed;
     }
 
     .contact-phone {
-      font-size: 28px;
+      font-size: 24px;
       font-weight: 700;
-      color: #1a3a5c;
+      color: #1a5490;
       margin-bottom: 8px;
     }
 
     .contact-hours {
-      font-size: 14px;
+      font-size: 12px;
       color: #666;
     }
 
-    /* ========================================
-       フッター
-    ======================================== */
+    .contact-sns {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .sns-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      background: #fff;
+      border: 1px solid #e5e8ed;
+      border-radius: 6px;
+      transition: all 0.15s;
+      cursor: pointer;
+    }
+
+    .sns-item:hover {
+      border-color: #1a5490;
+      box-shadow: 0 2px 8px rgba(26, 84, 144, 0.1);
+    }
+
+    .sns-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #1a5490;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .sns-label {
+      font-size: 13px;
+      color: #555;
+      font-weight: 500;
+    }
+
     .footer {
       background: #1a3a5c;
       color: #fff;
-      padding: 60px 0 30px;
+      padding: 56px 0 28px;
     }
 
     .footer-content {
       display: grid;
       grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 60px;
-      margin-bottom: 50px;
+      gap: 56px;
+      margin-bottom: 48px;
     }
 
     .footer-company h3 {
-      font-size: 20px;
-      margin-bottom: 20px;
+      font-size: 17px;
+      margin-bottom: 18px;
       font-weight: 600;
     }
 
     .footer-company p {
-      font-size: 14px;
+      font-size: 12px;
       line-height: 1.9;
       opacity: 0.9;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .footer-nav h4 {
-      font-size: 14px;
-      margin-bottom: 16px;
+      font-size: 12px;
+      margin-bottom: 14px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
+      opacity: 0.8;
     }
 
     .footer-nav ul {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 9px;
     }
 
     .footer-nav a {
-      font-size: 14px;
+      font-size: 12px;
       opacity: 0.85;
-      transition: opacity 0.2s;
+      transition: opacity 0.15s;
     }
 
     .footer-nav a:hover {
       opacity: 1;
-      text-decoration: underline;
     }
 
     .footer-bottom {
       border-top: 1px solid rgba(255, 255, 255, 0.2);
-      padding-top: 30px;
+      padding-top: 28px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 18px;
     }
 
     .footer-links {
       display: flex;
-      gap: 24px;
+      gap: 22px;
     }
 
     .footer-links a {
-      font-size: 12px;
+      font-size: 11px;
       opacity: 0.8;
     }
 
     .footer-copyright {
-      font-size: 12px;
+      font-size: 11px;
       opacity: 0.7;
     }
 
-    /* ========================================
-       レスポンシブ（タブレット: 768px以下）
-    ======================================== */
+    .pagetop {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 48px;
+      height: 48px;
+      background: #1a5490;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(26, 84, 144, 0.3);
+      transition: all 0.2s;
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .pagetop.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .pagetop:hover {
+      background: #0f3d6f;
+    }
+
+    .pagetop::before {
+      content: '↑';
+      font-size: 18px;
+      font-weight: 600;
+    }
+
     @media (max-width: 768px) {
+      .header-right {
+        display: none;
+      }
+
       .nav-list {
         position: fixed;
         top: 0;
@@ -759,8 +922,9 @@
         height: 100vh;
         background: #fff;
         flex-direction: column;
-        justify-content: center;
-        gap: 28px;
+        justify-content: flex-start;
+        padding-top: 80px;
+        gap: 20px;
         box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
         transition: right 0.3s;
       }
@@ -769,116 +933,180 @@
         right: 0;
       }
 
+      .nav-list::before {
+        content: '03-1234-5678';
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #1a5490;
+      }
+
       .hamburger {
         display: flex;
       }
 
       .hero {
-        height: 70vh;
-        min-height: 500px;
-        padding: 0 20px;
+        margin-top: 70px;
+        padding: 48px 0;
+        min-height: auto;
       }
 
-      .hero-content {
-        text-align: center;
+      .hero-wrapper {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .hero-visual {
+        height: 280px;
+        order: -1;
       }
 
       .hero-title {
-        font-size: 36px;
+        font-size: 28px;
+      }
+
+      .hero-lead {
+        font-size: 14px;
       }
 
       .section {
-        padding: 70px 0;
-      }
-
-      .section-title {
-        font-size: 28px;
-      }
-
-      .about-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .about-image {
-        height: 300px;
-      }
-
-      .service-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      .works-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      .contact-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .footer-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-
-    /* ========================================
-       レスポンシブ（スマホ: 480px以下）
-    ======================================== */
-    @media (max-width: 480px) {
-      .hero-title {
-        font-size: 28px;
-      }
-
-      .hero-text {
-        font-size: 15px;
+        padding: 48px 0;
       }
 
       .section-title {
         font-size: 24px;
       }
 
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .about-image {
+        height: 300px;
+      }
+
+      .service-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .service-item-name {
+        min-width: auto;
+      }
+
+      .service-item-desc {
+        padding: 0;
+      }
+
+      .works-item {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .works-industry {
+        min-width: auto;
+      }
+
+      .recruit-inner {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .recruit .section-label,
+      .recruit .section-title {
+        text-align: center;
+      }
+
+      .recruit-visual {
+        height: 280px;
+      }
+
+      .life-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .contact-content {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .contact-sns {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .pagetop {
+        width: 42px;
+        height: 42px;
+        bottom: 16px;
+        right: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 24px;
+      }
+
+      .section-title {
+        font-size: 21px;
+      }
+
       .btn {
-        padding: 12px 24px;
-        font-size: 14px;
+        padding: 10px 20px;
+        font-size: 13px;
       }
 
       .news-item {
         flex-direction: column;
-        gap: 12px;
+        gap: 8px;
+        align-items: flex-start;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- ========================================
-       ヘッダー
-  ======================================== -->
   <header class="header">
     <div class="header-inner">
       <div class="logo">
         <div class="logo-en">ALIBA Logistics</div>
         <div class="logo-jp">アリバロジスティクス株式会社</div>
       </div>
-      <nav>
-        <ul class="nav-list" id="navList">
-          <li><a href="#about">about us</a></li>
-          <li><a href="#service">service</a></li>
-          <li><a href="#works">works</a></li>
-          <li><a href="#news">news</a></li>
-          <li><a href="#recruit">recruit</a></li>
-          <li><a href="#contact" class="btn btn-primary">contact</a></li>
-        </ul>
-      </nav>
+      <div class="header-right">
+        <div class="header-contact">
+          <span class="header-contact-phone">03-1234-5678</span>
+          <span class="header-contact-time">平日 9:00-17:00</span>
+        </div>
+        <div class="header-nav">
+          <nav>
+            <ul class="nav-list" id="navList">
+              <li><a href="#about">about us</a></li>
+              <li><a href="#service">service</a></li>
+              <li><a href="#works">works</a></li>
+              <li><a href="#news">news</a></li>
+              <li><a href="#recruit">recruit</a></li>
+              <li><a href="#contact">contact</a></li>
+            </ul>
+          </nav>
+          <a href="#" class="btn btn-primary btn-small">資料ダウンロード</a>
+        </div>
+      </div>
       <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
@@ -888,102 +1116,97 @@
   </header>
 
   <main>
-    <!-- ========================================
-         ヒーローセクション
-    ======================================== -->
     <section class="hero">
       <div class="container">
-        <div class="hero-content">
-          <div class="hero-label">connecting the future</div>
-          <h1 class="hero-title">物流で未来を繋ぐ。<br>社会を支えるパートナー。</h1>
-          <p class="hero-text">私たちは、最先端のロジスティクスソリューションで、お客様のビジネスと社会インフラを支え続けます。国内外を問わず、確かな品質と信頼でお応えします。</p>
-          <a href="#about" class="btn btn-primary">私たちについて</a>
+        <div class="hero-wrapper">
+          <div class="hero-content">
+            <div class="hero-label">LOGISTICS & SOLUTION</div>
+            <h1 class="hero-title">物流で未来を繋ぐ。<br>社会を支えるパートナー。</h1>
+            <p class="hero-lead">私たちは、最先端のロジスティクスソリューションで、お客様のビジネスと社会インフラを支え続けます。確かな品質と信頼で、国内外のあらゆるニーズにお応えします。</p>
+            <a href="#about" class="btn btn-primary">私たちについて</a>
+          </div>
+          <div class="hero-visual">
+            <img src="images/hero-logistics.jpg" alt="倉庫とトラックのイメージ">
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ========================================
-         About Usセクション
-    ======================================== -->
     <section class="section" id="about">
       <div class="container">
         <div class="section-header">
-          <div class="section-label">about us</div>
+          <div class="section-label">ABOUT US</div>
           <h2 class="section-title">私たちについて</h2>
           <p class="section-desc">ALIBAロジスティクスは、総合物流サービスを通じて、お客様のビジネスと社会の発展に貢献します。</p>
         </div>
         <div class="about-content">
           <div class="about-text">
-            <h3>お客様の成長を支える、確かな物流パートナー</h3>
-            <p>私たちは、長年培ってきた物流ノウハウと最新のテクノロジーを融合させ、お客様のビジネスを加速させるソリューションを提供しています。国内輸送から国際物流まで、幅広いニーズにお応えします。</p>
-            <p>常にお客様の視点に立ち、柔軟かつスピーディーな対応を心がけています。私たちの使命は、物流を通じて社会インフラを支え、持続可能な未来を創造することです。</p>
+            <h3>「信頼の輪」で<br>社会をつなぐ</h3>
+            <p>私たちは、長年培ってきた物流ノウハウと最新のテクノロジーを融合させ、お客様のビジネスを加速させるソリューションを提供しています。モノに込められた想いをしっかりと受け止め、国内輸送から国際物流まで、幅広いニーズにお応えします。</p>
+            <p>常にお客様の視点に立ち、柔軟かつスピーディーな対応を心がけています。私たちの使命は、物流を通じて信頼の連鎖を生み出し、社会インフラを支え、持続可能な未来を創造することです。</p>
             <a href="#" class="btn btn-outline">当社の強みを見る</a>
           </div>
-          <div class="about-image"></div>
+          <div class="about-image">
+            <div class="about-image-inner">
+              <img src="images/about-logistics-team.jpg" alt="物流センターで働く人々のイメージ">
+              <div class="about-image-caption">現場とともに歩むロジスティクスパートナー</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ========================================
-         Serviceセクション
-    ======================================== -->
     <section class="section section-bg-gray" id="service">
       <div class="container">
         <div class="section-header">
-          <div class="section-label">service</div>
+          <div class="section-label">SERVICE</div>
           <h2 class="section-title">事業内容</h2>
           <p class="section-desc">お客様のニーズに合わせた、多様な物流ソリューションを提供しています。</p>
         </div>
-        <div class="service-grid">
-          <div class="service-card">
-            <div class="service-card-tag">LOGISTICS</div>
-            <h3>総合物流サービス</h3>
-            <p>保管・配送・在庫管理を一括で対応。最適なサプライチェーンを構築します。</p>
-            <a href="#" class="service-card-link">詳しく見る</a>
+        <div class="service-list">
+          <div class="service-item">
+            <div class="service-item-name">総合物流サービス</div>
+            <div class="service-item-desc">保管・配送・在庫管理を一括で対応。最適なサプライチェーンを構築します。</div>
+            <div class="service-item-arrow">→</div>
           </div>
-          <div class="service-card">
-            <div class="service-card-tag">TRANSPORT</div>
-            <h3>国内輸送ネットワーク</h3>
-            <p>全国をカバーする輸送網で、迅速かつ確実にお届けします。</p>
-            <a href="#" class="service-card-link">詳しく見る</a>
+          <div class="service-item">
+            <div class="service-item-name">国内輸送ネットワーク</div>
+            <div class="service-item-desc">全国をカバーする輸送網で、迅速かつ確実にお届けします。</div>
+            <div class="service-item-arrow">→</div>
           </div>
-          <div class="service-card">
-            <div class="service-card-tag">SOLUTION</div>
-            <h3>ロジスティクスソリューション</h3>
-            <p>お客様の課題を分析し、最適な物流戦略を提案・実行します。</p>
-            <a href="#" class="service-card-link">詳しく見る</a>
+          <div class="service-item">
+            <div class="service-item-name">ロジスティクスソリューション</div>
+            <div class="service-item-desc">お客様の課題を分析し、最適な物流戦略を提案・実行します。</div>
+            <div class="service-item-arrow">→</div>
           </div>
-          <div class="service-card">
-            <div class="service-card-tag">CONSULTING</div>
-            <h3>物流改善コンサルティング</h3>
-            <p>業務効率化とコスト削減を実現する、プロフェッショナルな提案を行います。</p>
-            <a href="#" class="service-card-link">詳しく見る</a>
+          <div class="service-item">
+            <div class="service-item-name">物流改善コンサルティング</div>
+            <div class="service-item-desc">業務効率化とコスト削減を実現する、プロフェッショナルな提案を行います。</div>
+            <div class="service-item-arrow">→</div>
           </div>
-          <div class="service-card">
-            <div class="service-card-tag">GLOBAL</div>
-            <h3>国際物流サービス</h3>
-            <p>グローバルネットワークを活かし、海外との輸出入業務を全面サポートします。</p>
-            <a href="#" class="service-card-link">詳しく見る</a>
+          <div class="service-item">
+            <div class="service-item-name">国際物流サービス</div>
+            <div class="service-item-desc">グローバルネットワークを活かし、海外との輸出入業務を全面サポートします。</div>
+            <div class="service-item-arrow">→</div>
           </div>
+        </div>
+        <div class="service-footer">
+          <a href="#" class="btn btn-outline">事業内容一覧を見る</a>
         </div>
       </div>
     </section>
 
-    <!-- ========================================
-         Worksセクション（導入事例）
-    ======================================== -->
     <section class="section" id="works">
       <div class="container">
         <div class="section-header">
-          <div class="section-label">works</div>
+          <div class="section-label">WORKS</div>
           <h2 class="section-title">導入事例</h2>
           <p class="section-desc">様々な業界のお客様に、最適な物流ソリューションを提供してきました。</p>
         </div>
-        <div class="works-grid">
-          <div class="works-card">
-            <div class="works-image"></div>
-            <div class="works-content">
-              <div class="works-industry">商社</div>
+        <div class="works-list">
+          <div class="works-item">
+            <div class="works-industry">TRADING</div>
+            <div class="works-info">
               <h3>大手総合商社の国際物流体制を再構築</h3>
               <div class="works-tags">
                 <span class="works-tag">総合物流</span>
@@ -991,10 +1214,9 @@
               </div>
             </div>
           </div>
-          <div class="works-card">
-            <div class="works-image"></div>
-            <div class="works-content">
-              <div class="works-industry">アパレル</div>
+          <div class="works-item">
+            <div class="works-industry">APPAREL</div>
+            <div class="works-info">
               <h3>ファッションブランドのEC物流を一括管理</h3>
               <div class="works-tags">
                 <span class="works-tag">倉庫管理</span>
@@ -1002,10 +1224,9 @@
               </div>
             </div>
           </div>
-          <div class="works-card">
-            <div class="works-image"></div>
-            <div class="works-content">
-              <div class="works-industry">製造業</div>
+          <div class="works-item">
+            <div class="works-industry">MANUFACTURING</div>
+            <div class="works-info">
               <h3>自動車部品メーカーのジャストインタイム配送</h3>
               <div class="works-tags">
                 <span class="works-tag">輸送最適化</span>
@@ -1013,10 +1234,9 @@
               </div>
             </div>
           </div>
-          <div class="works-card">
-            <div class="works-image"></div>
-            <div class="works-content">
-              <div class="works-industry">食品</div>
+          <div class="works-item">
+            <div class="works-industry">FOOD</div>
+            <div class="works-info">
               <h3>冷凍食品の温度管理配送システム構築</h3>
               <div class="works-tags">
                 <span class="works-tag">コールドチェーン</span>
@@ -1024,10 +1244,9 @@
               </div>
             </div>
           </div>
-          <div class="works-card">
-            <div class="works-image"></div>
-            <div class="works-content">
-              <div class="works-industry">小売</div>
+          <div class="works-item">
+            <div class="works-industry">RETAIL</div>
+            <div class="works-info">
               <h3>大型ショッピングモールの配送効率化</h3>
               <div class="works-tags">
                 <span class="works-tag">ルート最適化</span>
@@ -1035,10 +1254,9 @@
               </div>
             </div>
           </div>
-          <div class="works-card">
-            <div class="works-image"></div>
-            <div class="works-content">
-              <div class="works-industry">医薬品</div>
+          <div class="works-item">
+            <div class="works-industry">PHARMA</div>
+            <div class="works-info">
               <h3>医療機器メーカーの輸送品質向上プロジェクト</h3>
               <div class="works-tags">
                 <span class="works-tag">特殊輸送</span>
@@ -1053,13 +1271,10 @@
       </div>
     </section>
 
-    <!-- ========================================
-         Newsセクション（タブ切り替え）
-    ======================================== -->
     <section class="section section-bg-gray" id="news">
       <div class="container">
         <div class="section-header">
-          <div class="section-label">news</div>
+          <div class="section-label">NEWS</div>
           <h2 class="section-title">新着情報</h2>
         </div>
         <div class="news-tabs">
@@ -1116,27 +1331,65 @@
       </div>
     </section>
 
-    <!-- ========================================
-         Recruitセクション
-    ======================================== -->
     <section class="section recruit" id="recruit">
       <div class="container">
-        <div class="recruit-content">
-          <div class="section-label">recruit</div>
-          <h2 class="section-title">採用情報</h2>
-          <p class="recruit-text">私たちと一緒に、物流の未来を創りませんか。挑戦する意欲を持った仲間を募集しています。社会インフラを支えるやりがいのある仕事で、あなたの成長をサポートします。</p>
-          <a href="#" class="btn btn-primary">採用情報を見る</a>
+        <div class="recruit-inner">
+          <div class="recruit-content">
+            <div class="section-label">RECRUIT</div>
+            <h2 class="section-title">採用情報</h2>
+            <p class="recruit-text">私たちと一緒に、物流の未来を創りませんか。挑戦する意欲を持った仲間を募集しています。社会インフラを支えるやりがいのある仕事で、あなたの成長をサポートします。</p>
+            <a href="#" class="btn btn-primary">採用情報を見る →</a>
+          </div>
+          <div class="recruit-visual">
+            <img src="images/recruit-team.jpg" alt="物流現場とオフィスのメンバー">
+            <div class="recruit-visual-label">RECRUIT</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ========================================
-         Contactセクション
-    ======================================== -->
+    <section class="connecting">
+      <div class="container">
+        <div class="connecting-header">
+          <h2 class="connecting-title">Connecting Lives, Building Future</h2>
+          <p class="connecting-subtitle">物流を通じて、人と社会をつなぐ</p>
+        </div>
+        <div class="life-grid">
+          <div class="life-card">
+            <div class="life-image">
+              <img src="images/connecting-warehouse.jpg" alt="倉庫とパレット">
+            </div>
+            <div class="life-body">
+              <h3>安心・安全</h3>
+              <p>徹底した品質管理と高度なセキュリティで、お客様の大切な荷物を守ります。</p>
+            </div>
+          </div>
+          <div class="life-card">
+            <div class="life-image">
+              <img src="images/connecting-driver.jpg" alt="トラックドライバー">
+            </div>
+            <div class="life-body">
+              <h3>スピード</h3>
+              <p>最適化されたルートと効率的なオペレーションで、迅速な配送を実現します。</p>
+            </div>
+          </div>
+          <div class="life-card">
+            <div class="life-image">
+              <img src="images/connecting-office.jpg" alt="オフィスで働く人">
+            </div>
+            <div class="life-body">
+              <h3>持続可能性</h3>
+              <p>環境に配慮した物流サービスで、持続可能な社会の実現に貢献します。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section section-bg-gray" id="contact">
       <div class="container">
         <div class="section-header">
-          <div class="section-label">contact</div>
+          <div class="section-label">CONTACT</div>
           <h2 class="section-title">お問い合わせ</h2>
           <p class="section-desc">物流に関するご相談は、どんなことでもお気軽にお問い合わせください。</p>
         </div>
@@ -1147,27 +1400,34 @@
           </div>
           <div class="contact-info">
             <div class="contact-phone">03-1234-5678</div>
-            <div class="contact-hours">受付時間：平日 9:00〜18:00</div>
+            <div class="contact-hours">受付時間：平日 9:00〜17:00</div>
           </div>
+        </div>
+        <div class="contact-sns">
+          <a href="#" class="sns-item">
+            <div class="sns-icon">IG</div>
+            <div class="sns-label">Instagram</div>
+          </a>
+          <a href="#" class="sns-item">
+            <div class="sns-icon">YT</div>
+            <div class="sns-label">YouTube</div>
+          </a>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ========================================
-       フッター
-  ======================================== -->
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
         <div class="footer-company">
           <h3>アリバロジスティクス株式会社</h3>
           <p>〒100-0001<br>東京都千代田区千代田1-1-1<br>ALIBAビル10F</p>
-          <p>TEL: 03-1234-5678<br>受付時間: 平日 9:00〜18:00</p>
+          <p>TEL: 03-1234-5678<br>受付時間: 平日 9:00〜17:00</p>
         </div>
         <div class="footer-nav">
-          <h4>サイトマップ</h4>
+          <h4>SITEMAP</h4>
           <ul>
             <li><a href="#about">about us</a></li>
             <li><a href="#service">service</a></li>
@@ -1178,12 +1438,12 @@
           </ul>
         </div>
         <div class="footer-nav">
-          <h4>企業情報</h4>
+          <h4>INFORMATION</h4>
           <ul>
-            <li><a href="#">会社概要</a></li>
-            <li><a href="#">拠点一覧</a></li>
-            <li><a href="#">サステナビリティ</a></li>
-            <li><a href="#">IR情報</a></li>
+            <li><a href="#">資料ダウンロード</a></li>
+            <li><a href="#">プライバシーポリシー</a></li>
+            <li><a href="#">個人情報の取扱いについて</a></li>
+            <li><a href="#">反社会的勢力に対する基本方針</a></li>
           </ul>
         </div>
       </div>
@@ -1198,10 +1458,9 @@
     </div>
   </footer>
 
+  <div class="pagetop" id="pagetop"></div>
+
   <script>
-    // ========================================
-    // ハンバーガーメニュー
-    // ========================================
     const hamburger = document.getElementById('hamburger');
     const navList = document.getElementById('navList');
 
@@ -1210,7 +1469,6 @@
       navList.classList.toggle('active');
     });
 
-    // ナビリンククリックでメニューを閉じる
     const navLinks = navList.querySelectorAll('a');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
@@ -1219,19 +1477,14 @@
       });
     });
 
-    // ========================================
-    // Newsタブ切り替え
-    // ========================================
     const newsTabs = document.querySelectorAll('.news-tab');
     const newsItems = document.querySelectorAll('.news-item');
 
     newsTabs.forEach(tab => {
       tab.addEventListener('click', () => {
-        // アクティブタブの切り替え
         newsTabs.forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
 
-        // カテゴリーフィルタリング
         const category = tab.getAttribute('data-category');
         newsItems.forEach(item => {
           if (category === 'all' || item.getAttribute('data-category') === category) {
@@ -1243,9 +1496,6 @@
       });
     });
 
-    // ========================================
-    // スムーススクロール（ヘッダー高さ調整）
-    // ========================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
@@ -1261,6 +1511,23 @@
             behavior: 'smooth'
           });
         }
+      });
+    });
+
+    const pagetop = document.getElementById('pagetop');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        pagetop.classList.add('visible');
+      } else {
+        pagetop.classList.remove('visible');
+      }
+    });
+
+    pagetop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
       });
     });
   </script>
