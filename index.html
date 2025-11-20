@@ -352,38 +352,39 @@
       position: absolute;
       border-radius: 50%;
       background: rgba(26, 84, 144, 0.2);
-      animation: floatUp 12s infinite ease-in-out;
+      animation: floatUp 10s infinite ease-in-out; /* 1つのサイクルを10秒に */
     }
-    /* 初期位置を画面内に配置し、常に動いている状態に */
+    /* シームレスなループ：1つが消える頃に次が発生 */
     .hp-1 {
       width: 100px;
       height: 100px;
       left: 10%;
-      bottom: 30%;
-      animation-delay: -5s; /* マイナス遅延で既にアニメーション途中の状態から開始 */
+      bottom: 10%;
+      animation-delay: 0s; /* 1番目：0秒から開始 */
     }
     .hp-2 {
       width: 60px;
       height: 60px;
       left: 80%;
-      bottom: 50%;
-      animation-delay: -8s;
+      bottom: 5%;
+      animation-delay: 3.3s; /* 2番目：3.3秒後に開始（1番目の1/3進んだ時） */
       background: rgba(26, 84, 144, 0.15);
-      opacity: 0.8;
     }
     .hp-3 {
       width: 40px;
       height: 40px;
       left: 30%;
-      bottom: 20%;
-      animation-delay: -3s;
+      bottom: 8%;
+      animation-delay: 6.6s; /* 3番目：6.6秒後に開始（1番目の2/3進んだ時） */
     }
 
     @keyframes floatUp {
-      0% { transform: translateY(0) scale(1); opacity: 0.3; }
+      0% { transform: translateY(0) scale(1); opacity: 0; }
+      10% { opacity: 0.4; }
       30% { opacity: 0.8; }
       70% { opacity: 0.6; }
-      100% { transform: translateY(-600px) scale(1.5); opacity: 0; }
+      90% { opacity: 0.2; }
+      100% { transform: translateY(-700px) scale(1.5); opacity: 0; }
     }
 
     .hero-wrapper {
