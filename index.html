@@ -523,130 +523,86 @@
       text-align: center;
     }
 
-    #service {
-      position: relative;
-      overflow: hidden;
-      z-index: 0;
+    .brand-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
-    #service::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      border-radius: 50%;
-      background: radial-gradient(circle, #1a3a5c 0%, #2d5a7b 60%, #0d1b2a 100%);
-      transform: translate(-50%, -50%) scale(0);
-      transition: transform 1.2s ease-out;
-      z-index: 0;
-    }
-
-    #service.service-active::before {
-      width: 200vmax;
-      height: 200vmax;
-      transform: translate(-50%, -50%) scale(1);
-    }
-
-    #service .section-header,
-    #service .service-list,
-    #service .service-footer {
-      position: relative;
-      z-index: 1;
-      transition: color 0.8s ease;
-    }
-
-    #service.service-active .section-title,
-    #service.service-active .section-label,
-    #service.service-active .section-desc {
-      color: #fff;
-    }
-
-    #service.service-active .service-item {
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-
-    #service.service-active .service-item-name,
-    #service.service-active .service-item-desc,
-    #service.service-active .service-item-arrow {
-      color: #fff;
-    }
-
-    #service.service-active .service-item:hover {
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    #service.service-active .btn-outline {
-      color: #fff;
-      border-color: #fff;
-    }
-
-    #service.service-active .btn-outline:hover {
+    .brand-card {
       background: #fff;
-      color: #1a5490;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
     }
 
-    .service-list {
-      max-width: 900px;
-      margin: 0 auto 40px;
+    .brand-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
     }
 
-    .service-item {
+    .brand-logo-area {
+      background: #fff;
+      padding: 60px 40px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 20px 0;
-      border-bottom: 1px solid #e5e8ed;
-      transition: all 0.28s ease;
-      cursor: pointer;
+      justify-content: center;
+      min-height: 220px;
     }
 
-    .service-item:hover {
-      background: #f5f7fb;
-      padding-left: 12px;
-      padding-right: 12px;
+    .brand-logo-area img {
+      max-width: 100%;
+      max-height: 140px;
+      object-fit: contain;
     }
 
-    .service-item-name {
-      font-size: 17px;
+    .brand-info {
+      background: linear-gradient(135deg, #f5f8fc 0%, #e9f3ff 100%);
+      padding: 32px 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 20px;
       font-weight: 600;
       color: #1a3a5c;
-      min-width: 200px;
-      transition: transform 0.28s ease, letter-spacing 0.28s ease, text-shadow 0.28s ease;
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
     }
 
-    .service-item:hover .service-item-name {
-      transform: translateY(-2px);
-      letter-spacing: 0.04em;
-      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    .service-item-desc {
-      flex: 1;
+    .brand-desc {
       font-size: 14px;
-      color: #666;
-      padding: 0 24px;
-      transition: opacity 0.28s ease;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      flex: 1;
     }
 
-    .service-item:hover .service-item-desc {
-      opacity: 0.9;
-    }
-
-    .service-item-arrow {
-      font-size: 18px;
+    .brand-link {
+      font-size: 13px;
       color: #1a5490;
-      transition: transform 0.28s ease;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
     }
 
-    .service-item:hover .service-item-arrow {
-      transform: translateX(4px);
+    .brand-link:hover {
+      gap: 10px;
     }
 
-    .service-footer {
-      text-align: center;
-      margin-top: 36px;
+    .brand-link::after {
+      content: '→';
+      font-size: 16px;
     }
 
     .works-list {
@@ -1230,18 +1186,18 @@
         height: 300px;
       }
 
-      .service-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+      .brand-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
       }
 
-      .service-item-name {
-        min-width: auto;
+      .brand-logo-area {
+        min-height: 180px;
+        padding: 40px 30px;
       }
 
-      .service-item-desc {
-        padding: 0;
+      .brand-logo-area img {
+        max-height: 100px;
       }
 
       .works-item {
@@ -1332,7 +1288,7 @@
   <header class="header">
     <div class="header-inner">
       <div class="logo">
-        <div class="logo-en">ALIBA Inc.</div>
+        <div class="logo-en">aliba llc</div>
         <div class="logo-jp">合同会社aliba</div>
       </div>
       <div class="header-right">
@@ -1398,7 +1354,20 @@
           <div class="about-text">
             <h3>日常の質を上げる<br>ブランドをつくる</h3>
             <p>日常に心地よさを添えるブランドスタジオとして、ジュエリー、癒しケアアイテム、サウナアイテム、Web制作の4つの領域でものづくりを行っています。ミニマルで余白のあるデザインと、使うたびに気持ちが整う体験を大切にしています。</p>
-            <p>毎日の生活に、少しの心地よさがあるだけで、人の気持ちは驚くほど変わるものだと感じています。派手でなくていい。大げさでなくていい。ただ、"あると嬉しい""あると落ち着く"。そんな小さな価値を、ていねいに積み重ねていきたいと思っています。</p>
+
+            <h4 style="font-size: 18px; color: #1a5490; margin-top: 32px; margin-bottom: 12px; font-weight: 600;">MISSION</h4>
+            <p style="margin-bottom: 24px;">日常に、ささやかな心地よさと、豊かさの余白をつくる。</p>
+
+            <h4 style="font-size: 18px; color: #1a5490; margin-top: 32px; margin-bottom: 12px; font-weight: 600;">VISION</h4>
+            <p style="margin-bottom: 24px;">心が整うブランドをつくり続ける。<br>そして、日常の質を上げる選択肢を、もっと増やしていく。</p>
+
+            <h4 style="font-size: 18px; color: #1a5490; margin-top: 32px; margin-bottom: 12px; font-weight: 600;">代表挨拶</h4>
+            <p style="margin-bottom: 10px;">毎日の生活に、少しの心地よさがあるだけで、<br>人の気持ちは驚くほど変わるものだと感じています。</p>
+            <p style="margin-bottom: 10px;">alibaはその「心地よさ」を大切に、<br>ジュエリー、癒しケアアイテム、サウナアイテム、Web制作といった<br>さまざまなブランドを展開してきました。</p>
+            <p style="margin-bottom: 10px;">派手でなくていい。<br>大げさでなくていい。</p>
+            <p style="margin-bottom: 10px;">ただ、"あると嬉しい""あると落ち着く"。<br>そんな小さな価値を、ていねいに積み重ねていきたいと思っています。</p>
+            <p style="margin-bottom: 24px;">これからも私たちは、<br>「日常の質を上げる選択肢」を増やし続けられるよう、<br>ものづくりとブランドづくりに向き合っていきます。</p>
+
             <a href="#" class="btn btn-outline">ブランドを見る</a>
           </div>
           <div class="about-image">
@@ -1414,39 +1383,41 @@
     <section class="section section-bg-gray" id="service">
       <div class="container">
         <div class="section-header">
-          <div class="section-label">SERVICE</div>
-          <h2 class="section-title">事業内容</h2>
-          <p class="section-desc">4つのブランドを通じて、日常の質を高める選択肢を提供しています。</p>
+          <div class="section-label">BRANDS</div>
+          <h2 class="section-title">展開ブランド</h2>
+          <p class="section-desc">3つのブランドを通じて、日常の質を高める選択肢を提供しています。</p>
         </div>
-        <div class="service-list">
-          <div class="service-item">
-            <div class="service-item-name">aliba（ジュエリーブランド）</div>
-            <div class="service-item-desc">日常に溶け込むミニマルジュエリー。使うたびに気持ちが整う、控えめで美しいデザインを追求しています。</div>
-            <div class="service-item-arrow">→</div>
-          </div>
-          <div class="service-item">
-            <div class="service-item-name">Relax Heal（癒しケアブランド）</div>
-            <div class="service-item-desc">姿勢や疲れに寄り添う癒しケアブランド。デスクワークや在宅時間の「心地よさ」を高めるアイテムを展開しています。</div>
-            <div class="service-item-arrow">→</div>
-          </div>
-          <div class="service-item">
-            <div class="service-item-name">Sauna Crown（サウナブランド）</div>
-            <div class="service-item-desc">専門カラー監修のサウナハットブランド。サウナ時間を豊かにし、整いの質を高めるアイテムを制作しています。</div>
-            <div class="service-item-arrow">→</div>
-          </div>
-          <div class="service-item">
-            <div class="service-item-name">破格Web制作サービス</div>
-            <div class="service-item-desc">テンプレート＋AIコーディングを活用した、破格のWeb制作サービス。スモールビジネスの最初の一歩を支えます。</div>
-            <div class="service-item-arrow">→</div>
-          </div>
-          <div class="service-item">
-            <div class="service-item-name">Creative（ブランディング）</div>
-            <div class="service-item-desc">撮影・コピー制作・ビジュアル設計など、ブランドクリエイティブを外部案件にも提供しています。</div>
-            <div class="service-item-arrow">→</div>
-          </div>
-        </div>
-        <div class="service-footer">
-          <a href="#" class="btn btn-outline">事業内容一覧を見る</a>
+        <div class="brand-grid">
+          <a href="https://www.aliba.online/" target="_blank" class="brand-card">
+            <div class="brand-logo-area">
+              <img src="ロゴ/aliba.png" alt="aliba">
+            </div>
+            <div class="brand-info">
+              <div class="brand-name">aliba</div>
+              <div class="brand-desc">日常に溶け込むミニマルジュエリー。使うたびに気持ちが整う、控えめで美しいデザインを追求しています。</div>
+              <span class="brand-link">ブランドサイトへ</span>
+            </div>
+          </a>
+          <a href="https://relaxheal.vercel.app" target="_blank" class="brand-card">
+            <div class="brand-logo-area">
+              <img src="ロゴ/relax heal.png" alt="Relax Heal">
+            </div>
+            <div class="brand-info">
+              <div class="brand-name">Relax Heal</div>
+              <div class="brand-desc">姿勢や疲れに寄り添う癒しケアブランド。デスクワークや在宅時間の「心地よさ」を高めるアイテムを展開しています。</div>
+              <span class="brand-link">ブランドサイトへ</span>
+            </div>
+          </a>
+          <a href="https://saunacrwon.vercel.app" target="_blank" class="brand-card">
+            <div class="brand-logo-area">
+              <img src="ロゴ/sauna crown.jpg" alt="Sauna Crown">
+            </div>
+            <div class="brand-info">
+              <div class="brand-name">Sauna Crown</div>
+              <div class="brand-desc">専門カラー監修のサウナハットブランド。サウナ時間を豊かにし、整いの質を高めるアイテムを制作しています。</div>
+              <span class="brand-link">ブランドサイトへ</span>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -1454,74 +1425,41 @@
     <section class="section" id="works">
       <div class="container">
         <div class="section-header">
-          <div class="section-label">WORKS</div>
-          <h2 class="section-title">制作実績</h2>
-          <p class="section-desc">ブランドごとの主な制作実績をご紹介します。</p>
+          <div class="section-label">BUSINESS</div>
+          <h2 class="section-title">制作事業</h2>
+          <p class="section-desc">ブランド運営で培ったノウハウを、外部制作サービスとして提供しています。</p>
         </div>
-        <div class="works-list">
-          <div class="works-item">
-            <div class="works-industry">JEWELRY</div>
-            <div class="works-info">
-              <h3>alibaミニマルリングコレクション</h3>
-              <div class="works-tags">
-                <span class="works-tag">ジュエリー</span>
-                <span class="works-tag">ミニマル</span>
-              </div>
+        <div class="brand-grid">
+          <div class="brand-card">
+            <div class="brand-logo-area" style="background: linear-gradient(135deg, #f5f8fc 0%, #e9f3ff 100%);">
+              <div style="font-size: 48px; color: #1a5490; font-weight: 700;">Web</div>
+            </div>
+            <div class="brand-info">
+              <div class="brand-name">破格Webサービス</div>
+              <div class="brand-desc">テンプレート＋AIコーディングを活用した、破格のWeb制作サービス。スモールビジネスの最初の一歩を支えます。</div>
+              <span class="brand-link">詳細を見る</span>
             </div>
           </div>
-          <div class="works-item">
-            <div class="works-industry">WELLNESS</div>
-            <div class="works-info">
-              <h3>Relax Heal姿勢サポートクッション開発</h3>
-              <div class="works-tags">
-                <span class="works-tag">癒しケア</span>
-                <span class="works-tag">姿勢改善</span>
-              </div>
+          <div class="brand-card">
+            <div class="brand-logo-area" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);">
+              <div style="font-size: 48px; color: #e65100; font-weight: 700;">SNS</div>
+            </div>
+            <div class="brand-info">
+              <div class="brand-name">SNS運用代行</div>
+              <div class="brand-desc">Instagram・X（Twitter）などのSNS運用を代行。コンテンツ企画から投稿、分析まで一貫してサポートします。</div>
+              <span class="brand-link">詳細を見る</span>
             </div>
           </div>
-          <div class="works-item">
-            <div class="works-industry">SAUNA</div>
-            <div class="works-info">
-              <h3>Sauna Crownサウナハット専門カラー監修</h3>
-              <div class="works-tags">
-                <span class="works-tag">サウナアイテム</span>
-                <span class="works-tag">カラーデザイン</span>
-              </div>
+          <div class="brand-card">
+            <div class="brand-logo-area" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);">
+              <div style="font-size: 48px; color: #2e7d32; font-weight: 700;">AI</div>
+            </div>
+            <div class="brand-info">
+              <div class="brand-name">AI画像制作</div>
+              <div class="brand-desc">最新のAI技術を活用した画像制作サービス。商品画像、SNS用ビジュアル、ブランドイメージなど、高品質な画像を低コストで制作します。</div>
+              <span class="brand-link">詳細を見る</span>
             </div>
           </div>
-          <div class="works-item">
-            <div class="works-industry">WEB</div>
-            <div class="works-info">
-              <h3>スモールビジネス向けLP制作（5万円〜）</h3>
-              <div class="works-tags">
-                <span class="works-tag">Web制作</span>
-                <span class="works-tag">低価格</span>
-              </div>
-            </div>
-          </div>
-          <div class="works-item">
-            <div class="works-industry">BRANDING</div>
-            <div class="works-info">
-              <h3>ブランド撮影・ビジュアル設計サポート</h3>
-              <div class="works-tags">
-                <span class="works-tag">撮影</span>
-                <span class="works-tag">ブランディング</span>
-              </div>
-            </div>
-          </div>
-          <div class="works-item">
-            <div class="works-industry">CREATIVE</div>
-            <div class="works-info">
-              <h3>コピーライティング・SNSクリエイティブ制作</h3>
-              <div class="works-tags">
-                <span class="works-tag">コピー</span>
-                <span class="works-tag">SNS</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="works-footer">
-          <a href="#" class="btn btn-outline">一覧を見る</a>
         </div>
       </div>
     </section>
@@ -1540,34 +1478,39 @@
         </div>
         <div class="news-list" id="newsList">
           <div class="news-item" data-category="news">
-            <div class="news-date">2025.01.15</div>
+            <div class="news-date">2025.09.12</div>
             <div class="news-category cat-news">NEWS</div>
-            <div class="news-title">alibaジュエリー新作コレクション発売開始のお知らせ</div>
+            <div class="news-title">メンズアリバジュエリー「アリバピアス」新作コレクション発売開始のお知らせ</div>
           </div>
           <div class="news-item" data-category="news">
-            <div class="news-date">2025.01.10</div>
+            <div class="news-date">2025.07.25</div>
             <div class="news-category cat-news">NEWS</div>
-            <div class="news-title">Sauna Crownサウナハット限定カラー追加しました</div>
+            <div class="news-title">Sauna Crown・サウナハットの新作が発売されました</div>
           </div>
           <div class="news-item" data-category="news">
-            <div class="news-date">2025.01.05</div>
+            <div class="news-date">2025.06.18</div>
             <div class="news-category cat-news">NEWS</div>
-            <div class="news-title">破格Web制作サービス、新年キャンペーン開始</div>
+            <div class="news-title">Sauna Crownのサウナハットが雑誌「サウナブロス」に掲載されました</div>
           </div>
           <div class="news-item" data-category="news">
-            <div class="news-date">2024.12.20</div>
+            <div class="news-date">2025.03.22</div>
             <div class="news-category cat-news">NEWS</div>
-            <div class="news-title">Relax Heal姿勢サポートクッション新モデル発売</div>
+            <div class="news-title">Relax Healが通販番組「バズルの泉」に特集されました</div>
           </div>
           <div class="news-item" data-category="news">
-            <div class="news-date">2024.12.10</div>
+            <div class="news-date">2025.03.15</div>
             <div class="news-category cat-news">NEWS</div>
-            <div class="news-title">alibaブランド公式Instagram開設しました</div>
+            <div class="news-title">alibaメンズアイテムが雑誌「BEGIN」に掲載されました</div>
           </div>
           <div class="news-item" data-category="news">
-            <div class="news-date">2024.11.28</div>
+            <div class="news-date">2024.12.08</div>
             <div class="news-category cat-news">NEWS</div>
-            <div class="news-title">Sauna Crownポップアップストア開催のお知らせ</div>
+            <div class="news-title">Sauna Crownの新作が発売されました</div>
+          </div>
+          <div class="news-item" data-category="news">
+            <div class="news-date">2024.03.28</div>
+            <div class="news-category cat-news">NEWS</div>
+            <div class="news-title">alibaメンズアイテムが「美人百貨」に掲載されました</div>
           </div>
         </div>
         <div class="news-footer">
@@ -1826,26 +1769,6 @@
           }
         );
         aboutObserver.observe(aboutSection);
-      }
-
-      // Serviceセクションのスクロール演出
-      const serviceSection = document.getElementById('service');
-      if (serviceSection) {
-        const serviceObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                serviceSection.classList.add('service-active');
-              } else {
-                serviceSection.classList.remove('service-active');
-              }
-            });
-          },
-          {
-            threshold: 0.4
-          }
-        );
-        serviceObserver.observe(serviceSection);
       }
 
       // ハンバーガーメニュー
