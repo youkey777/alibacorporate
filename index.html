@@ -767,7 +767,8 @@
       /* 広がった後の色：洗練されたアイスブルーグレーのグラデーション */
       background: radial-gradient(circle, #f0f4f8 0%, #e6ecf4 100%);
       transform: translate(-50%, -50%) scale(0);
-      transition: transform 1.0s cubic-bezier(0.25, 1, 0.5, 1); /* イージングでリッチに */
+      transition: transform 2.2s cubic-bezier(0.2, 0.8, 0.3, 1); /* ゆったりとした動き：1.0s → 2.2s */
+      transition-delay: 0.3s; /* 0.3秒遅延させて、画面に入ってから少し間を置く */
       z-index: -1; /* コンテンツより奥 */
       pointer-events: none;
     }
@@ -2122,7 +2123,8 @@
             });
           },
           {
-            threshold: 0.4
+            threshold: 0.25, // 0.4 → 0.25 に変更：セクションの25%が見えた時点でトリガー
+            rootMargin: '-80px 0px 0px 0px' // 上から80px進んでからトリガー
           }
         );
         serviceObserver.observe(serviceSection);
