@@ -549,40 +549,41 @@
 
     .brand-logo-area {
       background: #fff;
-      padding: 40px 30px;
+      padding: 20px 24px;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 160px;
+      min-height: 90px;
+      flex: 1;
     }
 
     .brand-logo-area img {
       max-width: 100%;
-      max-height: 120px;
+      max-height: 70px;
       object-fit: contain;
     }
 
     .brand-info {
-      background: linear-gradient(135deg, #f5f8fc 0%, #e9f3ff 100%);
-      padding: 24px 20px;
+      background: #fafaf9;
+      padding: 12px 16px;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
 
     .brand-name {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 600;
-      color: #1a3a5c;
-      margin-bottom: 12px;
+      color: #2a2a2a;
+      margin-bottom: 8px;
       letter-spacing: 0.02em;
     }
 
     .brand-desc {
-      font-size: 14px;
-      color: #555;
-      line-height: 1.8;
-      margin-bottom: 20px;
+      font-size: 13px;
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 14px;
       flex: 1;
     }
 
@@ -606,11 +607,11 @@
     }
 
     .brand-logo-relax-heal img {
-      max-height: 150px !important;
+      max-height: 80px !important;
     }
 
     .brand-logo-sauna-crown img {
-      max-height: 90px !important;
+      max-height: 60px !important;
     }
 
     #service {
@@ -627,7 +628,7 @@
       width: 0;
       height: 0;
       border-radius: 50%;
-      background: radial-gradient(circle, #8e9eab 0%, #a8b5c2 40%, #cbd5e0 100%);
+      background: radial-gradient(circle, #faf8f5 0%, #f5f1ea 40%, #f0ebe3 100%);
       transform: translate(-50%, -50%) scale(0);
       transition: transform 1.2s ease-out;
       z-index: 0;
@@ -646,11 +647,11 @@
     }
 
     .business-list {
-      max-width: 900px;
+      max-width: 800px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: 20px;
     }
 
     .business-card {
@@ -669,8 +670,8 @@
     }
 
     .business-image {
-      width: 320px;
-      min-height: 200px;
+      width: 180px;
+      min-height: 120px;
       overflow: hidden;
       flex-shrink: 0;
     }
@@ -682,7 +683,7 @@
     }
 
     .business-content {
-      padding: 32px 36px;
+      padding: 18px 22px;
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -690,30 +691,30 @@
     }
 
     .business-tag {
-      font-size: 11px;
-      letter-spacing: 2px;
+      font-size: 10px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
       color: #1a5490;
       font-weight: 600;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
 
     .business-title {
-      font-size: 20px;
+      font-size: 16px;
       font-weight: 600;
-      color: #1a3a5c;
-      margin-bottom: 14px;
+      color: #2a2a2a;
+      margin-bottom: 8px;
     }
 
     .business-desc {
-      font-size: 14px;
-      color: #555;
-      line-height: 1.8;
-      margin-bottom: 18px;
+      font-size: 12px;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 12px;
     }
 
     .business-link {
-      font-size: 13px;
+      font-size: 12px;
       color: #1a5490;
       font-weight: 500;
       display: inline-flex;
@@ -871,7 +872,7 @@
       color: #7b1fa2;
     }
 
-    .news-category.cat-release {
+    .news-category.cat-new {
       background: #e0f2f1;
       color: #00695c;
     }
@@ -1323,17 +1324,39 @@
       }
 
       .brand-grid {
-        grid-template-columns: 1fr;
-        gap: 28px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
       }
 
       .brand-logo-area {
-        min-height: 180px;
-        padding: 40px 30px;
+        min-height: 80px;
+        padding: 16px 20px;
       }
 
       .brand-logo-area img {
-        max-height: 100px;
+        max-height: 60px;
+      }
+
+      .brand-logo-relax-heal img {
+        max-height: 70px !important;
+      }
+
+      .brand-logo-sauna-crown img {
+        max-height: 50px !important;
+      }
+
+      .brand-info {
+        padding: 10px 14px;
+      }
+
+      .brand-name {
+        font-size: 16px;
+        margin-bottom: 6px;
+      }
+
+      .brand-desc {
+        font-size: 12px;
+        margin-bottom: 10px;
       }
 
       .business-card {
@@ -1342,11 +1365,19 @@
 
       .business-image {
         width: 100%;
-        min-height: 200px;
+        min-height: 140px;
       }
 
       .business-content {
-        padding: 24px 20px;
+        padding: 16px 18px;
+      }
+
+      .business-title {
+        font-size: 15px;
+      }
+
+      .business-desc {
+        font-size: 11px;
       }
 
       .works-item {
@@ -1380,6 +1411,23 @@
       .life-grid {
         grid-template-columns: 1fr;
         gap: 24px;
+      }
+
+      .life-image {
+        height: 140px;
+      }
+
+      .life-body {
+        padding: 18px 16px;
+      }
+
+      .life-card h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .life-card p {
+        font-size: 12px;
       }
 
       .contact-content {
@@ -1508,8 +1556,7 @@
           </div>
           <div class="about-image">
             <div class="about-image-inner">
-              <img src="images/about-logistics-team.jpg" alt="alibaオフィス">
-              <div class="about-image-caption">ミニマルで心地よい空間づくり</div>
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="alibaオフィス">
             </div>
           </div>
         </div>
@@ -1616,14 +1663,14 @@
           <div class="news-tab" data-category="recruit">RECRUIT</div>
         </div>
         <div class="news-list" id="newsList">
-          <div class="news-item" data-category="release">
+          <div class="news-item" data-category="new">
             <div class="news-date">2025.09.12</div>
-            <div class="news-category cat-release">RELEASE</div>
+            <div class="news-category cat-new">NEW</div>
             <div class="news-title">メンズalibaジュエリー「alibaピアス」新作コレクション発売開始のお知らせ</div>
           </div>
-          <div class="news-item" data-category="release">
+          <div class="news-item" data-category="new">
             <div class="news-date">2025.07.25</div>
-            <div class="news-category cat-release">RELEASE</div>
+            <div class="news-category cat-new">NEW</div>
             <div class="news-title">Sauna Crown・サウナハットの新作が発売されました</div>
           </div>
           <div class="news-item" data-category="media">
@@ -1641,9 +1688,9 @@
             <div class="news-category cat-media">MEDIA</div>
             <div class="news-title">alibaメンズアイテムが雑誌「BEGIN」に掲載されました</div>
           </div>
-          <div class="news-item" data-category="release">
+          <div class="news-item" data-category="new">
             <div class="news-date">2024.12.08</div>
-            <div class="news-category cat-release">RELEASE</div>
+            <div class="news-category cat-new">NEW</div>
             <div class="news-title">Sauna Crownの新作が発売されました</div>
           </div>
           <div class="news-item" data-category="media">
