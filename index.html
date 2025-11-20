@@ -230,6 +230,68 @@
       background: linear-gradient(135deg, #f5f8fc 0%, #e9f3ff 100%);
       margin-top: 90px;
       padding: 64px 0;
+      overflow: hidden;
+    }
+
+    .hero-bg-shapes {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-shape {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(80px);
+      opacity: 0.5;
+    }
+
+    .hero-shape-1 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle at 30% 30%, rgba(26, 84, 144, 0.7), rgba(26, 84, 144, 0));
+      top: -80px;
+      left: -40px;
+      animation: heroShapeMove1 22s ease-in-out infinite alternate;
+    }
+
+    .hero-shape-2 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle at 70% 40%, rgba(255, 152, 0, 0.6), rgba(255, 152, 0, 0));
+      bottom: -200px;
+      right: -80px;
+      animation: heroShapeMove2 28s ease-in-out infinite alternate;
+    }
+
+    .hero-shape-3 {
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle at 50% 50%, rgba(76, 175, 80, 0.5), rgba(76, 175, 80, 0));
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: heroShapeMove3 26s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroShapeMove1 {
+      0%   { transform: translate(0, 0) scale(1); }
+      50%  { transform: translate(40px, 20px) scale(1.1); }
+      100% { transform: translate(80px, -10px) scale(1.05); }
+    }
+
+    @keyframes heroShapeMove2 {
+      0%   { transform: translate(0, 0) scale(1); }
+      50%  { transform: translate(-40px, -30px) scale(1.12); }
+      100% { transform: translate(-80px, 10px) scale(1.08); }
+    }
+
+    @keyframes heroShapeMove3 {
+      0%   { transform: translate(-50%, -50%) scale(0.9); }
+      50%  { transform: translate(-48%, -52%) scale(1.05); }
+      100% { transform: translate(-52%, -48%) scale(1); }
     }
 
     .hero-wrapper {
@@ -237,6 +299,8 @@
       grid-template-columns: 1fr 1fr;
       gap: 60px;
       align-items: center;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-content {
@@ -322,11 +386,35 @@
       line-height: 1.9;
     }
 
+    #about {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .about-particles canvas {
+      width: 100%;
+      height: 100%;
+    }
+
     .about-content {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-text {
+      position: relative;
+      z-index: 1;
     }
 
     .about-text h3 {
@@ -335,12 +423,48 @@
       margin-bottom: 22px;
       font-weight: 600;
       line-height: 1.5;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .about-text p {
       margin-bottom: 18px;
       color: #555;
       line-height: 2;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .about-text .btn {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #about.about-active .about-text h3 {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.2s;
+    }
+
+    #about.about-active .about-text p:nth-of-type(1) {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.4s;
+    }
+
+    #about.about-active .about-text p:nth-of-type(2) {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.6s;
+    }
+
+    #about.about-active .about-text .btn {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.8s;
     }
 
     .about-image {
@@ -351,6 +475,15 @@
       position: relative;
       overflow: hidden;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      transform: translateX(100px) rotateY(15deg);
+      transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #about.about-active .about-image {
+      opacity: 1;
+      transform: translateX(0) rotateY(0);
+      transition-delay: 0.3s;
     }
 
     .about-image::before {
@@ -390,6 +523,70 @@
       text-align: center;
     }
 
+    #service {
+      position: relative;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    #service::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle, #1a3a5c 0%, #2d5a7b 60%, #0d1b2a 100%);
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 1.2s ease-out;
+      z-index: 0;
+    }
+
+    #service.service-active::before {
+      width: 200vmax;
+      height: 200vmax;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    #service .section-header,
+    #service .service-list,
+    #service .service-footer {
+      position: relative;
+      z-index: 1;
+      transition: color 0.8s ease;
+    }
+
+    #service.service-active .section-title,
+    #service.service-active .section-label,
+    #service.service-active .section-desc {
+      color: #fff;
+    }
+
+    #service.service-active .service-item {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    #service.service-active .service-item-name,
+    #service.service-active .service-item-desc,
+    #service.service-active .service-item-arrow {
+      color: #fff;
+    }
+
+    #service.service-active .service-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    #service.service-active .btn-outline {
+      color: #fff;
+      border-color: #fff;
+    }
+
+    #service.service-active .btn-outline:hover {
+      background: #fff;
+      color: #1a5490;
+    }
+
     .service-list {
       max-width: 900px;
       margin: 0 auto 40px;
@@ -401,7 +598,7 @@
       justify-content: space-between;
       padding: 20px 0;
       border-bottom: 1px solid #e5e8ed;
-      transition: all 0.15s;
+      transition: all 0.28s ease;
       cursor: pointer;
     }
 
@@ -416,6 +613,13 @@
       font-weight: 600;
       color: #1a3a5c;
       min-width: 200px;
+      transition: transform 0.28s ease, letter-spacing 0.28s ease, text-shadow 0.28s ease;
+    }
+
+    .service-item:hover .service-item-name {
+      transform: translateY(-2px);
+      letter-spacing: 0.04em;
+      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     .service-item-desc {
@@ -423,16 +627,21 @@
       font-size: 14px;
       color: #666;
       padding: 0 24px;
+      transition: opacity 0.28s ease;
+    }
+
+    .service-item:hover .service-item-desc {
+      opacity: 0.9;
     }
 
     .service-item-arrow {
       font-size: 18px;
       color: #1a5490;
-      transition: transform 0.15s;
+      transition: transform 0.28s ease;
     }
 
     .service-item:hover .service-item-arrow {
-      transform: translateX(3px);
+      transform: translateX(4px);
     }
 
     .service-footer {
@@ -591,6 +800,38 @@
       overflow: hidden;
     }
 
+    .recruit-marquee {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .recruit-marquee-inner {
+      position: absolute;
+      top: 10%;
+      left: 0;
+      transform: translateY(0);
+      white-space: nowrap;
+      font-size: 80px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.04;
+      color: #1a3a5c;
+      animation: recruitMarquee 40s linear infinite;
+    }
+
+    @keyframes recruitMarquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
     .recruit-inner {
       display: grid;
       grid-template-columns: 1.2fr 1fr;
@@ -630,6 +871,7 @@
       overflow: hidden;
       box-shadow: 0 8px 24px rgba(26, 84, 144, 0.12);
       position: relative;
+      z-index: 1;
     }
 
     .recruit-visual img {
@@ -1025,6 +1267,11 @@
         height: 280px;
       }
 
+      .recruit-marquee-inner {
+        font-size: 48px;
+        opacity: 0.03;
+      }
+
       .life-grid {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -1117,6 +1364,11 @@
 
   <main>
     <section class="hero">
+      <div class="hero-bg-shapes">
+        <span class="hero-shape hero-shape-1"></span>
+        <span class="hero-shape hero-shape-2"></span>
+        <span class="hero-shape hero-shape-3"></span>
+      </div>
       <div class="container">
         <div class="hero-wrapper">
           <div class="hero-content">
@@ -1133,6 +1385,9 @@
     </section>
 
     <section class="section" id="about">
+      <div class="about-particles">
+        <canvas id="aboutCanvas"></canvas>
+      </div>
       <div class="container">
         <div class="section-header">
           <div class="section-label">ABOUT US</div>
@@ -1332,6 +1587,11 @@
     </section>
 
     <section class="section recruit" id="recruit">
+      <div class="recruit-marquee">
+        <div class="recruit-marquee-inner">
+          ALIBA LOGISTICS / RECRUITMENT / LOGISTICS &amp; SOLUTION / RECRUIT / ALIBA LOGISTICS / RECRUITMENT / LOGISTICS &amp; SOLUTION / RECRUIT /
+        </div>
+      </div>
       <div class="container">
         <div class="recruit-inner">
           <div class="recruit-content">
@@ -1400,7 +1660,7 @@
           </div>
           <div class="contact-info">
             <div class="contact-phone">03-1234-5678</div>
-            <div class="contact-hours">受付時間：平日 9:00〜17:00</div>
+            <div class="contact-hours">受付時間:平日 9:00〜17:00</div>
           </div>
         </div>
         <div class="contact-sns">
@@ -1461,73 +1721,215 @@
   <div class="pagetop" id="pagetop"></div>
 
   <script>
-    const hamburger = document.getElementById('hamburger');
-    const navList = document.getElementById('navList');
+    document.addEventListener('DOMContentLoaded', function() {
+      // Aboutセクションのパーティクルアニメーション
+      const aboutCanvas = document.getElementById('aboutCanvas');
+      if (aboutCanvas) {
+        const ctx = aboutCanvas.getContext('2d');
+        let particles = [];
+        let animationId;
 
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navList.classList.toggle('active');
-    });
+        // Canvas サイズ設定
+        function resizeCanvas() {
+          const aboutSection = document.getElementById('about');
+          aboutCanvas.width = aboutSection.offsetWidth;
+          aboutCanvas.height = aboutSection.offsetHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
 
-    const navLinks = navList.querySelectorAll('a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navList.classList.remove('active');
+        // パーティクルクラス
+        class Particle {
+          constructor() {
+            this.x = Math.random() * aboutCanvas.width;
+            this.y = Math.random() * aboutCanvas.height;
+            this.vx = (Math.random() - 0.5) * 0.5;
+            this.vy = (Math.random() - 0.5) * 0.5;
+            this.radius = Math.random() * 3 + 2;
+            const colors = [
+              { r: 26, g: 84, b: 144 },   // 青
+              { r: 255, g: 152, b: 0 },   // オレンジ
+              { r: 76, g: 175, b: 80 }    // 緑
+            ];
+            this.color = colors[Math.floor(Math.random() * colors.length)];
+          }
+
+          update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            if (this.x < 0 || this.x > aboutCanvas.width) this.vx *= -1;
+            if (this.y < 0 || this.y > aboutCanvas.height) this.vy *= -1;
+          }
+
+          draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, 0.6)`;
+            ctx.fill();
+
+            // グロー効果
+            ctx.shadowBlur = 15;
+            ctx.shadowColor = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, 0.8)`;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+          }
+        }
+
+        // パーティクル生成
+        for (let i = 0; i < 20; i++) {
+          particles.push(new Particle());
+        }
+
+        // パーティクル間の線を描画
+        function connectParticles() {
+          for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+              const dx = particles[i].x - particles[j].x;
+              const dy = particles[i].y - particles[j].y;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+
+              if (distance < 150) {
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                const opacity = (1 - distance / 150) * 0.3;
+                ctx.strokeStyle = `rgba(26, 84, 144, ${opacity})`;
+                ctx.lineWidth = 1;
+                ctx.stroke();
+              }
+            }
+          }
+        }
+
+        // アニメーションループ
+        function animate() {
+          ctx.clearRect(0, 0, aboutCanvas.width, aboutCanvas.height);
+
+          particles.forEach(particle => {
+            particle.update();
+            particle.draw();
+          });
+
+          connectParticles();
+          animationId = requestAnimationFrame(animate);
+        }
+
+        animate();
+      }
+
+      // Aboutセクションのスクロール演出
+      const aboutSection = document.getElementById('about');
+      if (aboutSection) {
+        const aboutObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                aboutSection.classList.add('about-active');
+              } else {
+                aboutSection.classList.remove('about-active');
+              }
+            });
+          },
+          {
+            threshold: 0.3
+          }
+        );
+        aboutObserver.observe(aboutSection);
+      }
+
+      // Serviceセクションのスクロール演出
+      const serviceSection = document.getElementById('service');
+      if (serviceSection) {
+        const serviceObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                serviceSection.classList.add('service-active');
+              } else {
+                serviceSection.classList.remove('service-active');
+              }
+            });
+          },
+          {
+            threshold: 0.4
+          }
+        );
+        serviceObserver.observe(serviceSection);
+      }
+
+      // ハンバーガーメニュー
+      const hamburger = document.getElementById('hamburger');
+      const navList = document.getElementById('navList');
+
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navList.classList.toggle('active');
       });
-    });
 
-    const newsTabs = document.querySelectorAll('.news-tab');
-    const newsItems = document.querySelectorAll('.news-item');
+      const navLinks = navList.querySelectorAll('a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navList.classList.remove('active');
+        });
+      });
 
-    newsTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        newsTabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
+      // ニュースタブ
+      const newsTabs = document.querySelectorAll('.news-tab');
+      const newsItems = document.querySelectorAll('.news-item');
 
-        const category = tab.getAttribute('data-category');
-        newsItems.forEach(item => {
-          if (category === 'all' || item.getAttribute('data-category') === category) {
-            item.style.display = 'flex';
-          } else {
-            item.style.display = 'none';
+      newsTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          newsTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+
+          const category = tab.getAttribute('data-category');
+          newsItems.forEach(item => {
+            if (category === 'all' || item.getAttribute('data-category') === category) {
+              item.style.display = 'flex';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // スムーススクロール
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href === '#') return;
+
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            const headerHeight = document.querySelector('.header').offsetHeight;
+            const targetPosition = target.offsetTop - headerHeight;
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
           }
         });
       });
-    });
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href === '#') return;
+      // ページトップボタン
+      const pagetop = document.getElementById('pagetop');
 
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-          const headerHeight = document.querySelector('.header').offsetHeight;
-          const targetPosition = target.offsetTop - headerHeight;
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          pagetop.classList.add('visible');
+        } else {
+          pagetop.classList.remove('visible');
         }
       });
-    });
 
-    const pagetop = document.getElementById('pagetop');
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        pagetop.classList.add('visible');
-      } else {
-        pagetop.classList.remove('visible');
-      }
-    });
-
-    pagetop.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+      pagetop.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
       });
     });
   </script>
