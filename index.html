@@ -61,18 +61,41 @@
       font-weight: 500;
       text-align: center;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.3s ease;
       border: none;
       font-size: 14px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
     }
 
     .btn-primary {
       background: #1a5490;
       color: #fff;
+      box-shadow: 0 4px 15px rgba(26, 84, 144, 0.2);
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+      transform: translateX(-100%);
+      transition: 0.5s;
+      z-index: -1;
     }
 
     .btn-primary:hover {
       background: #0f3d6f;
+      box-shadow: 0 6px 20px rgba(26, 84, 144, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary:hover::before {
+      transform: translateX(100%);
     }
 
     .btn-outline {
@@ -91,14 +114,17 @@
       font-size: 13px;
     }
 
+    /* HEADER */
     .header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background: #fff;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
       z-index: 1000;
-      border-bottom: 1px solid #e5e8ed;
+      border-bottom: 1px solid rgba(229, 232, 237, 0.5);
+      transition: all 0.3s;
     }
 
     .header-inner {
@@ -222,131 +248,205 @@
       transform: rotate(-45deg) translate(7px, -7px);
     }
 
+    /* =========================================
+       HERO SECTION MODIFICATION START
+       IT/最先端/透明感/奥行き/動く光
+    ========================================= */
     .hero {
       position: relative;
-      min-height: 560px;
+      min-height: 750px; /* より没入感を出すため高さを確保 */
       display: flex;
       align-items: center;
-      background: linear-gradient(135deg, #f5f8fc 0%, #e9f3ff 100%);
-      margin-top: 90px;
-      padding: 64px 0;
+      justify-content: center;
+      margin-top: 0; /* header fixed分はpaddingで調整 */
+      padding-top: 90px;
       overflow: hidden;
+      /* ベース背景：静的なグラデーションではなくアニメーション用のベース色 */
+      background: #fcfdfd;
     }
 
-    .hero-bg-shapes {
+    /* 1. 動くグリッド（データの流れ・IT感） */
+    .hero::before {
+      content: '';
       position: absolute;
-      inset: 0;
-      overflow: hidden;
+      inset: -100%; /* 画面外まで広げて回転・移動に対応 */
+      width: 300%;
+      height: 300%;
+      background-image:
+        linear-gradient(rgba(26, 84, 144, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26, 84, 144, 0.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+      background-position: center center;
+      transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+      animation: gridMove 20s linear infinite;
       z-index: 0;
       pointer-events: none;
     }
 
-    .hero-shape {
+    @keyframes gridMove {
+      0% { transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px); }
+      100% { transform: perspective(500px) rotateX(60deg) translateY(80px) translateZ(-200px); }
+    }
+
+    /* 2. オーロラのような揺らぐ光（透明感・先進性） */
+    .hero-aurora {
       position: absolute;
-      border-radius: 999px;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 50% 50%, rgba(66, 165, 245, 0.08), rgba(156, 39, 176, 0.03), transparent 60%);
       filter: blur(80px);
+      animation: auroraRotate 30s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes auroraRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* 3. 天から射す光（Ray） - 立体感と希望 */
+    .hero-ray {
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 80%;
+      height: 150%;
+      background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 60%);
+      transform: rotate(-25deg);
+      filter: blur(50px);
+      opacity: 0.7;
+      z-index: 1;
+      pointer-events: none;
+      mix-blend-mode: overlay;
+      animation: rayBreath 8s ease-in-out infinite alternate;
+    }
+
+    /* もう一つの光線で交差させる */
+    .hero-ray-2 {
+      position: absolute;
+      top: -30%;
+      right: 20%;
+      width: 40%;
+      height: 120%;
+      background: linear-gradient(150deg, rgba(200, 230, 255, 0.4) 0%, rgba(255,255,255,0) 70%);
+      transform: rotate(-15deg);
+      filter: blur(40px);
       opacity: 0.5;
+      z-index: 1;
+      pointer-events: none;
+      animation: rayBreath 12s ease-in-out infinite alternate-reverse;
     }
 
-    .hero-shape-1 {
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle at 30% 30%, rgba(26, 84, 144, 0.7), rgba(26, 84, 144, 0));
-      top: -80px;
-      left: -40px;
-      animation: heroShapeMove1 22s ease-in-out infinite alternate;
+    @keyframes rayBreath {
+      0% { opacity: 0.4; transform: rotate(-25deg) scale(1); }
+      100% { opacity: 0.7; transform: rotate(-25deg) scale(1.1); }
     }
 
-    .hero-shape-2 {
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle at 70% 40%, rgba(255, 152, 0, 0.6), rgba(255, 152, 0, 0));
-      bottom: -200px;
-      right: -80px;
-      animation: heroShapeMove2 28s ease-in-out infinite alternate;
+    /* 浮遊するパーティクル（技術・分子） */
+    .hero-particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(26, 84, 144, 0.2);
+      animation: floatUp 15s infinite ease-in-out;
     }
+    .hp-1 { width: 100px; height: 100px; left: 10%; bottom: -20%; animation-delay: 0s; }
+    .hp-2 { width: 60px; height: 60px; left: 80%; bottom: -10%; animation-delay: 2s; background: rgba(26, 84, 144, 0.1); }
+    .hp-3 { width: 40px; height: 40px; left: 30%; bottom: -15%; animation-delay: 5s; }
 
-    .hero-shape-3 {
-      width: 350px;
-      height: 350px;
-      background: radial-gradient(circle at 50% 50%, rgba(76, 175, 80, 0.5), rgba(76, 175, 80, 0));
-      top: 40%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      animation: heroShapeMove3 26s ease-in-out infinite alternate;
-    }
-
-    @keyframes heroShapeMove1 {
-      0%   { transform: translate(0, 0) scale(1); }
-      50%  { transform: translate(40px, 20px) scale(1.1); }
-      100% { transform: translate(80px, -10px) scale(1.05); }
-    }
-
-    @keyframes heroShapeMove2 {
-      0%   { transform: translate(0, 0) scale(1); }
-      50%  { transform: translate(-40px, -30px) scale(1.12); }
-      100% { transform: translate(-80px, 10px) scale(1.08); }
-    }
-
-    @keyframes heroShapeMove3 {
-      0%   { transform: translate(-50%, -50%) scale(0.9); }
-      50%  { transform: translate(-48%, -52%) scale(1.05); }
-      100% { transform: translate(-52%, -48%) scale(1); }
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-800px) scale(1.5); opacity: 0; }
     }
 
     .hero-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      text-align: center;
       position: relative;
-      z-index: 1;
+      z-index: 5; /* 光より手前に */
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 0 20px;
+      /* テキスト全体をふんわり浮かせる */
+      animation: contentFloat 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes contentFloat {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
     }
 
     .hero-content {
-      color: #333;
+      width: 100%;
     }
 
     .hero-label {
-      font-size: 11px;
-      letter-spacing: 3px;
+      font-size: 12px;
+      letter-spacing: 6px;
       text-transform: uppercase;
-      margin-bottom: 14px;
+      margin-bottom: 28px;
       color: #1a5490;
-      font-weight: 500;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
     }
 
+    .hero-label::before, .hero-label::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 30px;
+      height: 1px;
+      background: #1a5490;
+      opacity: 0.4;
+    }
+    .hero-label::before { right: 100%; margin-right: 15px; }
+    .hero-label::after { left: 100%; margin-left: 15px; }
+
     .hero-title {
-      font-size: 36px;
+      font-size: 52px;
       font-weight: 700;
-      line-height: 1.5;
-      margin-bottom: 20px;
-      color: #1a3a5c;
+      line-height: 1.3;
+      margin-bottom: 36px;
+      /* グラデーションテキストで先進感を */
+      background: linear-gradient(45deg, #0f2027, #203a43, #2c5364);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: #1a3a5c; /* フォールバック */
+      letter-spacing: 0.05em;
+      position: relative;
+    }
+
+    /* タイトルの背後に薄い光 */
+    .hero-title::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120%;
+      height: 120%;
+      background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+      z-index: -1;
+      filter: blur(20px);
     }
 
     .hero-lead {
-      font-size: 15px;
-      line-height: 1.9;
-      margin-bottom: 28px;
-      color: #555;
+      font-size: 16px;
+      line-height: 2.2;
+      margin-bottom: 48px;
+      color: #4a5568;
+      font-weight: 400;
     }
 
-    .hero-visual {
-      width: 100%;
-      height: 420px;
-      background: #fff;
-      border-radius: 8px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 8px 24px rgba(26, 84, 144, 0.12);
-      border-top: 4px solid #1a5490;
-    }
-
-    .hero-visual img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    /* =========================================
+       HERO SECTION MODIFICATION END
+    ========================================= */
 
     .section {
       padding: 64px 0;
@@ -616,37 +716,50 @@
       max-height: 90px !important;
     }
 
+    /* =========================================
+       SERVICE SECTION ANIMATION RESTORATION START
+       背景アニメーションの復元とブラッシュアップ
+    ========================================= */
     #service {
       position: relative;
       overflow: hidden;
-      z-index: 0;
+      z-index: 1;
+      /* デフォルトの背景色：クリーンな白 */
+      background-color: #ffffff;
+      transition: background-color 0.5s ease;
     }
 
+    /* 広がる円のアニメーション要素 */
     #service::before {
       content: '';
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 0;
-      height: 0;
+      width: 10px; /* 初期値 */
+      height: 10px; /* 初期値 */
       border-radius: 50%;
-      background: radial-gradient(circle, #faf8f5 0%, #f5f1ea 40%, #f0ebe3 100%);
+      /* 広がった後の色：洗練されたアイスブルーグレーのグラデーション */
+      background: radial-gradient(circle, #f0f4f8 0%, #e6ecf4 100%);
       transform: translate(-50%, -50%) scale(0);
-      transition: transform 1.2s ease-out;
-      z-index: 0;
+      transition: transform 1.0s cubic-bezier(0.25, 1, 0.5, 1); /* イージングでリッチに */
+      z-index: -1; /* コンテンツより奥 */
+      pointer-events: none;
     }
 
+    /* アクティブクラスが付与された時の状態 */
     #service.service-active::before {
-      width: 200vmax;
-      height: 200vmax;
-      transform: translate(-50%, -50%) scale(1);
+      /* 画面全体を覆うサイズまで拡大 */
+      transform: translate(-50%, -50%) scale(300);
     }
 
-    #service .section-header,
-    #service .brand-grid {
+    /* コンテンツは背景より手前に */
+    #service .container {
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
+    /* =========================================
+       SERVICE SECTION ANIMATION RESTORATION END
+    ========================================= */
 
     .business-list {
       max-width: 800px;
@@ -1295,13 +1408,13 @@
         gap: 36px;
       }
 
+      /* 画像削除に伴うスタイル調整（SP） */
       .hero-visual {
-        height: 280px;
-        order: -1;
+        display: none; /* 念の為 */
       }
 
       .hero-title {
-        font-size: 28px;
+        font-size: 32px;
       }
 
       .hero-lead {
@@ -1533,21 +1646,20 @@
 
   <main>
     <section class="hero">
-      <div class="hero-bg-shapes">
-        <span class="hero-shape hero-shape-1"></span>
-        <span class="hero-shape hero-shape-2"></span>
-        <span class="hero-shape hero-shape-3"></span>
-      </div>
+      <div class="hero-aurora"></div>
+      <div class="hero-particle hp-1"></div>
+      <div class="hero-particle hp-2"></div>
+      <div class="hero-particle hp-3"></div>
+      <div class="hero-ray"></div>
+      <div class="hero-ray-2"></div>
+
       <div class="container">
         <div class="hero-wrapper">
           <div class="hero-content">
             <div class="hero-label">BRAND STUDIO</div>
             <h1 class="hero-title">日常に、心地よさを。</h1>
-            <p class="hero-lead">alibaはジュエリー・癒しケア・サウナ・Web制作の4つのブランドを展開する小さなブランドスタジオです。ミニマルな世界観の中で、生活の質を静かに高めるプロダクトを届けています。</p>
+            <p class="hero-lead">alibaはジュエリー・癒しケア・サウナ・Web制作の4つのブランドを展開する小さなブランドスタジオです。<br>ミニマルな世界観の中で、生活の質を静かに高めるプロダクトを届けています。</p>
             <a href="#about" class="btn btn-primary">私たちについて</a>
-          </div>
-          <div class="hero-visual">
-            <img src="images/hero-logistics.jpg" alt="倉庫とトラックのイメージ">
           </div>
         </div>
       </div>
