@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -10,63 +10,46 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: #f5f7fb;
       color: #333;
       line-height: 1.8;
     }
-
     .container {
       max-width: 960px;
       margin: 0 auto;
-      padding: 48px 20px 80px;
+      padding: 56px 20px 80px;
     }
-
     .page-header {
       text-align: center;
-      margin-bottom: 32px;
+      margin-bottom: 36px;
     }
-
     .page-title {
       font-size: 28px;
       letter-spacing: 0.05em;
       color: #1a5490;
       margin-bottom: 12px;
     }
-
     .page-subtitle {
       font-size: 14px;
       color: #666;
     }
-
     .form-card {
       background: #fff;
       border-radius: 12px;
       padding: 32px;
       box-shadow: 0 8px 30px rgba(26, 84, 144, 0.08);
     }
-
-    .form-row {
-      margin-bottom: 18px;
-    }
-
+    .form-row { margin-bottom: 18px; }
     label {
       display: block;
       font-weight: 500;
       margin-bottom: 8px;
       font-size: 14px;
     }
-
-    input,
-    select,
-    textarea {
+    input, select, textarea {
       width: 100%;
       padding: 12px 14px;
       border: 1px solid #ddd;
@@ -76,27 +59,21 @@
       background: #fff;
       transition: border-color 0.2s ease;
     }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
+    input:focus, select:focus, textarea:focus {
       border-color: #1a5490;
       outline: none;
     }
-
     .note {
       font-size: 12px;
       color: #888;
       margin-top: 6px;
     }
-
     .actions {
       margin-top: 24px;
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
-
     .btn {
       display: inline-block;
       padding: 12px 24px;
@@ -110,19 +87,16 @@
       font-size: 14px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-
     .btn:hover {
       transform: translateY(-1px);
       box-shadow: 0 8px 20px rgba(26, 84, 144, 0.2);
     }
-
     .link-back {
       text-align: center;
       font-size: 13px;
       color: #1a5490;
       text-decoration: none;
     }
-
     #form-message {
       display: none;
       margin-top: 20px;
@@ -137,12 +111,16 @@
   <div class="container">
     <header class="page-header">
       <h1 class="page-title">お問い合わせ</h1>
-      <p class="page-subtitle">内容を確認次第、担当よりご連絡いたします。</p>
+      <p class="page-subtitle">ブランドや制作事業に関するご相談を承ります。</p>
     </header>
 
     <section class="form-card">
+      <div style="text-align:center; margin-bottom: 24px;">
+        <p style="font-size: 14px; color: #666;">内容を確認後、担当よりご連絡いたします。</p>
+      </div>
       <form id="contact-form" action="https://formsubmit.co/h.amazon.y0@gmail.com" method="POST">
-        <input type="hidden" name="_autoresponse" value="お問い合わせありがとうございます。&#10;&#10;本メールは自動送信です。内容を確認次第、担当よりご連絡いたします。">
+        <input type="hidden" name="_subject" value="aliba お問い合わせ">
+        <input type="hidden" name="_autoresponse" value="お問い合わせありがとうございます。&#10;&#10;内容を確認のうえ、担当よりご連絡いたします。">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
 
@@ -157,17 +135,11 @@
         </div>
 
         <div class="form-row">
-          <label for="contact-order">注文番号 <span style="color: #888;">（任意）</span></label>
-          <input type="text" id="contact-order" name="order_number" placeholder="例: 123-4567890-1234567">
-          <p class="note">商品に関するお問い合わせの場合はご記入ください。</p>
-        </div>
-
-        <div class="form-row">
-          <label for="contact-platform">購入プラットフォーム <span style="color: #888;">（任意）</span></label>
-          <select id="contact-platform" name="platform">
+          <label for="contact-category">お問い合わせ種別 <span style="color: #888;">任意</span></label>
+          <select id="contact-category" name="category">
             <option value="">選択してください</option>
-            <option value="amazon">Amazon</option>
-            <option value="rakuten">楽天市場</option>
+            <option value="brand">ブランドについて</option>
+            <option value="service">制作事業について</option>
             <option value="other">その他</option>
           </select>
         </div>
@@ -175,12 +147,12 @@
         <div class="form-row">
           <label for="contact-message">お問い合わせ内容 <span style="color: #c85c5c;">*必須</span></label>
           <textarea id="contact-message" name="message" rows="8" required></textarea>
-          <p class="note">できるだけ詳しくお書きください。</p>
+          <p class="note">ご希望の内容やご相談事項をご記入ください。</p>
         </div>
 
         <div class="actions">
           <button class="btn" type="submit">送信する</button>
-          <a class="link-back" href="/">コーポレートトップへ戻る</a>
+          <a class="link-back" href="/">トップへ戻る</a>
         </div>
         <div id="form-message"></div>
       </form>
@@ -212,9 +184,9 @@
             formMessage.style.display = 'block';
             formMessage.style.background = '#e8f3ff';
             formMessage.style.color = '#1a5490';
-            formMessage.textContent = '送信が完了しました。ありがとうございました。';
+            formMessage.textContent = '送信が完了しました。ありがとうございます。';
           } else {
-            throw new Error('送信に失敗しました。');
+            throw new Error('送信に失敗しました');
           }
         } catch (error) {
           formMessage.style.display = 'block';
