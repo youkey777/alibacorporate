@@ -10,9 +10,18 @@
       ],
       "destination": "https://www.aliba.online/:path*",
       "permanent": true
+    },
+    {
+      "source": "/jewelry",
+      "destination": "/jewelry/",
+      "permanent": true
     }
   ],
   "rewrites": [
+    {
+      "source": "/jewelry/",
+      "destination": "https://aliba-page.vercel.app/"
+    },
     {
       "source": "/jewelry/:path*",
       "destination": "https://aliba-page.vercel.app/:path*"
