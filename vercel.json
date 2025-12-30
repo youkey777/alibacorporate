@@ -1,0 +1,21 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "aliba.online"
+        }
+      ],
+      "destination": "https://www.aliba.online/:path*",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/jewelry/:path*",
+      "destination": "https://aliba-page.vercel.app/:path*"
+    }
+  ]
+}
