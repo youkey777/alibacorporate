@@ -17,6 +17,50 @@
       color: #333;
       line-height: 1.8;
     }
+    .site-header {
+      background: #fff;
+      border-bottom: 1px solid #e5e8ed;
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .logo {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-decoration: none;
+    }
+    .logo-en {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a5490;
+    }
+    .logo-jp {
+      font-size: 10px;
+      color: #666;
+      letter-spacing: 1.5px;
+    }
+    .header-nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: #333;
+    }
+    .header-nav a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .page-main {
+      padding: 32px 0 0;
+    }
     .container {
       max-width: 960px;
       margin: 0 auto;
@@ -105,59 +149,157 @@
       font-size: 14px;
       text-align: center;
     }
+    .site-footer {
+      background: #0f2a44;
+      color: #fff;
+      padding: 40px 0 24px;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .footer-content h3,
+    .footer-content h4 {
+      margin-bottom: 10px;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+    }
+    .footer-content p,
+    .footer-content a {
+      font-size: 12px;
+      color: #d6dde7;
+      text-decoration: none;
+    }
+    .footer-nav ul {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding-top: 16px;
+      font-size: 11px;
+      color: #c5cfdb;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    @media (max-width: 760px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header class="page-header">
-      <h1 class="page-title">お問い合わせ</h1>
-      <p class="page-subtitle">ブランドや制作事業に関するご相談を承ります。</p>
-    </header>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="/">
+        <span class="logo-en">ALIBA Inc.</span>
+        <span class="logo-jp">合同会社aliba</span>
+      </a>
+      <nav class="header-nav">
+        <a href="/#about">About us</a>
+        <a href="/#service">ブランド</a>
+        <a href="/#works">制作事業</a>
+        <a href="/#news">NEWS</a>
+        <a href="/#recruit">RECRUIT</a>
+        <a href="/#contact">問い合わせ</a>
+      </nav>
+    </div>
+  </header>
 
-    <section class="form-card">
-      <div style="text-align:center; margin-bottom: 24px;">
-        <p style="font-size: 14px; color: #666;">内容を確認後、担当よりご連絡いたします。</p>
+  <main class="page-main">
+    <div class="container">
+      <header class="page-header">
+        <h1 class="page-title">お問い合わせ</h1>
+        <p class="page-subtitle">ブランドや制作事業に関するご相談を承ります。</p>
+      </header>
+
+      <section class="form-card">
+        <div style="text-align:center; margin-bottom: 24px;">
+          <p style="font-size: 14px; color: #666;">内容を確認後、担当よりご連絡いたします。</p>
+        </div>
+        <form id="contact-form" action="https://formsubmit.co/h.amazon.y0@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="aliba コーポレートサイト お問い合わせ">
+          <input type="hidden" name="サイト" value="aliba コーポレートサイト">
+          <input type="hidden" name="_autoresponse" value="お問い合わせありがとうございます。&#10;&#10;内容を確認のうえ、担当よりご連絡いたします。">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+
+          <div class="form-row">
+            <label for="contact-name">お名前 <span style="color: #c85c5c;">*必須</span></label>
+            <input type="text" id="contact-name" name="name" required>
+          </div>
+
+          <div class="form-row">
+            <label for="contact-email">メールアドレス <span style="color: #c85c5c;">*必須</span></label>
+            <input type="email" id="contact-email" name="email" required>
+          </div>
+
+          <div class="form-row">
+            <label for="contact-category">お問い合わせ種別 <span style="color: #888;">任意</span></label>
+            <select id="contact-category" name="category">
+              <option value="">選択してください</option>
+              <option value="brand">ブランドについて</option>
+              <option value="service">制作事業について</option>
+              <option value="other">その他</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="contact-message">お問い合わせ内容 <span style="color: #c85c5c;">*必須</span></label>
+            <textarea id="contact-message" name="message" rows="8" required></textarea>
+            <p class="note">ご希望の内容やご相談事項をご記入ください。</p>
+          </div>
+
+          <div class="actions">
+            <button class="btn" type="submit">送信する</button>
+            <a class="link-back" href="/">トップへ戻る</a>
+          </div>
+          <div id="form-message"></div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-company">
+          <h3>合同会社aliba</h3>
+          <p>〒600-8223<br>京都府京都市下京区七条通油小路東入大黒町227番地第２キョートビル402</p>
+          <p>TEL: 050-3171-3449</p>
+        </div>
+        <div class="footer-nav">
+          <h4>SITEMAP</h4>
+          <ul>
+            <li><a href="/#about">About us</a></li>
+            <li><a href="/#service">ブランド</a></li>
+            <li><a href="/#works">制作事業</a></li>
+            <li><a href="/#news">NEWS</a></li>
+            <li><a href="/#recruit">RECRUIT</a></li>
+            <li><a href="/#contact">問い合わせ</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav">
+          <h4>INFORMATION</h4>
+          <ul>
+            <li><a href="/policies/privacy/">プライバシーポリシー</a></li>
+            <li><a href="/policies/personal-info/">個人情報の取り扱いについて</a></li>
+            <li><a href="/policies/antisocial/">反社会的勢力に対する基本方針</a></li>
+          </ul>
+        </div>
       </div>
-      <form id="contact-form" action="https://formsubmit.co/h.amazon.y0@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="aliba お問い合わせ">
-        <input type="hidden" name="_autoresponse" value="お問い合わせありがとうございます。&#10;&#10;内容を確認のうえ、担当よりご連絡いたします。">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-
-        <div class="form-row">
-          <label for="contact-name">お名前 <span style="color: #c85c5c;">*必須</span></label>
-          <input type="text" id="contact-name" name="name" required>
-        </div>
-
-        <div class="form-row">
-          <label for="contact-email">メールアドレス <span style="color: #c85c5c;">*必須</span></label>
-          <input type="email" id="contact-email" name="email" required>
-        </div>
-
-        <div class="form-row">
-          <label for="contact-category">お問い合わせ種別 <span style="color: #888;">任意</span></label>
-          <select id="contact-category" name="category">
-            <option value="">選択してください</option>
-            <option value="brand">ブランドについて</option>
-            <option value="service">制作事業について</option>
-            <option value="other">その他</option>
-          </select>
-        </div>
-
-        <div class="form-row">
-          <label for="contact-message">お問い合わせ内容 <span style="color: #c85c5c;">*必須</span></label>
-          <textarea id="contact-message" name="message" rows="8" required></textarea>
-          <p class="note">ご希望の内容やご相談事項をご記入ください。</p>
-        </div>
-
-        <div class="actions">
-          <button class="btn" type="submit">送信する</button>
-          <a class="link-back" href="/">トップへ戻る</a>
-        </div>
-        <div id="form-message"></div>
-      </form>
-    </section>
-  </div>
+      <div class="footer-bottom">
+        <div>© 2025 ALIBA Inc. All Rights Reserved.</div>
+        <div>お問い合わせはフォームよりお願いいたします。</div>
+      </div>
+    </div>
+  </footer>
 
   <script>
     const contactForm = document.getElementById('contact-form');
