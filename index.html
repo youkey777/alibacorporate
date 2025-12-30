@@ -1191,6 +1191,14 @@
       object-fit: cover;
     }
 
+    .life-image img.is-minimal {
+      object-position: center 30%;
+    }
+
+    .life-image img.is-comfort {
+      object-position: center 60%;
+    }
+
     .life-body {
       padding: 24px 20px;
       text-align: center;
@@ -1520,7 +1528,15 @@
       }
 
       .life-image {
-        height: 140px;
+        height: 240px;
+      }
+
+      .life-image img.is-minimal {
+        object-position: center 35%;
+      }
+
+      .life-image img.is-comfort {
+        object-position: center 85%;
       }
 
       .life-body {
@@ -1799,11 +1815,9 @@
             <div class="section-label">RECRUIT</div>
             <h2 class="section-title">採用情報</h2>
             <p class="recruit-text">心地よさを届けるブランドづくりと制作事業に、一緒に取り組みませんか。ミニマルで丁寧なものづくりを大切にする仲間を募集しています。職種や経験を問わず、価値を一緒に育てていける方を歓迎します。</p>
-            <a href="#" class="btn btn-primary">採用情報を見る</a>
           </div>
           <div class="recruit-visual">
             <img src="images/recruit-team.jpg" alt="採用チームの様子" loading="lazy" decoding="async">
-            <div class="recruit-visual-label">RECRUIT</div>
           </div>
         </div>
       </div>
@@ -1818,7 +1832,7 @@
         <div class="life-grid">
           <div class="life-card">
             <div class="life-image">
-              <img src="images/connecting-warehouse.jpg" alt="ミニマルなジュエリー" loading="lazy" decoding="async">
+              <img class="is-minimal" src="images/connecting-warehouse.jpg" alt="ミニマルなジュエリー" loading="lazy" decoding="async">
             </div>
             <div class="life-body">
               <h3>ミニマルな美しさ</h3>
@@ -1827,7 +1841,7 @@
           </div>
           <div class="life-card">
             <div class="life-image">
-              <img src="images/connecting-driver.jpg" alt="心地よいアイテム" loading="lazy" decoding="async">
+              <img class="is-comfort" src="images/connecting-driver.jpg" alt="心地よいアイテム" loading="lazy" decoding="async">
             </div>
             <div class="life-body">
               <h3>心地よい体験</h3>
