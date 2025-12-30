@@ -4,106 +4,304 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SNS運用代行 | 合同会社aliba</title>
-  <meta name="description" content="ブランドの世界観を伝えるSNS運用を一貫してサポートします。">
+  <meta name="description" content="ブランドの世界観を伝えるSNS運用を一貫して支援します。企画・制作・改善までまとめて伴走します。">
   <link rel="canonical" href="https://www.aliba.online/services/sns/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --accent: #0f7a6c;
+      --accent-dark: #0a5b51;
+      --accent-soft: #e7f4f1;
+      --ink: #1c2b3a;
+      --muted: #5f6c7b;
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --shadow: 0 20px 40px rgba(9, 70, 60, 0.12);
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f5f7fb;
-      color: #333;
+      background: var(--bg);
+      color: var(--ink);
       line-height: 1.8;
     }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
     .container {
-      max-width: 960px;
+      width: min(1160px, 92%);
       margin: 0 auto;
-      padding: 56px 20px 80px;
     }
-    .page-title {
-      font-size: 28px;
-      color: #1a5490;
-      margin-bottom: 12px;
+    .hero {
+      position: relative;
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      padding: 90px 0 80px;
+      color: #fff;
+      overflow: hidden;
     }
-    .lead {
-      color: #666;
-      margin-bottom: 32px;
+    .hero-media { position: absolute; inset: 0; z-index: 0; }
+    .hero-media img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72) saturate(1.1); }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(9, 30, 34, 0.9), rgba(15, 122, 108, 0.55));
+      z-index: 1;
     }
-    .section {
-      background: #fff;
-      border-radius: 12px;
-      padding: 28px;
-      box-shadow: 0 6px 18px rgba(26, 84, 144, 0.08);
-      margin-bottom: 20px;
-    }
-    .section h2 {
-      font-size: 18px;
-      color: #1a5490;
-      margin-bottom: 12px;
-    }
-    .points {
+    .hero-inner {
+      position: relative;
+      z-index: 2;
       display: grid;
-      gap: 10px;
+      gap: 26px;
+      max-width: 680px;
     }
-    .point {
-      background: #f2f6fb;
-      padding: 10px 14px;
-      border-radius: 6px;
-      font-size: 14px;
+    .back-link {
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.8;
     }
-    .actions {
-      margin-top: 28px;
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+    .hero-title {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .hero-lead {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+    .hero-actions {
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
     }
     .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      border-radius: 6px;
-      font-weight: 500;
-      text-align: center;
-      border: none;
-      cursor: pointer;
-      background: #1a5490;
-      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 26px;
+      border-radius: 999px;
       font-size: 14px;
-      text-decoration: none;
+      font-weight: 500;
+      border: 1px solid transparent;
+      transition: 0.3s;
     }
-    .link {
-      color: #1a5490;
+    .btn-primary {
+      background: #fff;
+      color: var(--accent-dark);
+      box-shadow: var(--shadow);
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-ghost {
+      border-color: rgba(255, 255, 255, 0.4);
+      color: #fff;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+    .stat {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 16px 18px;
+      border-radius: 12px;
       font-size: 13px;
-      text-decoration: none;
-      align-self: center;
+    }
+    .section { padding: 80px 0; }
+    .section.bg { background: #fff; }
+    .section-header { text-align: center; margin-bottom: 40px; }
+    .section-label { font-size: 12px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--accent); }
+    .section-title { font-size: clamp(24px, 3vw, 34px); margin-top: 12px; }
+    .section-desc { color: var(--muted); margin-top: 12px; }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--card);
+      padding: 26px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+    .feature-card h3 { font-size: 18px; margin-bottom: 12px; }
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+    .media-card {
+      background: var(--card);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+    .media-card img { height: 220px; object-fit: cover; }
+    .media-body { padding: 18px 22px 24px; }
+    .process {
+      display: grid;
+      gap: 18px;
+    }
+    .process-item {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 24px;
+      border-left: 3px solid var(--accent);
+      box-shadow: var(--shadow);
+    }
+    .process-item span { font-size: 12px; color: var(--accent); letter-spacing: 0.2em; }
+    .deliverables {
+      display: grid;
+      gap: 12px;
+      background: var(--accent-soft);
+      padding: 24px;
+      border-radius: 16px;
+    }
+    .deliverables li {
+      list-style: none;
+      padding-left: 20px;
+      position: relative;
+    }
+    .deliverables li::before { content: '•'; position: absolute; left: 0; color: var(--accent); }
+    .cta {
+      background: linear-gradient(120deg, var(--accent-dark), var(--accent));
+      color: #fff;
+      padding: 54px 0;
+      text-align: center;
+    }
+    .cta p { margin: 12px 0 24px; color: rgba(255, 255, 255, 0.85); }
+    .cta .btn-primary { background: #fff; color: var(--accent-dark); }
+    @media (max-width: 860px) {
+      .hero { padding: 110px 0 60px; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1 class="page-title">SNS運用代行</h1>
-    <p class="lead">InstagramやXなどのSNSを、ブランドの目的に合わせて運用設計します。投稿設計から改善まで一貫して支援します。</p>
-
-    <div class="section">
-      <h2>特徴</h2>
-      <div class="points">
-        <div class="point">世界観を崩さないトーン&マナー設計</div>
-        <div class="point">投稿テーマ・コンテンツ企画の継続支援</div>
-        <div class="point">エンゲージメント分析に基づく改善提案</div>
-        <div class="point">撮影・ビジュアル制作までまとめて対応</div>
+  <header class="hero">
+    <div class="hero-media" aria-hidden="true">
+      <img src="/images/service-sns-hero.jpg" alt="">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-inner">
+      <a class="back-link" href="/">← トップへ戻る</a>
+      <div class="hero-tag">SNS MANAGEMENT</div>
+      <h1 class="hero-title">SNS運用代行</h1>
+      <p class="hero-lead">InstagramやXなどのSNSを、ブランドの目的に合わせて運用設計します。企画・制作・改善まで一貫して支援し、伝えたい魅力を正しく届けます。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/contact/">相談をする</a>
+        <a class="btn btn-ghost" href="#overview">内容を見る</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">トーン&マナーの徹底</div>
+        <div class="stat">投稿設計から改善まで伴走</div>
+        <div class="stat">写真・動画まで一括で制作</div>
       </div>
     </div>
+  </header>
 
-    <div class="section">
-      <h2>対応内容</h2>
-      <p>アカウント設計、投稿スケジュール作成、クリエイティブ制作、運用レポートまで対応します。ブランドの魅力が伝わる運用を目指します。</p>
+  <section class="section" id="overview">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">VALUE</div>
+        <h2 class="section-title">世界観が伝わる運用</h2>
+        <p class="section-desc">ブランドの空気感を壊さずに、日々の投稿へ落とし込む運用設計を行います。表現・投稿頻度・改善までを一貫して整えます。</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>コンテンツ戦略設計</h3>
+          <p>目的に合わせた投稿テーマを整理し、アカウント運用の方向性を明確にします。</p>
+        </div>
+        <div class="feature-card">
+          <h3>クリエイティブ制作</h3>
+          <p>撮影・編集・デザインまで対応し、ブランドらしい統一感を作り出します。</p>
+        </div>
+        <div class="feature-card">
+          <h3>改善レポート</h3>
+          <p>投稿結果を分析し、次の打ち手を具体化。数字と感性の両方で改善します。</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="actions">
-      <a class="btn" href="/contact/">相談をする</a>
-      <a class="link" href="/">トップへ戻る</a>
+  <section class="section bg">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">PROCESS</div>
+        <h2 class="section-title">運用の流れ</h2>
+        <p class="section-desc">無理な投稿量ではなく、継続できる運用設計を大切にしています。</p>
+      </div>
+      <div class="process">
+        <div class="process-item"><span>STEP 01</span><h3>アカウント診断 / 目的整理</h3><p>現状と課題を整理し、ターゲットと目的を明確にします。</p></div>
+        <div class="process-item"><span>STEP 02</span><h3>投稿設計 / コンテンツ企画</h3><p>投稿テーマ、ビジュアルのトーン、運用スケジュールを設計します。</p></div>
+        <div class="process-item"><span>STEP 03</span><h3>制作 / 投稿運用</h3><p>撮影・編集・投稿作業を行い、日々の運用を代行します。</p></div>
+        <div class="process-item"><span>STEP 04</span><h3>分析 / 改善提案</h3><p>反応データを分析し、次の改善アクションを明確にします。</p></div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">GALLERY</div>
+        <h2 class="section-title">運用で大切にする質感</h2>
+        <p class="section-desc">SNS上でもブランドの体験価値が伝わるよう、統一感のあるトーンを作ります。</p>
+      </div>
+      <div class="media-grid">
+        <div class="media-card">
+          <img src="/images/service-sns-detail-1.jpg" alt="SNS運用の制作環境" loading="lazy" decoding="async">
+          <div class="media-body">
+            <h3>投稿素材の一貫性</h3>
+            <p>色味や質感を揃え、ブランドの世界観を崩さない投稿を設計します。</p>
+          </div>
+        </div>
+        <div class="media-card">
+          <img src="/images/service-sns-detail-2.jpg" alt="SNSの配信イメージ" loading="lazy" decoding="async">
+          <div class="media-body">
+            <h3>ターゲットに響く表現</h3>
+            <p>写真・コピー・投稿のタイミングまで含めて、響く設計に落とし込みます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">DELIVERABLE</div>
+        <h2 class="section-title">提供内容</h2>
+        <p class="section-desc">必要な範囲を柔軟にカスタマイズし、運用負荷を最小限に抑えます。</p>
+      </div>
+      <ul class="deliverables">
+        <li>投稿企画 / コンテンツカレンダーの設計</li>
+        <li>写真・動画の撮影 / 編集 / デザイン制作</li>
+        <li>投稿代行 / ハッシュタグ・コピー最適化</li>
+        <li>月次レポート / 改善提案のフィードバック</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>SNSを「ブランドの資産」に変える</h2>
+      <p>世界観を崩さずに発信を続けたい方へ。日々の運用を安心して任せられる体制を整えます。</p>
+      <a class="btn btn-primary" href="/contact/">運用について相談する</a>
+    </div>
+  </section>
 </body>
 </html>

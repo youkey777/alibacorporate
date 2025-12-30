@@ -838,6 +838,8 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
       transition: all 0.3s ease;
       cursor: pointer;
+      text-decoration: none;
+      color: inherit;
     }
 
     .business-card:hover {
@@ -1204,60 +1206,11 @@
     }
 
     .contact-content {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 60px;
-      align-items: center;
-      margin-bottom: 48px;
-    }
-
-    .contact-cta h3 {
-      font-size: 20px;
-      color: #1a3a5c;
-      margin-bottom: 18px;
-      font-weight: 600;
-    }
-
-    .contact-info {
-      background: #fff;
-      padding: 28px;
-      border-radius: 8px;
-      border: 1px solid #e5e8ed;
-    }
-
-    .contact-phone {
-      font-size: 24px;
-      font-weight: 700;
-      color: #1a5490;
-      margin-bottom: 8px;
-    }
-
-    .contact-hours {
-      font-size: 12px;
-      color: #666;
-    }
-
-    .contact-sns {
       display: flex;
       justify-content: center;
-      gap: 20px;
-    }
-
-    .sns-item {
-      display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 10px 18px;
-      background: #fff;
-      border: 1px solid #e5e8ed;
-      border-radius: 6px;
-      transition: all 0.15s;
-      cursor: pointer;
-    }
-
-    .sns-item:hover {
-      border-color: #1a5490;
-      box-shadow: 0 2px 8px rgba(26, 84, 144, 0.1);
+      margin-bottom: 24px;
+      text-align: center;
     }
 
     .sns-icon {
@@ -1754,7 +1707,7 @@
           <p class="section-desc">ブランド運営で培った世界観と体験設計を、制作事業にも生かしています。</p>
         </div>
         <div class="business-list">
-          <div class="business-card">
+          <a class="business-card" href="/services/web/">
             <div class="business-image">
               <img src="images/business-web.jpg" alt="破格Webサービス" loading="lazy" decoding="async">
             </div>
@@ -1762,10 +1715,10 @@
               <div class="business-tag">WEB SERVICE</div>
               <div class="business-title">破格Webサービス</div>
               <div class="business-desc">早くリーズナブルに品質の高いウェブサービスを構築します。企画・設計・デザイン・公開まで一気通貫で対応し、運用まで見据えたサイトを提供します。</div>
-              <a class="business-link" href="/services/web/">詳しく見る →</a>
+              <span class="business-link">詳しく見る →</span>
             </div>
-          </div>
-          <div class="business-card">
+          </a>
+          <a class="business-card" href="/services/sns/">
             <div class="business-image">
               <img src="images/business-sns.jpg" alt="SNS運用代行" loading="lazy" decoding="async">
             </div>
@@ -1773,10 +1726,10 @@
               <div class="business-tag">SNS MANAGEMENT</div>
               <div class="business-title">SNS運用代行</div>
               <div class="business-desc">Instagram・XなどのSNSを、目的に合わせて企画・運用・改善。投稿設計からクリエイティブ制作、レポートまで一貫支援します。</div>
-              <a class="business-link" href="/services/sns/">詳しく見る →</a>
+              <span class="business-link">詳しく見る →</span>
             </div>
-          </div>
-          <div class="business-card">
+          </a>
+          <a class="business-card" href="/services/ai/">
             <div class="business-image">
               <img src="images/business-ai.jpg" alt="AI画像作成" loading="lazy" decoding="async">
             </div>
@@ -1784,9 +1737,9 @@
               <div class="business-tag">AI CREATION</div>
               <div class="business-title">AI画像作成</div>
               <div class="business-desc">ブランドの世界観に合わせたAIビジュアルを制作。SNS用素材、広告バナー、LP用のキービジュアルなど幅広く対応します。</div>
-              <a class="business-link" href="/services/ai/">詳しく見る →</a>
+              <span class="business-link">詳しく見る →</span>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </section>
@@ -1800,14 +1753,17 @@
         <div class="news-list" id="newsList">
           <a class="news-item" href="/news/">
             <div class="news-date">2025.09.12</div>
+            <div class="news-category cat-news">NEWS</div>
             <div class="news-title">aliba公式オンラインストアをリニューアルしました</div>
           </a>
           <a class="news-item" href="/news/">
             <div class="news-date">2025.07.25</div>
+            <div class="news-category cat-news">NEWS</div>
             <div class="news-title">Sauna Crownの新作サウナハットを発売しました</div>
           </a>
           <a class="news-item" href="/news/">
             <div class="news-date">2025.06.18</div>
+            <div class="news-category cat-media">MEDIA</div>
             <div class="news-title">Sauna Crownが雑誌「SAUNABROS」に掲載されました</div>
           </a>
         </div>
@@ -1886,7 +1842,6 @@
         </div>
         <div class="contact-content">
           <div class="contact-cta">
-            <h3>ブランド・制作事業のご相談はこちら</h3>
             <a href="/contact/" class="btn btn-primary">お問い合わせフォームへ</a>
           </div>
         </div>
@@ -1901,7 +1856,7 @@
         <div class="footer-company">
           <h3>合同会社aliba</h3>
           <p>〒600-8223<br>京都府京都市下京区七条通油小路東入大黒町227番地第２キョートビル402</p>
-          <p>TEL: 05031713449</p>
+          <p>TEL: 050-3171-3449</p>
         </div>
         <div class="footer-nav">
           <h4>SITEMAP</h4>

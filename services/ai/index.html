@@ -4,106 +4,303 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI画像作成 | 合同会社aliba</title>
-  <meta name="description" content="ブランドの世界観に合わせたAIビジュアルを制作します。">
+  <meta name="description" content="ブランドの世界観に合わせたAIビジュアルを制作します。広告・SNS・LPまで一貫対応。">
   <link rel="canonical" href="https://www.aliba.online/services/ai/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --accent: #3a5ad9;
+      --accent-dark: #223e8f;
+      --accent-soft: #e9eeff;
+      --ink: #1c2b3a;
+      --muted: #5f6c7b;
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --shadow: 0 20px 40px rgba(34, 62, 143, 0.14);
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f5f7fb;
-      color: #333;
+      background: var(--bg);
+      color: var(--ink);
       line-height: 1.8;
     }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
     .container {
-      max-width: 960px;
+      width: min(1160px, 92%);
       margin: 0 auto;
-      padding: 56px 20px 80px;
     }
-    .page-title {
-      font-size: 28px;
-      color: #1a5490;
-      margin-bottom: 12px;
+    .hero {
+      position: relative;
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      padding: 90px 0 80px;
+      color: #fff;
+      overflow: hidden;
     }
-    .lead {
-      color: #666;
-      margin-bottom: 32px;
+    .hero-media { position: absolute; inset: 0; z-index: 0; }
+    .hero-media img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75) saturate(1.15); }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(140deg, rgba(15, 22, 50, 0.92), rgba(58, 90, 217, 0.55));
+      z-index: 1;
     }
-    .section {
-      background: #fff;
-      border-radius: 12px;
-      padding: 28px;
-      box-shadow: 0 6px 18px rgba(26, 84, 144, 0.08);
-      margin-bottom: 20px;
-    }
-    .section h2 {
-      font-size: 18px;
-      color: #1a5490;
-      margin-bottom: 12px;
-    }
-    .points {
+    .hero-inner {
+      position: relative;
+      z-index: 2;
       display: grid;
-      gap: 10px;
+      gap: 26px;
+      max-width: 680px;
     }
-    .point {
-      background: #f2f6fb;
-      padding: 10px 14px;
-      border-radius: 6px;
-      font-size: 14px;
+    .back-link {
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.8;
     }
-    .actions {
-      margin-top: 28px;
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+    .hero-title {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .hero-lead {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+    .hero-actions {
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
     }
     .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      border-radius: 6px;
-      font-weight: 500;
-      text-align: center;
-      border: none;
-      cursor: pointer;
-      background: #1a5490;
-      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 26px;
+      border-radius: 999px;
       font-size: 14px;
-      text-decoration: none;
+      font-weight: 500;
+      border: 1px solid transparent;
+      transition: 0.3s;
     }
-    .link {
-      color: #1a5490;
+    .btn-primary {
+      background: #fff;
+      color: var(--accent-dark);
+      box-shadow: var(--shadow);
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-ghost {
+      border-color: rgba(255, 255, 255, 0.4);
+      color: #fff;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+    .stat {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 16px 18px;
+      border-radius: 12px;
       font-size: 13px;
-      text-decoration: none;
-      align-self: center;
+    }
+    .section { padding: 80px 0; }
+    .section.bg { background: #fff; }
+    .section-header { text-align: center; margin-bottom: 40px; }
+    .section-label { font-size: 12px; letter-spacing: 0.35em; text-transform: uppercase; color: var(--accent); }
+    .section-title { font-size: clamp(24px, 3vw, 34px); margin-top: 12px; }
+    .section-desc { color: var(--muted); margin-top: 12px; }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--card);
+      padding: 26px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+    .feature-card h3 { font-size: 18px; margin-bottom: 12px; }
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+    .media-card {
+      background: var(--card);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+    .media-card img { height: 220px; object-fit: cover; }
+    .media-body { padding: 18px 22px 24px; }
+    .process {
+      display: grid;
+      gap: 18px;
+    }
+    .process-item {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 24px;
+      border-left: 3px solid var(--accent);
+      box-shadow: var(--shadow);
+    }
+    .process-item span { font-size: 12px; color: var(--accent); letter-spacing: 0.2em; }
+    .deliverables {
+      display: grid;
+      gap: 12px;
+      background: var(--accent-soft);
+      padding: 24px;
+      border-radius: 16px;
+    }
+    .deliverables li {
+      list-style: none;
+      padding-left: 20px;
+      position: relative;
+    }
+    .deliverables li::before { content: '•'; position: absolute; left: 0; color: var(--accent); }
+    .cta {
+      background: linear-gradient(120deg, var(--accent-dark), var(--accent));
+      color: #fff;
+      padding: 54px 0;
+      text-align: center;
+    }
+    .cta p { margin: 12px 0 24px; color: rgba(255, 255, 255, 0.85); }
+    .cta .btn-primary { background: #fff; color: var(--accent-dark); }
+    @media (max-width: 860px) {
+      .hero { padding: 110px 0 60px; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1 class="page-title">AI画像作成</h1>
-    <p class="lead">ブランドの世界観に合わせたAIビジュアルを制作します。SNSや広告で使える高品質な画像を短期間でご提供します。</p>
-
-    <div class="section">
-      <h2>特徴</h2>
-      <div class="points">
-        <div class="point">ブランドトーンに合わせたAIビジュアル設計</div>
-        <div class="point">SNSや広告に使えるサイズ・構図に最適化</div>
-        <div class="point">撮影が難しいカットも柔軟に表現</div>
-        <div class="point">短納期での量産・バリエーション作成</div>
+  <header class="hero">
+    <div class="hero-media" aria-hidden="true">
+      <img src="/images/service-ai-hero.jpg" alt="">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-inner">
+      <a class="back-link" href="/">← トップへ戻る</a>
+      <div class="hero-tag">AI CREATION</div>
+      <h1 class="hero-title">AI画像作成</h1>
+      <p class="hero-lead">ブランドの世界観に合わせたAIビジュアルを制作します。撮影が難しい表現も、短期間で高品質に仕上げ、SNSや広告に活用できます。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/contact/">相談をする</a>
+        <a class="btn btn-ghost" href="#overview">内容を見る</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">ブランドトーンに合わせた表現設計</div>
+        <div class="stat">SNS / 広告 / LPに最適化</div>
+        <div class="stat">短期間での複数案提案</div>
       </div>
     </div>
+  </header>
 
-    <div class="section">
-      <h2>対応内容</h2>
-      <p>キービジュアル、バナー、SNS投稿素材、LP用画像などに対応します。参考イメージを伺いながら、世界観に合わせた提案を行います。</p>
+  <section class="section" id="overview">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">VALUE</div>
+        <h2 class="section-title">想像力を拡張するビジュアル</h2>
+        <p class="section-desc">イメージの方向性を明確にし、ブランドに必要な世界観を可視化します。デザインやプロダクトを引き立てる表現を提案します。</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>トーン設計</h3>
+          <p>色味や質感の方向性を整理し、ブランドの価値と一致する世界観を作ります。</p>
+        </div>
+        <div class="feature-card">
+          <h3>スピード制作</h3>
+          <p>撮影なしでもキービジュアルを短期間で準備。複数案の比較検討が可能です。</p>
+        </div>
+        <div class="feature-card">
+          <h3>活用まで見据えた納品</h3>
+          <p>SNS・広告・LP用など用途に応じたサイズで納品し、すぐに運用できます。</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="actions">
-      <a class="btn" href="/contact/">相談をする</a>
-      <a class="link" href="/">トップへ戻る</a>
+  <section class="section bg">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">PROCESS</div>
+        <h2 class="section-title">制作の流れ</h2>
+        <p class="section-desc">AIだからこそ、事前の方向性共有を丁寧に行います。</p>
+      </div>
+      <div class="process">
+        <div class="process-item"><span>STEP 01</span><h3>イメージ共有 / 方向性整理</h3><p>ブランドの世界観や参考イメージを共有し、ゴールを合わせます。</p></div>
+        <div class="process-item"><span>STEP 02</span><h3>ラフ案制作 / 調整</h3><p>複数案を作成し、色味や雰囲気を調整しながら理想へ近づけます。</p></div>
+        <div class="process-item"><span>STEP 03</span><h3>本制作 / 納品</h3><p>最終案を整え、用途に合わせた形式で納品します。</p></div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">GALLERY</div>
+        <h2 class="section-title">表現の幅</h2>
+        <p class="section-desc">抽象表現から近未来的なビジュアルまで、ブランドに合わせて幅広く制作します。</p>
+      </div>
+      <div class="media-grid">
+        <div class="media-card">
+          <img src="/images/service-ai-detail-1.jpg" alt="抽象的なビジュアル" loading="lazy" decoding="async">
+          <div class="media-body">
+            <h3>抽象表現の提案</h3>
+            <p>製品やコンセプトの空気感を、抽象的な表現で上質にまとめます。</p>
+          </div>
+        </div>
+        <div class="media-card">
+          <img src="/images/service-ai-detail-2.jpg" alt="光と色の表現" loading="lazy" decoding="async">
+          <div class="media-body">
+            <h3>光と色で作る世界観</h3>
+            <p>ブランドのカラーやトーンに合わせて、幻想的なビジュアルを制作します。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">DELIVERABLE</div>
+        <h2 class="section-title">提供内容</h2>
+        <p class="section-desc">プロジェクト規模に合わせて柔軟に対応します。</p>
+      </div>
+      <ul class="deliverables">
+        <li>ブランドトーンに合わせたビジュアル設計</li>
+        <li>用途別のサイズ展開（SNS / 広告 / LP）</li>
+        <li>複数案の提案と方向性の調整</li>
+        <li>運用に合わせた追加制作・リサイズ</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>撮影では出せない表現を、ブランドの資産に</h2>
+      <p>イメージを具体化したい方へ。世界観を拡張するビジュアル制作を提供します。</p>
+      <a class="btn btn-primary" href="/contact/">AI制作について相談する</a>
+    </div>
+  </section>
 </body>
 </html>

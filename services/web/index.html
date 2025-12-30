@@ -4,106 +4,362 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>破格Webサービス | 合同会社aliba</title>
-  <meta name="description" content="早くリーズナブルに品質の高いウェブサービスを構築します。">
+  <meta name="description" content="早くリーズナブルに品質の高いウェブサービスを構築します。ブランドの価値を確実に伝える設計とデザインを提供します。">
   <link rel="canonical" href="https://www.aliba.online/services/web/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --accent: #1a5490;
+      --accent-dark: #0f3d6f;
+      --accent-soft: #e9f1fb;
+      --ink: #1c2b3a;
+      --muted: #5f6c7b;
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --shadow: 0 20px 40px rgba(15, 43, 70, 0.12);
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f5f7fb;
-      color: #333;
+      background: var(--bg);
+      color: var(--ink);
       line-height: 1.8;
     }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
     .container {
-      max-width: 960px;
+      width: min(1160px, 92%);
       margin: 0 auto;
-      padding: 56px 20px 80px;
     }
-    .page-title {
-      font-size: 28px;
-      color: #1a5490;
-      margin-bottom: 12px;
+    .hero {
+      position: relative;
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      padding: 90px 0 80px;
+      color: #fff;
+      overflow: hidden;
     }
-    .lead {
-      color: #666;
-      margin-bottom: 32px;
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
     }
-    .section {
-      background: #fff;
-      border-radius: 12px;
-      padding: 28px;
-      box-shadow: 0 6px 18px rgba(26, 84, 144, 0.08);
-      margin-bottom: 20px;
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7) saturate(1.05);
     }
-    .section h2 {
-      font-size: 18px;
-      color: #1a5490;
-      margin-bottom: 12px;
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10, 24, 45, 0.9), rgba(26, 84, 144, 0.55));
+      z-index: 1;
     }
-    .points {
+    .hero-inner {
+      position: relative;
+      z-index: 2;
       display: grid;
-      gap: 10px;
+      gap: 26px;
+      max-width: 680px;
     }
-    .point {
-      background: #f2f6fb;
-      padding: 10px 14px;
-      border-radius: 6px;
-      font-size: 14px;
+    .back-link {
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.8;
     }
-    .actions {
-      margin-top: 28px;
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+    .hero-title {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .hero-lead {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+    .hero-actions {
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
     }
     .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      border-radius: 6px;
-      font-weight: 500;
-      text-align: center;
-      border: none;
-      cursor: pointer;
-      background: #1a5490;
-      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 26px;
+      border-radius: 999px;
       font-size: 14px;
-      text-decoration: none;
+      font-weight: 500;
+      border: 1px solid transparent;
+      transition: 0.3s;
     }
-    .link {
-      color: #1a5490;
+    .btn-primary {
+      background: #fff;
+      color: var(--accent-dark);
+      box-shadow: var(--shadow);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+    .btn-ghost {
+      border-color: rgba(255, 255, 255, 0.4);
+      color: #fff;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+    .stat {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 16px 18px;
+      border-radius: 12px;
       font-size: 13px;
-      text-decoration: none;
-      align-self: center;
+    }
+    .section {
+      padding: 80px 0;
+    }
+    .section.bg {
+      background: #fff;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .section-title {
+      font-size: clamp(24px, 3vw, 34px);
+      margin-top: 12px;
+    }
+    .section-desc {
+      color: var(--muted);
+      margin-top: 12px;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--card);
+      padding: 26px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+    .feature-card h3 {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+      align-items: stretch;
+    }
+    .media-card {
+      background: var(--card);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+    .media-card img {
+      height: 220px;
+      object-fit: cover;
+    }
+    .media-body {
+      padding: 18px 22px 24px;
+    }
+    .process {
+      display: grid;
+      gap: 18px;
+    }
+    .process-item {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 24px;
+      border-left: 3px solid var(--accent);
+      box-shadow: var(--shadow);
+    }
+    .process-item span {
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+    }
+    .deliverables {
+      display: grid;
+      gap: 12px;
+      background: var(--accent-soft);
+      padding: 24px;
+      border-radius: 16px;
+    }
+    .deliverables li {
+      list-style: none;
+      padding-left: 20px;
+      position: relative;
+    }
+    .deliverables li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+    .cta {
+      background: linear-gradient(120deg, var(--accent-dark), var(--accent));
+      color: #fff;
+      padding: 54px 0;
+      text-align: center;
+    }
+    .cta p {
+      margin: 12px 0 24px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+    .cta .btn-primary {
+      background: #fff;
+      color: var(--accent-dark);
+    }
+    @media (max-width: 860px) {
+      .hero {
+        padding: 110px 0 60px;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1 class="page-title">破格Webサービス</h1>
-    <p class="lead">早くリーズナブルに品質の高いウェブサービスを構築します。企画から公開・運用まで、ブランドの価値を一貫して届けるための体制を整えています。</p>
-
-    <div class="section">
-      <h2>特徴</h2>
-      <div class="points">
-        <div class="point">ブランドの世界観に合わせた設計とデザイン</div>
-        <div class="point">スピード重視の進行でも品質を落とさない制作体制</div>
-        <div class="point">公開後の運用・更新まで見据えた導線設計</div>
-        <div class="point">初期費用を抑えたシンプルで実用的な提案</div>
+  <header class="hero">
+    <div class="hero-media" aria-hidden="true">
+      <img src="/images/service-web-hero.jpg" alt="">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-inner">
+      <a class="back-link" href="/">← トップへ戻る</a>
+      <div class="hero-tag">WEB SERVICE</div>
+      <h1 class="hero-title">破格Webサービス</h1>
+      <p class="hero-lead">早くリーズナブルに品質の高いウェブサービスを構築します。企画・設計・デザイン・公開までを一気通貫で担い、ブランドの価値を確実に届けるサイトを仕立てます。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/contact/">制作の相談をする</a>
+        <a class="btn btn-ghost" href="#overview">内容を見る</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">短期でも品質を守る制作体制</div>
+        <div class="stat">運用・改善まで見据えた設計</div>
+        <div class="stat">ブランドの世界観を一貫して表現</div>
       </div>
     </div>
+  </header>
 
-    <div class="section">
-      <h2>対応内容</h2>
-      <p>コーポレートサイト、ブランドサイト、LP、キャンペーンページなど、目的に合わせたウェブサービスを構築します。構成・コピー制作・撮影ディレクションまで一括で対応可能です。</p>
+  <section class="section" id="overview">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">VALUE</div>
+        <h2 class="section-title">速さと完成度の両立</h2>
+        <p class="section-desc">コーポレートサイト、ブランドサイト、LP、キャンペーンページなど目的別に最適な構成を組み、公開後の運用までを見据えた設計に落とし込みます。</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>情報設計から整理</h3>
+          <p>伝えたい価値を整理し、閲覧者の行動に沿ったページ構成を作ります。取材とヒアリングで本質を見極めます。</p>
+        </div>
+        <div class="feature-card">
+          <h3>ブランドに合うUI</h3>
+          <p>既存のブランドトーンを守りつつ、現代的で洗練されたビジュアルに整えます。タイポグラフィまで丁寧に設計します。</p>
+        </div>
+        <div class="feature-card">
+          <h3>公開後の運用支援</h3>
+          <p>更新しやすい構成と運用ガイドを用意し、公開後の改善サイクルまで考えた制作を行います。</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="actions">
-      <a class="btn" href="/contact/">制作の相談をする</a>
-      <a class="link" href="/">トップへ戻る</a>
+  <section class="section bg">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">STORY</div>
+        <h2 class="section-title">制作の流れ</h2>
+        <p class="section-desc">スピード重視でも軸がぶれないよう、必ず共通認識を作りながら進行します。</p>
+      </div>
+      <div class="process">
+        <div class="process-item"><span>STEP 01</span><h3>ヒアリング / 目的整理</h3><p>事業の背景や課題、目標を把握し、情報設計の起点を明確にします。</p></div>
+        <div class="process-item"><span>STEP 02</span><h3>構成 / ワイヤー設計</h3><p>ユーザー導線と必要な情報を整理し、ページ構成の骨格を設計します。</p></div>
+        <div class="process-item"><span>STEP 03</span><h3>デザイン / 実装</h3><p>ブランドに合うビジュアルとUIを構築し、実装まで一貫して仕上げます。</p></div>
+        <div class="process-item"><span>STEP 04</span><h3>公開 / 運用サポート</h3><p>公開後の改善点を整理し、継続的に価値が増すサイト運用を支援します。</p></div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">GALLERY</div>
+        <h2 class="section-title">制作の空気感</h2>
+        <p class="section-desc">制作現場の温度感や設計の丁寧さが伝わるビジュアルを取り入れています。</p>
+      </div>
+      <div class="media-grid">
+        <div class="media-card">
+          <img src="/images/service-web-detail-1.jpg" alt="制作チームのディスカッション" loading="lazy" decoding="async">
+          <div class="media-body">
+            <h3>チームで磨く設計力</h3>
+            <p>ブランドの方向性を揃え、ユーザーの体験を想像しながら設計します。</p>
+          </div>
+        </div>
+        <div class="media-card">
+          <img src="/images/service-web-detail-2.jpg" alt="設計と実装の作業" loading="lazy" decoding="async">
+          <div class="media-body">
+            <h3>細部まで整える実装</h3>
+            <p>表示速度や可読性を意識し、細部に宿る品質を大切にします。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">DELIVERABLE</div>
+        <h2 class="section-title">提供内容</h2>
+        <p class="section-desc">目的や規模に応じて柔軟に設計します。必要なものだけを無駄なく組み立てます。</p>
+      </div>
+      <ul class="deliverables">
+        <li>ブランドの価値を整理した構成案・コピーライティング</li>
+        <li>オリジナルデザイン / UI設計 / レスポンシブ対応</li>
+        <li>公開前チェック、公開後の改善提案レポート</li>
+        <li>更新運用のためのガイドライン整備</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>ブランドの価値を、最短距離で届けたい方へ</h2>
+      <p>スピード重視でも品質を落とさない制作体制で、届けたい世界観を形にします。</p>
+      <a class="btn btn-primary" href="/contact/">制作について相談する</a>
+    </div>
+  </section>
 </body>
 </html>
