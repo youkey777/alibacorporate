@@ -1192,11 +1192,11 @@
     }
 
     .life-image img.is-minimal {
-      object-position: center 90%;
+      object-position: center 95%;
     }
 
     .life-image img.is-comfort {
-      object-position: center 30%;
+      object-position: center 20%;
     }
 
     .life-body {
@@ -1921,6 +1921,17 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // モバイル表示時のみ採用情報とCraft With Careの順番を入れ替える
+      const mainElement = document.querySelector('main');
+      const recruitSection = document.querySelector('.recruit');
+      const connectingSection = document.querySelector('.connecting');
+      if (mainElement && recruitSection && connectingSection) {
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        if (isMobile) {
+          mainElement.insertBefore(connectingSection, recruitSection);
+        }
+      }
+
       // Aboutセクションのパーティクルアニメーション
       const aboutCanvas = document.getElementById('aboutCanvas');
       if (aboutCanvas) {
