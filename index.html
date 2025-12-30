@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ALIBA Inc. - 合同会社aliba | ブランドスタジオ</title>
+<link rel="preload" as="image" href="https://www.aliba.online/images/hero-logistics.jpg">
   <meta name="description" content="合同会社alibaはジュエリー・癒しケア・サウナなどのブランドを展開するブランドスタジオです。">
   <link rel="canonical" href="https://www.aliba.online/">
   <meta property="og:type" content="website">
@@ -34,7 +35,6 @@
     "url": "https://www.aliba.online/"
   }
   </script>
-  <link rel="preload" as="image" href="https://www.aliba.online/images/hero-logistics.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -92,18 +92,41 @@
       font-weight: 500;
       text-align: center;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.3s ease;
       border: none;
       font-size: 14px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
     }
 
     .btn-primary {
       background: #1a5490;
       color: #fff;
+      box-shadow: 0 4px 15px rgba(26, 84, 144, 0.2);
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+      transform: translateX(-100%);
+      transition: 0.5s;
+      z-index: -1;
     }
 
     .btn-primary:hover {
       background: #0f3d6f;
+      box-shadow: 0 6px 20px rgba(26, 84, 144, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary:hover::before {
+      transform: translateX(100%);
     }
 
     .btn-outline {
@@ -122,14 +145,17 @@
       font-size: 13px;
     }
 
+    /* HEADER */
     .header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background: #fff;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
       z-index: 1000;
-      border-bottom: 1px solid #e5e8ed;
+      border-bottom: 1px solid rgba(229, 232, 237, 0.5);
+      transition: all 0.3s;
     }
 
     .header-inner {
@@ -253,131 +279,235 @@
       transform: rotate(-45deg) translate(7px, -7px);
     }
 
+    /* =========================================
+       HERO SECTION MODIFICATION START
+       IT/最先端/透明感/奥行き/動く光
+    ========================================= */
     .hero {
       position: relative;
-      min-height: 560px;
+      min-height: 750px; /* より没入感を出すため高さを確保 */
       display: flex;
       align-items: center;
-      background: linear-gradient(135deg, #f5f8fc 0%, #e9f3ff 100%);
-      margin-top: 90px;
-      padding: 64px 0;
+      justify-content: center;
+      margin-top: 0; /* header fixed分はpaddingで調整 */
+      padding-top: 90px;
       overflow: hidden;
+      /* ベース背景：静的なグラデーションではなくアニメーション用のベース色 */
+      background: #fcfdfd;
     }
 
-    .hero-bg-shapes {
+    /* 1. 動くグリッド（データの流れ・IT感） */
+    .hero::before {
+      content: '';
       position: absolute;
-      inset: 0;
-      overflow: hidden;
+      inset: -100%; /* 画面外まで広げて回転・移動に対応 */
+      width: 300%;
+      height: 300%;
+      background-image:
+        linear-gradient(rgba(26, 84, 144, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26, 84, 144, 0.05) 1px, transparent 1px);
+      background-size: 80px 80px;
+      background-position: center center;
+      transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+      animation: gridMove 15s linear infinite; /* 速度アップ：20s → 15s */
       z-index: 0;
       pointer-events: none;
     }
 
-    .hero-shape {
+    @keyframes gridMove {
+      0% { transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px); }
+      100% { transform: perspective(500px) rotateX(60deg) translateY(80px) translateZ(-200px); }
+    }
+
+    /* 2. オーロラのような揺らぐ光（透明感・先進性） */
+    .hero-aurora {
       position: absolute;
-      border-radius: 999px;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 50% 50%, rgba(66, 165, 245, 0.1), rgba(156, 39, 176, 0.04), transparent 60%);
       filter: blur(80px);
-      opacity: 0.5;
+      animation: auroraRotate 25s linear infinite; /* 速度アップ：30s → 25s */
+      animation-delay: -10s; /* 初期状態を進めて開始 */
+      z-index: 0;
     }
 
-    .hero-shape-1 {
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle at 30% 30%, rgba(26, 84, 144, 0.7), rgba(26, 84, 144, 0));
-      top: -80px;
-      left: -40px;
-      animation: heroShapeMove1 22s ease-in-out infinite alternate;
+    @keyframes auroraRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
-    .hero-shape-2 {
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle at 70% 40%, rgba(255, 152, 0, 0.6), rgba(255, 152, 0, 0));
-      bottom: -200px;
-      right: -80px;
-      animation: heroShapeMove2 28s ease-in-out infinite alternate;
+    /* 3. 天から射す光（Ray） - 立体感と希望 */
+    .hero-ray {
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 80%;
+      height: 150%;
+      background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 60%);
+      transform: rotate(-25deg);
+      filter: blur(50px);
+      opacity: 0.7;
+      z-index: 1;
+      pointer-events: none;
+      mix-blend-mode: overlay;
+      animation: rayBreath 6s ease-in-out infinite alternate; /* 速度アップ：8s → 6s */
+      animation-delay: -2s; /* 初期状態を進めて開始 */
     }
 
-    .hero-shape-3 {
-      width: 350px;
-      height: 350px;
-      background: radial-gradient(circle at 50% 50%, rgba(76, 175, 80, 0.5), rgba(76, 175, 80, 0));
-      top: 40%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      animation: heroShapeMove3 26s ease-in-out infinite alternate;
+    /* もう一つの光線で交差させる */
+    .hero-ray-2 {
+      position: absolute;
+      top: -30%;
+      right: 20%;
+      width: 40%;
+      height: 120%;
+      background: linear-gradient(150deg, rgba(200, 230, 255, 0.5) 0%, rgba(255,255,255,0) 70%);
+      transform: rotate(-15deg);
+      filter: blur(40px);
+      opacity: 0.6;
+      z-index: 1;
+      pointer-events: none;
+      animation: rayBreath 9s ease-in-out infinite alternate-reverse; /* 速度アップ：12s → 9s */
+      animation-delay: -4s; /* 初期状態を進めて開始 */
     }
 
-    @keyframes heroShapeMove1 {
-      0%   { transform: translate(0, 0) scale(1); }
-      50%  { transform: translate(40px, 20px) scale(1.1); }
-      100% { transform: translate(80px, -10px) scale(1.05); }
+    @keyframes rayBreath {
+      0% { opacity: 0.4; transform: rotate(-25deg) scale(1); }
+      100% { opacity: 0.7; transform: rotate(-25deg) scale(1.1); }
     }
 
-    @keyframes heroShapeMove2 {
-      0%   { transform: translate(0, 0) scale(1); }
-      50%  { transform: translate(-40px, -30px) scale(1.12); }
-      100% { transform: translate(-80px, 10px) scale(1.08); }
+    /* 浮遊するパーティクル（技術・分子） */
+    .hero-particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(26, 84, 144, 0.2);
+      animation: floatUp 10s infinite ease-in-out; /* 1つのサイクルを10秒に */
+    }
+    /* シームレスなループ：1つが消える頃に次が発生 */
+    .hp-1 {
+      width: 100px;
+      height: 100px;
+      left: 10%;
+      bottom: 10%;
+      animation-delay: 0s; /* 1番目：0秒から開始 */
+      opacity: 0; /* 初期状態は完全に透明 */
+    }
+    .hp-2 {
+      width: 60px;
+      height: 60px;
+      left: 80%;
+      bottom: 5%;
+      animation-delay: 2s; /* 2番目：2秒後に開始（発生を早める） */
+      background: rgba(26, 84, 144, 0.15);
+      opacity: 0; /* 初期状態は完全に透明 */
+    }
+    .hp-3 {
+      width: 40px;
+      height: 40px;
+      left: 30%;
+      bottom: 8%;
+      animation-delay: 4.5s; /* 3番目：4.5秒後に開始（発生を早める） */
+      opacity: 0; /* 初期状態は完全に透明 */
     }
 
-    @keyframes heroShapeMove3 {
-      0%   { transform: translate(-50%, -50%) scale(0.9); }
-      50%  { transform: translate(-48%, -52%) scale(1.05); }
-      100% { transform: translate(-52%, -48%) scale(1); }
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 0; }
+      5% { opacity: 0.3; }
+      15% { opacity: 0.6; }
+      30% { opacity: 0.8; }
+      70% { opacity: 0.6; }
+      90% { opacity: 0.2; }
+      100% { transform: translateY(-700px) scale(1.5); opacity: 0; }
     }
 
     .hero-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      text-align: center;
       position: relative;
-      z-index: 1;
+      z-index: 5; /* 光より手前に */
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 0 20px;
+      /* テキスト全体をふんわり浮かせる */
+      animation: contentFloat 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes contentFloat {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
     }
 
     .hero-content {
-      color: #333;
+      width: 100%;
     }
 
     .hero-label {
-      font-size: 11px;
-      letter-spacing: 3px;
+      font-size: 12px;
+      letter-spacing: 6px;
       text-transform: uppercase;
-      margin-bottom: 14px;
+      margin-bottom: 28px;
       color: #1a5490;
-      font-weight: 500;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
     }
 
+    .hero-label::before, .hero-label::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 30px;
+      height: 1px;
+      background: #1a5490;
+      opacity: 0.4;
+    }
+    .hero-label::before { right: 100%; margin-right: 15px; }
+    .hero-label::after { left: 100%; margin-left: 15px; }
+
     .hero-title {
-      font-size: 36px;
+      font-size: 52px;
       font-weight: 700;
-      line-height: 1.5;
-      margin-bottom: 20px;
-      color: #1a3a5c;
+      line-height: 1.3;
+      margin-bottom: 36px;
+      /* グラデーションテキストで先進感を */
+      background: linear-gradient(45deg, #0f2027, #203a43, #2c5364);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: #1a3a5c; /* フォールバック */
+      letter-spacing: 0.05em;
+      position: relative;
+    }
+
+    /* タイトルの背後に薄い光 */
+    .hero-title::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120%;
+      height: 120%;
+      background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+      z-index: -1;
+      filter: blur(20px);
     }
 
     .hero-lead {
-      font-size: 15px;
-      line-height: 1.9;
-      margin-bottom: 28px;
-      color: #555;
+      font-size: 16px;
+      line-height: 2.2;
+      margin-bottom: 48px;
+      color: #4a5568;
+      font-weight: 400;
     }
 
-    .hero-visual {
-      width: 100%;
-      height: 420px;
-      background: #fff;
-      border-radius: 8px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 8px 24px rgba(26, 84, 144, 0.12);
-      border-top: 4px solid #1a5490;
-    }
-
-    .hero-visual img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    /* =========================================
+       HERO SECTION MODIFICATION END
+    ========================================= */
 
     .section {
       padding: 64px 0;
@@ -554,145 +684,228 @@
       text-align: center;
     }
 
+    .brand-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .brand-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    }
+
+    .brand-logo-area {
+      background: #fff;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 160px; /* min-heightではなくheightで固定 */
+    }
+
+    .brand-logo-area img {
+      max-width: 100%;
+      max-height: 110px;
+      object-fit: contain;
+    }
+
+    .brand-info {
+      background: #fafaf9;
+      padding: 12px 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: #2a2a2a;
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-desc {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 0;
+      flex: 1;
+    }
+
+    .brand-link {
+      font-size: 13px;
+      color: #1a5490;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .brand-link:hover {
+      gap: 10px;
+    }
+
+    .brand-link::after {
+      content: '→';
+      font-size: 16px;
+    }
+
+    .brand-logo-relax-heal img {
+      max-height: 150px !important;
+    }
+
+    .brand-logo-sauna-crown img {
+      max-height: 90px !important;
+    }
+
+    /* =========================================
+       SERVICE SECTION ANIMATION RESTORATION START
+       背景アニメーションの復元とブラッシュアップ
+    ========================================= */
     #service {
       position: relative;
       overflow: hidden;
-      z-index: 0;
+      z-index: 1;
+      /* デフォルトの背景色：クリーンな白 */
+      background-color: #ffffff;
+      transition: background-color 0.5s ease;
     }
 
+    /* 広がる円のアニメーション要素 */
     #service::before {
       content: '';
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 0;
-      height: 0;
+      width: 10px; /* 初期値 */
+      height: 10px; /* 初期値 */
       border-radius: 50%;
-      background: radial-gradient(circle, #1a3a5c 0%, #2d5a7b 60%, #0d1b2a 100%);
+      /* 広がった後の色：洗練されたアイスブルーグレーのグラデーション */
+      background: radial-gradient(circle, #f0f4f8 0%, #e6ecf4 100%);
       transform: translate(-50%, -50%) scale(0);
-      transition: transform 1.2s ease-out;
-      z-index: 0;
+      transition: transform 2.2s cubic-bezier(0.2, 0.8, 0.3, 1); /* ゆったりとした動き：1.0s → 2.2s */
+      transition-delay: 0.3s; /* 0.3秒遅延させて、画面に入ってから少し間を置く */
+      z-index: -1; /* コンテンツより奥 */
+      pointer-events: none;
     }
 
+    /* アクティブクラスが付与された時の状態 */
     #service.service-active::before {
-      width: 200vmax;
-      height: 200vmax;
-      transform: translate(-50%, -50%) scale(1);
+      /* 画面全体を覆うサイズまで拡大 */
+      transform: translate(-50%, -50%) scale(300);
     }
 
-    #service .section-header,
-    #service .service-list,
-    #service .service-footer {
+    /* コンテンツは背景より手前に */
+    #service .container {
       position: relative;
-      z-index: 1;
-      transition: color 0.8s ease;
+      z-index: 2;
+    }
+    /* =========================================
+       SERVICE SECTION ANIMATION RESTORATION END
+    ========================================= */
+
+    .business-list {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
-    #service.service-active .section-title,
-    #service.service-active .section-label,
-    #service.service-active .section-desc {
-      color: #fff;
-    }
-
-    #service.service-active .service-item {
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-
-    #service.service-active .service-item-name,
-    #service.service-active .service-item-desc,
-    #service.service-active .service-item-arrow {
-      color: #fff;
-    }
-
-    #service.service-active .service-item:hover {
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    #service.service-active .btn-outline {
-      color: #fff;
-      border-color: #fff;
-    }
-
-    #service.service-active .btn-outline:hover {
+    .business-card {
+      display: flex;
       background: #fff;
-      color: #1a5490;
-    }
-
-    .service-list {
-      max-width: 900px;
-      margin: 0 auto 40px;
-    }
-
-    .brand-logo-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 24px;
-      margin: 0 auto 32px;
-    }
-
-    .brand-logo-row img {
-      max-height: 80px;
-      width: auto;
-      object-fit: contain;
-    }
-
-    .service-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 0;
-      border-bottom: 1px solid #e5e8ed;
-      transition: all 0.28s ease;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
       cursor: pointer;
     }
 
-    .service-item:hover {
-      background: #f5f7fb;
-      padding-left: 12px;
-      padding-right: 12px;
+    .business-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
     }
 
-    .service-item-name {
-      font-size: 17px;
-      font-weight: 600;
-      color: #1a3a5c;
-      min-width: 200px;
-      transition: transform 0.28s ease, letter-spacing 0.28s ease, text-shadow 0.28s ease;
+    .business-image {
+      width: 180px;
+      min-height: 100px;
+      overflow: hidden;
+      flex-shrink: 0;
     }
 
-    .service-item:hover .service-item-name {
-      transform: translateY(-2px);
-      letter-spacing: 0.04em;
-      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    .business-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    .service-item-desc {
+    .business-content {
+      padding: 14px 20px;
       flex: 1;
-      font-size: 14px;
-      color: #666;
-      padding: 0 24px;
-      transition: opacity 0.28s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .service-item:hover .service-item-desc {
-      opacity: 0.9;
-    }
-
-    .service-item-arrow {
-      font-size: 18px;
+    .business-tag {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
       color: #1a5490;
-      transition: transform 0.28s ease;
+      font-weight: 600;
+      margin-bottom: 4px;
     }
 
-    .service-item:hover .service-item-arrow {
-      transform: translateX(4px);
+    .business-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #2a2a2a;
+      margin-bottom: 6px;
     }
 
-    .service-footer {
-      text-align: center;
-      margin-top: 36px;
+    .business-desc {
+      font-size: 11px;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .business-link {
+      font-size: 12px;
+      color: #1a5490;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .business-link:hover {
+      gap: 10px;
+    }
+
+    .business-link::after {
+      content: '→';
+      font-size: 16px;
     }
 
     .works-list {
@@ -828,6 +1041,16 @@
     .news-category.cat-recruit {
       background: #fff3e0;
       color: #e65100;
+    }
+
+    .news-category.cat-media {
+      background: #f3e5f5;
+      color: #7b1fa2;
+    }
+
+    .news-category.cat-new {
+      background: #e0f2f1;
+      color: #00695c;
     }
 
     .news-title {
@@ -1221,7 +1444,15 @@
         right: 0;
       }
 
-      
+      .nav-list::before {
+        content: '03-1234-5678';
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #1a5490;
+      }
 
       .hamburger {
         display: flex;
@@ -1238,13 +1469,13 @@
         gap: 36px;
       }
 
+      /* 画像削除に伴うスタイル調整（SP） */
       .hero-visual {
-        height: 280px;
-        order: -1;
+        display: none; /* 念の為 */
       }
 
       .hero-title {
-        font-size: 28px;
+        font-size: 32px;
       }
 
       .hero-lead {
@@ -1268,18 +1499,74 @@
         height: 300px;
       }
 
-      .service-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+      .brand-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
       }
 
-      .service-item-name {
-        min-width: auto;
+      .brand-logo-area {
+        height: 140px; /* min-heightではなくheightで固定 */
+        padding: 16px 20px;
       }
 
-      .service-item-desc {
-        padding: 0;
+      .brand-logo-area img {
+        max-height: 110px;
+      }
+
+      .brand-logo-relax-heal img {
+        max-height: 140px !important;
+      }
+
+      .brand-logo-sauna-crown img {
+        max-height: 70px !important;
+      }
+
+      .brand-info {
+        padding: 10px 14px;
+        flex: 1;
+      }
+
+      .brand-name {
+        font-size: 16px;
+        margin-bottom: 6px;
+      }
+
+      .brand-desc {
+        font-size: 12px;
+        margin-bottom: 0;
+      }
+
+      .business-card {
+        flex-direction: row;
+      }
+
+      .business-image {
+        width: 120px;
+        min-height: 100px;
+      }
+
+      .business-content {
+        padding: 12px 14px;
+      }
+
+      .business-tag {
+        font-size: 9px;
+        margin-bottom: 3px;
+      }
+
+      .business-title {
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+
+      .business-desc {
+        font-size: 10px;
+        line-height: 1.5;
+        margin-bottom: 6px;
+      }
+
+      .business-link {
+        font-size: 11px;
       }
 
       .works-item {
@@ -1313,6 +1600,23 @@
       .life-grid {
         grid-template-columns: 1fr;
         gap: 24px;
+      }
+
+      .life-image {
+        height: 140px;
+      }
+
+      .life-body {
+        padding: 18px 16px;
+      }
+
+      .life-card h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .life-card p {
+        font-size: 12px;
       }
 
       .contact-content {
@@ -1370,21 +1674,26 @@
   <header class="header">
     <div class="header-inner">
       <div class="logo">
-        <div class="logo-en">ALIBA Inc.</div>
+        <div class="logo-en">aliba llc</div>
         <div class="logo-jp">合同会社aliba</div>
       </div>
       <div class="header-right">
+        <div class="header-contact">
+          <span class="header-contact-phone">03-1234-5678</span>
+          <span class="header-contact-time">平日 9:00-17:00</span>
+        </div>
         <div class="header-nav">
           <nav>
             <ul class="nav-list" id="navList">
-              <li><a href="#about">About us</a></li>
-              <li><a href="#service">ブランド</a></li>
-              <li><a href="#works">制作事業</a></li>
-              <li><a href="#news">NEWS</a></li>
-              <li><a href="#recruit">RECRUIT</a></li>
-              <li><a href="#contact">問い合わせ</a></li>
+              <li><a href="#about">about us</a></li>
+              <li><a href="#service">service</a></li>
+              <li><a href="#works">works</a></li>
+              <li><a href="#news">news</a></li>
+              <li><a href="#recruit">recruit</a></li>
+              <li><a href="#contact">contact</a></li>
             </ul>
           </nav>
+          <a href="#" class="btn btn-primary btn-small">資料ダウンロード</a>
         </div>
       </div>
       <div class="hamburger" id="hamburger">
@@ -1397,21 +1706,20 @@
 
   <main>
     <section class="hero">
-      <div class="hero-bg-shapes">
-        <span class="hero-shape hero-shape-1"></span>
-        <span class="hero-shape hero-shape-2"></span>
-        <span class="hero-shape hero-shape-3"></span>
-      </div>
+      <div class="hero-aurora"></div>
+      <div class="hero-particle hp-1"></div>
+      <div class="hero-particle hp-2"></div>
+      <div class="hero-particle hp-3"></div>
+      <div class="hero-ray"></div>
+      <div class="hero-ray-2"></div>
+
       <div class="container">
         <div class="hero-wrapper">
           <div class="hero-content">
             <div class="hero-label">BRAND STUDIO</div>
             <h1 class="hero-title">日常に、心地よさを。</h1>
-            <p class="hero-lead">alibaはジュエリー・癒しケア・サウナ・Web制作の4つのブランドを展開する小さなブランドスタジオです。ミニマルな世界観の中で、生活の質を静かに高めるプロダクトを届けています。</p>
+            <p class="hero-lead">alibaはジュエリー・癒しケア・サウナ・Web制作の4つのブランドを展開する小さなブランドスタジオです。<br>ミニマルな世界観の中で、生活の質を静かに高めるプロダクトを届けています。</p>
             <a href="#about" class="btn btn-primary">私たちについて</a>
-          </div>
-          <div class="hero-visual">
-            <img src="images/hero-logistics.jpg" alt="倉庫とトラックのイメージ" loading="eager" fetchpriority="high" decoding="async">
           </div>
         </div>
       </div>
@@ -1436,8 +1744,7 @@
           </div>
           <div class="about-image">
             <div class="about-image-inner">
-              <img src="images/about-logistics-team.jpg" alt="alibaブランドのイメージ" loading="lazy" decoding="async">
-              <div class="about-image-caption">心地よさを届けるブランドスタジオ</div>
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="alibaオフィス" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -1447,44 +1754,38 @@
     <section class="section section-bg-gray" id="service">
       <div class="container">
         <div class="section-header">
-          <div class="section-label">SERVICE</div>
-          <h2 class="section-title">事業内容</h2>
-          <p class="section-desc">4つのブランドを通じて、日常の質を高める選択肢を提供しています。</p>
+          <div class="section-label">BRANDS</div>
+          <h2 class="section-title">展開ブランド</h2>
+          <p class="section-desc">3つのブランドを通じて、日常の質を高める選択肢を提供しています。</p>
         </div>
-        <div class="brand-logo-row">
-          <img src="ロゴ/aliba.png" alt="aliba" loading="lazy" decoding="async">
-          <img src="ロゴ/relax heal.png" alt="Relax Heal" loading="lazy" decoding="async">
-          <img src="ロゴ/sauna crown.jpg" alt="Sauna Crown" loading="lazy" decoding="async">
-        </div>
-        <div class="service-list">
-          <div class="service-item">
-            <div class="service-item-name">aliba（ジュエリーブランド）</div>
-            <div class="service-item-desc">日常に溶け込むミニマルジュエリー。使うたびに気持ちが整う、控えめで美しいデザインを追求しています。</div>
-            <div class="service-item-arrow">→</div>
-          </div>
-          <div class="service-item">
-            <div class="service-item-name">Relax Heal（癒しケアブランド）</div>
-            <div class="service-item-desc">姿勢や疲れに寄り添う癒しケアブランド。デスクワークや在宅時間の「心地よさ」を高めるアイテムを展開しています。</div>
-            <div class="service-item-arrow">→</div>
-          </div>
-          <div class="service-item">
-            <div class="service-item-name">Sauna Crown（サウナブランド）</div>
-            <div class="service-item-desc">専門カラー監修のサウナハットブランド。サウナ時間を豊かにし、整いの質を高めるアイテムを制作しています。</div>
-            <div class="service-item-arrow">→</div>
-          </div>
-          <div class="service-item">
-            <div class="service-item-name">破格Web制作サービス</div>
-            <div class="service-item-desc">テンプレート＋AIコーディングを活用した、破格のWeb制作サービス。スモールビジネスの最初の一歩を支えます。</div>
-            <div class="service-item-arrow">→</div>
-          </div>
-          <div class="service-item">
-            <div class="service-item-name">Creative（ブランディング）</div>
-            <div class="service-item-desc">撮影・コピー制作・ビジュアル設計など、ブランドクリエイティブを外部案件にも提供しています。</div>
-            <div class="service-item-arrow">→</div>
-          </div>
-        </div>
-        <div class="service-footer">
-          <a href="#" class="btn btn-outline">事業内容一覧を見る</a>
+        <div class="brand-grid">
+          <a href="https://www.aliba.online/jewelry/" target="_blank" class="brand-card">
+            <div class="brand-logo-area">
+              <img src="ロゴ/aliba.png" alt="aliba" loading="lazy" decoding="async">
+            </div>
+            <div class="brand-info">
+              <div class="brand-name">aliba</div>
+              <div class="brand-desc">日常に溶け込むミニマルジュエリー。使うたびに気持ちが整う、控えめで美しいデザインを追求しています。</div>
+            </div>
+          </a>
+          <a href="https://relaxheal.vercel.app" target="_blank" class="brand-card">
+            <div class="brand-logo-area brand-logo-relax-heal">
+              <img src="ロゴ/relax heal.png" alt="Relax Heal" loading="lazy" decoding="async">
+            </div>
+            <div class="brand-info">
+              <div class="brand-name">relax heal</div>
+              <div class="brand-desc">姿勢や疲れに寄り添う癒しケアブランド。デスクワークや在宅時間の「心地よさ」を高めるアイテムを展開しています。</div>
+            </div>
+          </a>
+          <a href="https://saunacrwon.vercel.app" target="_blank" class="brand-card">
+            <div class="brand-logo-area brand-logo-sauna-crown">
+              <img src="ロゴ/sauna crown.jpg" alt="Sauna Crown" loading="lazy" decoding="async">
+            </div>
+            <div class="brand-info">
+              <div class="brand-name">Sauna Crown</div>
+              <div class="brand-desc">専門カラー監修のサウナハットブランド。サウナ時間を豊かにし、整いの質を高めるアイテムを制作しています。</div>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -1492,74 +1793,44 @@
     <section class="section" id="works">
       <div class="container">
         <div class="section-header">
-          <div class="section-label">WORKS</div>
-          <h2 class="section-title">制作実績</h2>
-          <p class="section-desc">ブランドごとの主な制作実績をご紹介します。</p>
+          <div class="section-label">BUSINESS</div>
+          <h2 class="section-title">制作事業</h2>
+          <p class="section-desc">ブランド運営で培ったノウハウを、外部制作サービスとして提供しています。</p>
         </div>
-        <div class="works-list">
-          <div class="works-item">
-            <div class="works-industry">JEWELRY</div>
-            <div class="works-info">
-              <h3>alibaミニマルリングコレクション</h3>
-              <div class="works-tags">
-                <span class="works-tag">ジュエリー</span>
-                <span class="works-tag">ミニマル</span>
-              </div>
+        <div class="business-list">
+          <div class="business-card">
+            <div class="business-image">
+              <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80" alt="Web制作" loading="lazy" decoding="async">
+            </div>
+            <div class="business-content">
+              <div class="business-tag">WEB DESIGN</div>
+              <div class="business-title">破格Webサービス</div>
+              <div class="business-desc">テンプレート＋AIコーディングを活用した破格のWeb制作サービス。スモールビジネスの最初の一歩を、高品質かつ低価格で支えます。</div>
+              <span class="business-link">詳細を見る</span>
             </div>
           </div>
-          <div class="works-item">
-            <div class="works-industry">WELLNESS</div>
-            <div class="works-info">
-              <h3>Relax Heal姿勢サポートクッション開発</h3>
-              <div class="works-tags">
-                <span class="works-tag">癒しケア</span>
-                <span class="works-tag">姿勢改善</span>
-              </div>
+          <div class="business-card">
+            <div class="business-image">
+              <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80" alt="SNS運用" loading="lazy" decoding="async">
+            </div>
+            <div class="business-content">
+              <div class="business-tag">SOCIAL MEDIA</div>
+              <div class="business-title">SNS運用代行</div>
+              <div class="business-desc">Instagram・X（Twitter）などのSNS運用を代行。コンテンツ企画から投稿、分析まで一貫してサポートします。ブランドの世界観を大切にした運用を行います。</div>
+              <span class="business-link">詳細を見る</span>
             </div>
           </div>
-          <div class="works-item">
-            <div class="works-industry">SAUNA</div>
-            <div class="works-info">
-              <h3>Sauna Crownサウナハット専門カラー監修</h3>
-              <div class="works-tags">
-                <span class="works-tag">サウナアイテム</span>
-                <span class="works-tag">カラーデザイン</span>
-              </div>
+          <div class="business-card">
+            <div class="business-image">
+              <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80" alt="AI画像制作" loading="lazy" decoding="async">
+            </div>
+            <div class="business-content">
+              <div class="business-tag">AI CREATION</div>
+              <div class="business-title">AI画像制作</div>
+              <div class="business-desc">最新のAI技術を活用した画像制作サービス。商品画像、SNS用ビジュアル、ブランドイメージなど、高品質な画像を低コストで制作します。短納期にも対応可能です。</div>
+              <span class="business-link">詳細を見る</span>
             </div>
           </div>
-          <div class="works-item">
-            <div class="works-industry">WEB</div>
-            <div class="works-info">
-              <h3>スモールビジネス向けLP制作（5万円〜）</h3>
-              <div class="works-tags">
-                <span class="works-tag">Web制作</span>
-                <span class="works-tag">低価格</span>
-              </div>
-            </div>
-          </div>
-          <div class="works-item">
-            <div class="works-industry">BRANDING</div>
-            <div class="works-info">
-              <h3>ブランド撮影・ビジュアル設計サポート</h3>
-              <div class="works-tags">
-                <span class="works-tag">撮影</span>
-                <span class="works-tag">ブランディング</span>
-              </div>
-            </div>
-          </div>
-          <div class="works-item">
-            <div class="works-industry">CREATIVE</div>
-            <div class="works-info">
-              <h3>コピーライティング・SNSクリエイティブ制作</h3>
-              <div class="works-tags">
-                <span class="works-tag">コピー</span>
-                <span class="works-tag">SNS</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="works-footer">
-          <a href="#" class="btn btn-outline">一覧を見る</a>
         </div>
       </div>
     </section>
@@ -1577,35 +1848,40 @@
           <div class="news-tab" data-category="recruit">RECRUIT</div>
         </div>
         <div class="news-list" id="newsList">
-          <div class="news-item" data-category="news">
-            <div class="news-date">2025.01.15</div>
-            <div class="news-category cat-news">NEWS</div>
-            <div class="news-title">alibaジュエリー新作コレクション発売開始のお知らせ</div>
+          <div class="news-item" data-category="new">
+            <div class="news-date">2025.09.12</div>
+            <div class="news-category cat-new">NEW</div>
+            <div class="news-title">メンズalibaジュエリー「alibaピアス」新作コレクション発売開始のお知らせ</div>
           </div>
-          <div class="news-item" data-category="news">
-            <div class="news-date">2025.01.10</div>
-            <div class="news-category cat-news">NEWS</div>
-            <div class="news-title">Sauna Crownサウナハット限定カラー追加しました</div>
+          <div class="news-item" data-category="new">
+            <div class="news-date">2025.07.25</div>
+            <div class="news-category cat-new">NEW</div>
+            <div class="news-title">Sauna Crown・サウナハットの新作が発売されました</div>
           </div>
-          <div class="news-item" data-category="news">
-            <div class="news-date">2025.01.05</div>
-            <div class="news-category cat-news">NEWS</div>
-            <div class="news-title">破格Web制作サービス、新年キャンペーン開始</div>
+          <div class="news-item" data-category="media">
+            <div class="news-date">2025.06.18</div>
+            <div class="news-category cat-media">MEDIA</div>
+            <div class="news-title">Sauna Crownのサウナハットが雑誌「SAUNABROS」に掲載されました</div>
           </div>
-          <div class="news-item" data-category="news">
-            <div class="news-date">2024.12.20</div>
-            <div class="news-category cat-news">NEWS</div>
-            <div class="news-title">Relax Heal姿勢サポートクッション新モデル発売</div>
+          <div class="news-item" data-category="media">
+            <div class="news-date">2025.03.22</div>
+            <div class="news-category cat-media">MEDIA</div>
+            <div class="news-title">Relax Healが通販番組「バズルの泉」に特集されました</div>
           </div>
-          <div class="news-item" data-category="news">
-            <div class="news-date">2024.12.10</div>
-            <div class="news-category cat-news">NEWS</div>
-            <div class="news-title">alibaブランド公式Instagram開設しました</div>
+          <div class="news-item" data-category="media">
+            <div class="news-date">2025.03.15</div>
+            <div class="news-category cat-media">MEDIA</div>
+            <div class="news-title">alibaメンズアイテムが雑誌「BEGIN」に掲載されました</div>
           </div>
-          <div class="news-item" data-category="news">
-            <div class="news-date">2024.11.28</div>
-            <div class="news-category cat-news">NEWS</div>
-            <div class="news-title">Sauna Crownポップアップストア開催のお知らせ</div>
+          <div class="news-item" data-category="new">
+            <div class="news-date">2024.12.08</div>
+            <div class="news-category cat-new">NEW</div>
+            <div class="news-title">Sauna Crownの新作が発売されました</div>
+          </div>
+          <div class="news-item" data-category="media">
+            <div class="news-date">2024.03.28</div>
+            <div class="news-category cat-media">MEDIA</div>
+            <div class="news-title">alibaレディースアイテムが「美人百貨」に掲載されました</div>
           </div>
         </div>
         <div class="news-footer">
@@ -1684,9 +1960,10 @@
         <div class="contact-content">
           <div class="contact-cta">
             <h3>お気軽にご相談ください</h3>
-            <a href="/contact/" class="btn btn-primary">お問い合わせフォームへ</a>
+            <a href="#" class="btn btn-primary">お問い合わせフォームへ</a>
           </div>
-          
+          <div class="contact-info">
+            <div class="contact-phone">03-1234-5678</div>
             <div class="contact-hours">受付時間:平日 9:00〜17:00</div>
           </div>
         </div>
@@ -1716,18 +1993,18 @@
         <div class="footer-nav">
           <h4>SITEMAP</h4>
           <ul>
-            <li><a href="#about">About us</a></li>
-            <li><a href="#service">ブランド</a></li>
-            <li><a href="#works">制作事業</a></li>
-            <li><a href="#news">NEWS</a></li>
-            <li><a href="#recruit">RECRUIT</a></li>
-            <li><a href="#contact">問い合わせ</a></li>
+            <li><a href="#about">about us</a></li>
+            <li><a href="#service">service</a></li>
+            <li><a href="#works">works</a></li>
+            <li><a href="#news">news</a></li>
+            <li><a href="#recruit">recruit</a></li>
+            <li><a href="#contact">contact</a></li>
           </ul>
         </div>
         <div class="footer-nav">
           <h4>INFORMATION</h4>
           <ul>
-            
+            <li><a href="#">資料ダウンロード</a></li>
             <li><a href="#">プライバシーポリシー</a></li>
             <li><a href="#">個人情報の取扱いについて</a></li>
             <li><a href="#">反社会的勢力に対する基本方針</a></li>
@@ -1879,7 +2156,8 @@
             });
           },
           {
-            threshold: 0.4
+            threshold: 0.25, // 0.4 → 0.25 に変更：セクションの25%が見えた時点でトリガー
+            rootMargin: '-80px 0px 0px 0px' // 上から80px進んでからトリガー
           }
         );
         serviceObserver.observe(serviceSection);
@@ -1963,3 +2241,4 @@
 
 </body>
 </html>
+
