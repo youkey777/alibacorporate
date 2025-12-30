@@ -1192,11 +1192,13 @@
     }
 
     .life-image img.is-minimal {
-      object-position: center 95%;
+      object-position: center center;
+      transform: translateY(10px);
     }
 
     .life-image img.is-comfort {
-      object-position: center 20%;
+      object-position: center center;
+      transform: translateY(-15px);
     }
 
     .life-body {
@@ -1533,10 +1535,12 @@
 
       .life-image img.is-minimal {
         object-position: center 80%;
+        transform: translateY(0);
       }
 
       .life-image img.is-comfort {
         object-position: center 15%;
+        transform: translateY(0);
       }
 
       .life-body {
