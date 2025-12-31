@@ -141,24 +141,161 @@
     @media (max-width: 760px) {
       .footer-content { grid-template-columns: 1fr; }
     }
-  </style>
+      .logo {
+      display: block;
+    }
+    .logo-image {
+      height: 48px;
+      width: auto;
+    }
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .nav-list {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-list a {
+      font-size: 14px;
+      font-weight: 400;
+      color: #333;
+      position: relative;
+    }
+    .nav-list a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #1a5490;
+      transition: width 0.2s;
+    }
+    .nav-list a:hover::after {
+      width: 100%;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 1003;
+    }
+    .hamburger span {
+      display: block;
+      width: 28px;
+      height: 3px;
+      background: #1a5490;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav-overlay {
+      display: none;
+    }
+    .nav-close {
+      display: none;
+    }
+    .nav-close-button {
+      border: none;
+      background: transparent;
+      font-size: 28px;
+      line-height: 1;
+      color: #1a5490;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    @media (max-width: 768px) {
+      .nav-list {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 220px;
+        height: 100vh;
+        background: #fff;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 80px;
+        gap: 20px;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s;
+        z-index: 1002;
+      }
+      .nav-list.active {
+        right: 0;
+      }
+      .nav-close {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        padding: 12px 20px 0 20px;
+      }
+      .nav-close-button {
+        font-size: 30px;
+      }
+      .nav-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s ease;
+        z-index: 1001;
+      }
+      .nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .logo-image {
+        height: 36px;
+      }
+    }</style>
 </head>
 <body>
-  <header class="site-header">
+    <header class="site-header">
     <div class="header-inner">
       <a class="logo" href="/">
-        <span class="logo-en">ALIBA Inc.</span>
-        <span class="logo-jp">合同会社aliba</span>
+        <img class="logo-image" src="/ロゴ/aliba-logo - コピー.png?v=4" alt="aliba llc">
       </a>
-      <nav class="header-nav">
-        <a href="/#about">About us</a>
-        <a href="/#service">ブランド</a>
-        <a href="/#works">制作事業</a>
-        <a href="/#news">NEWS</a>
-        <a href="/#recruit">RECRUIT</a>
-        <a href="/#contact">問い合わせ</a>
-      </nav>
+      <div class="header-nav">
+        <nav>
+          <ul class="nav-list" id="navList">
+            <li class="nav-close">
+              <button class="nav-close-button" type="button" aria-label="メニューを閉じる">×</button>
+            </li>
+            <li><a href="/#about">About us</a></li>
+            <li><a href="/#service">ブランド</a></li>
+            <li><a href="/#works">制作事業</a></li>
+            <li><a href="/#news">NEWS</a></li>
+            <li><a href="/#recruit">RECRUIT</a></li>
+            <li><a href="/#contact">問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
+    <div class="nav-overlay" id="navOverlay"></div>
   </header>
 
   <div class="container">
@@ -284,5 +421,45 @@
       </div>
     </div>
   </footer>
-</body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.getElementById('hamburger');
+      const navList = document.getElementById('navList');
+      const navOverlay = document.getElementById('navOverlay');
+      const navCloseButton = navList ? navList.querySelector('.nav-close-button') : null;
+      if (!hamburger || !navList || !navOverlay || !navCloseButton) return;
+
+      const closeMenu = () => {
+        hamburger.classList.remove('active');
+        navList.classList.remove('active');
+        navOverlay.classList.remove('active');
+      };
+
+      const openMenu = () => {
+        hamburger.classList.add('active');
+        navList.classList.add('active');
+        navOverlay.classList.add('active');
+      };
+
+      hamburger.addEventListener('click', () => {
+        if (navList.classList.contains('active')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+
+      navOverlay.addEventListener('click', closeMenu);
+      navCloseButton.addEventListener('click', closeMenu);
+
+      navList.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+    });
+  </script></body>
 </html>
+
+
+
+
+
