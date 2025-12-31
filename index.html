@@ -242,6 +242,24 @@
       width: 100%;
     }
 
+    .nav-overlay {
+      display: none;
+    }
+
+    .nav-close {
+      display: none;
+    }
+
+    .nav-close-button {
+      border: none;
+      background: transparent;
+      font-size: 28px;
+      line-height: 1;
+      color: #1a5490;
+      cursor: pointer;
+      padding: 0;
+    }
+
     .hamburger {
       display: none;
       flex-direction: column;
@@ -1358,7 +1376,7 @@
         position: fixed;
         top: 0;
         right: -100%;
-        width: 280px;
+        width: 220px;
         height: 100vh;
         background: #fff;
         flex-direction: column;
@@ -1372,6 +1390,33 @@
 
       .nav-list.active {
         right: 0;
+      }
+
+      .nav-close {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        padding: 12px 20px 0 20px;
+      }
+
+      .nav-close-button {
+        font-size: 30px;
+      }
+
+      .nav-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s ease;
+        z-index: 1001;
+      }
+
+      .nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
       }
 
       .hamburger {
@@ -1604,12 +1649,15 @@
   <header class="header">
     <div class="header-inner">
       <a class="logo" href="/">
-        <img class="logo-image" src="ロゴ/aliba-logo.png" alt="aliba llc">
+        <img class="logo-image" src="ロゴ/aliba-logo.png?v=2" alt="aliba llc">
       </a>
       <div class="header-right">
 <div class="header-nav">
           <nav>
             <ul class="nav-list" id="navList">
+              <li class="nav-close">
+                <button class="nav-close-button" type="button" aria-label="メニューを閉じる">×</button>
+              </li>
               <li><a href="#about">About us</a></li>
               <li><a href="#service">ブランド</a></li>
               <li><a href="#works">制作事業</a></li>
@@ -1627,6 +1675,7 @@
         <span></span>
       </div>
     </div>
+    <div class="nav-overlay" id="navOverlay"></div>
   </header>
 
   <main>
@@ -2068,18 +2117,35 @@
       // ハンバーガーメニュー
       const hamburger = document.getElementById('hamburger');
       const navList = document.getElementById('navList');
+      const navOverlay = document.getElementById('navOverlay');
+      const navCloseButton = navList.querySelector('.nav-close-button');
+
+      const closeMenu = () => {
+        hamburger.classList.remove('active');
+        navList.classList.remove('active');
+        navOverlay.classList.remove('active');
+      };
+
+      const openMenu = () => {
+        hamburger.classList.add('active');
+        navList.classList.add('active');
+        navOverlay.classList.add('active');
+      };
 
       hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navList.classList.toggle('active');
+        if (navList.classList.contains('active')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
       });
+
+      navOverlay.addEventListener('click', closeMenu);
+      navCloseButton.addEventListener('click', closeMenu);
 
       const navLinks = navList.querySelectorAll('a');
       navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          hamburger.classList.remove('active');
-          navList.classList.remove('active');
-        });
+        link.addEventListener('click', closeMenu);
       });
 
       // スムーススクロール
