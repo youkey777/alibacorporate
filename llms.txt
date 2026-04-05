@@ -1,0 +1,29 @@
+# aliba Inc. (合同会社aliba)
+
+> Web・SNS・AI制作事業と、ジュエリー・ウェルネス商品のD2Cブランドを運営する日本の企業。
+
+## Corporate
+- [会社概要](https://www.aliba.online/): 合同会社alibaコーポレートサイト
+- [Web制作サービス](https://www.aliba.online/services/web/): Webサイト制作サービス
+- [SNS運用サービス](https://www.aliba.online/services/sns/): SNS運用代行サービス
+- [AI導入支援サービス](https://www.aliba.online/services/ai/): AI活用支援サービス
+- [お知らせ](https://www.aliba.online/news/): ニュース・お知らせ
+- [お問い合わせ](https://www.aliba.online/contact/): お問い合わせフォーム
+- [プライバシーポリシー](https://www.aliba.online/policies/privacy/): 個人情報保護方針
+
+## Aliva Luxe Jewelry (aliba jewelry)
+- [ジュエリーTOP](https://www.aliba.online/jewelry/): サージカルステンレス・モアサナイトの低アレルギージュエリーブランド。メンズ・レディースのピアス、ネックレス、財布を展開。
+- [コラム: サージカルステンレスピアスの選び方](https://www.aliba.online/jewelry/column-surgical-steel-earrings.html): 金属アレルギー対応ピアスの選び方ガイド
+
+## relax heal
+- [relax heal TOP](https://www.aliba.online/relaxheal/): 医療監修ジェルクッション・姿勢ケアブランド
+- [サービス・商品概要](https://www.aliba.online/relaxheal/service.html): 商品ラインナップと特長
+- [全商品一覧](https://www.aliba.online/relaxheal/categories/all.html): 全カテゴリの商品一覧
+- [通常サイズクッション](https://www.aliba.online/relaxheal/categories/normal.html): 標準サイズのジェルクッション
+- [大型クッション](https://www.aliba.online/relaxheal/categories/large.html): 大きめサイズのジェルクッション
+- [カラーカバークッション](https://www.aliba.online/relaxheal/categories/color-cover.html): カバー付きジェルクッション
+- [厚型クッション](https://www.aliba.online/relaxheal/categories/thick.html): 厚みのあるジェルクッション
+- [ドーナツクッション](https://www.aliba.online/relaxheal/categories/donut.html): ドーナツ型ジェルクッション
+- [低反発クッション](https://www.aliba.online/relaxheal/categories/low-rebound.html): 低反発ジェルクッション
+- [ネックストレッチャー](https://www.aliba.online/relaxheal/categories/neck-stretcher.html): 首ストレッチ・ケア製品
+- [ニュース](https://www.aliba.online/relaxheal/news/all.html): relax healのお知らせ

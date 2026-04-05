@@ -1,4 +1,27 @@
 User-agent: *
 Allow: /
 
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
 Sitemap: https://www.aliba.online/sitemap.xml
+Sitemap: https://www.aliba.online/jewelry/sitemap.xml
+Sitemap: https://www.aliba.online/relaxheal/sitemap.xml
