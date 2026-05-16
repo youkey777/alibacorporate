@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sauna Crown | 本格派サウナハット</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #060607;
+        --ink: #f5f5f1;
+        --muted: #bfbfb8;
+        --accent: #f6d64a;
+        --accent-alt: #ff6e48;
+        --card: #121217;
+        --line: rgba(255, 255, 255, 0.08);
+        --radius: 28px;
+        --transition: 0.5s cubic-bezier(0.6, 0, 0.4, 1);
+        --ticker-bg: #2a1c14;
+        --ticker-ink: #fff5dc;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        overflow-x: clip;
+      }
+
+      body {
+        margin: 0;
+        font-family: "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
+          "Helvetica Neue", "Segoe UI", "Yu Gothic", sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.7;
+        letter-spacing: 0.01em;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .ticker {
+        position: sticky;
+        top: 0;
+        z-index: 120;
+        background: var(--ticker-bg);
+        color: var(--ticker-ink);
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: none;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .ticker-track {
+        display: flex;
+        width: max-content;
+        animation: ticker 22s linear infinite;
+      }
+
+      .ticker span {
+        padding: 10px 32px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.8rem;
+        white-space: nowrap;
+      }
+
+      @keyframes ticker {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      header {
+        position: sticky;
+        top: 38px;
+        z-index: 100;
+        background: rgba(6, 6, 7, 0.8);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(12px);
+      }
+
+      .nav-inner {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 14px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .logo-img {
+        height: 32px;
+        width: auto;
+        object-fit: contain;
+        display: block;
+      }
+
+      .logo span {
+        letter-spacing: 0.4em;
+        font-size: 0.85rem;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 26px;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+        color: var(--muted);
+        transition: color 0.2s;
+      }
+
+      nav a:hover {
+        color: var(--ink);
+      }
+
+      .btn-ghost {
+        border: 1px solid var(--ink);
+        border-radius: 999px;
+        padding: 6px 18px;
+        font-size: 0.78rem;
+        letter-spacing: 0.2em;
+      }
+
+      .hamburger {
+        display: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid var(--ink);
+        background: transparent;
+        color: var(--ink);
+        font-size: 1.1rem;
+      }
+
+      .mobile-nav {
+        display: none;
+        flex-direction: column;
+        background: rgba(6, 6, 7, 0.9);
+        border-top: 1px solid var(--line);
+        padding: 20px;
+      }
+
+      .mobile-nav a {
+        color: var(--muted);
+        padding: 8px 0;
+      }
+
+      main {
+        margin-top: 60px;
+      }
+
+      section {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 120px 24px 60px;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 90vh;
+        padding-top: 20px;
+        overflow: hidden;
+      }
+
+      .collage {
+        position: relative;
+        min-height: 70vh;
+      }
+
+      .collage-item {
+        position: absolute;
+        width: clamp(160px, 26vw, 320px);
+        height: clamp(190px, 32vw, 420px);
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+        transition: transform 0.6s ease, filter 0.6s ease;
+        background: #2a2a2a;
+        padding: 6px;
+      }
+
+      .collage-item img {
+        border-radius: calc(var(--radius) - 8px);
+      }
+
+      .collage-item figcaption {
+        position: absolute;
+        bottom: 12px;
+        left: 16px;
+        background: rgba(0, 0, 0, 0.55);
+        padding: 4px 12px;
+        border-radius: 999px;
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+      }
+
+      .collage-item:hover {
+        transform: translateY(-8px) scale(1.02);
+        filter: saturate(1.2);
+      }
+
+      .collage-item:nth-child(1) {
+        top: 4%;
+        left: 8%;
+        transform: rotate(-4deg);
+      }
+
+      .collage-item:nth-child(2) {
+        top: -15%;
+        right: 18%;
+        transform: rotate(3deg);
+      }
+
+      .collage-item:nth-child(3) {
+        top: 30%;
+        left: 4%;
+        width: clamp(180px, 30vw, 360px);
+        height: clamp(200px, 28vw, 360px);
+        transform: rotate(6deg);
+      }
+
+      .collage-item:nth-child(4) {
+        top: 32%;
+        right: -9%;
+        transform: rotate(-7deg);
+      }
+
+      .collage-item:nth-child(5) {
+        top: 35%;
+        left: 32%;
+        transform: rotate(-2deg);
+      }
+
+      .collage-item:nth-child(6) {
+        top: 20%;
+        left: 32%;
+        width: clamp(160px, 20vw, 260px);
+        height: clamp(200px, 26vw, 320px);
+        transform: rotate(9deg);
+      }
+
+      .collage-item:nth-child(7) {
+        top: 54%;
+        left: 8%;
+        width: clamp(180px, 24vw, 300px);
+        height: clamp(210px, 30vw, 360px);
+        transform: rotate(-3deg);
+      }
+
+      .collage-item:nth-child(8) {
+        top: 6%;
+        right: -2%;
+        width: clamp(140px, 18vw, 220px);
+        height: clamp(180px, 22vw, 260px);
+        transform: rotate(-10deg);
+      }
+
+      .collage-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .collage-item[data-fit="contain"] img {
+        object-fit: cover;
+      }
+
+      .hero-text {
+        position: relative;
+        max-width: 640px;
+        margin: 40px auto 0;
+        padding: 28px 24px 30px;
+        background: rgba(6, 6, 7, 0.78);
+        border-radius: 32px;
+        border: 1px solid var(--line);
+        backdrop-filter: blur(18px);
+        text-align: center;
+      }
+
+      .hero-text small {
+        text-transform: uppercase;
+        letter-spacing: 0.28em;
+        font-size: 0.7rem;
+        color: var(--muted);
+      }
+
+      .hero-text h1 {
+        margin: 18px 0 14px;
+        font-family: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        font-size: clamp(2.0rem, 4.2vw, 2.9rem);
+        line-height: 1.6;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-text h1 span {
+        display: block;
+      }
+
+      .hero-text h1 span:first-child {
+        font-size: 1em;
+      }
+
+      .hero-text h1 span:last-child {
+        font-size: 1em;
+      }
+
+      .hero-text p {
+        margin-bottom: 24px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .btn {
+        padding: 12px 26px;
+        border-radius: 999px;
+        border: 1px solid var(--ink);
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-size: 0.8rem;
+        transition: background var(--transition), color var(--transition),
+          transform var(--transition);
+      }
+
+      .btn-primary {
+        background: var(--accent-alt);
+        border: none;
+        color: #050505;
+        box-shadow: 0 15px 40px rgba(255, 110, 72, 0.3);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-4px);
+      }
+
+      .btn-outline {
+        color: var(--ink);
+      }
+
+      .btn-outline:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .section-eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.35em;
+        color: var(--muted);
+        font-size: 0.75rem;
+        display: block;
+        margin-bottom: 12px;
+      }
+
+      .section-title {
+        font-size: clamp(1.7rem, 3vw, 2.8rem);
+        margin-bottom: 38px;
+      }
+
+      .info-bar {
+        width: 100%;
+        background: #111318;
+        color: var(--muted);
+        text-align: center;
+        letter-spacing: 0.3em;
+        font-size: 0.8rem;
+        padding: 14px 0;
+      }
+
+      .scrap-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+      }
+
+      .scrap-card {
+        padding: 16px;
+        border-radius: var(--radius);
+        background: var(--card);
+        border: 1px solid var(--line);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .scrap-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.12), transparent 60%);
+        mix-blend-mode: screen;
+        pointer-events: none;
+      }
+
+      .scrap-image {
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+        border-radius: calc(var(--radius) - 6px);
+        margin-bottom: 10px;
+        background: #050505;
+        flex-shrink: 0;
+      }
+
+      .scrap-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .scrap-card h3 {
+        margin: 0 0 6px;
+        font-size: 0.95rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .scrap-card p {
+        color: var(--muted);
+        margin: 0;
+        font-size: 0.85rem;
+        line-height: 1.6;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Media */
+      .media {
+        margin: 96px auto 0;
+      }
+
+      .media .section-eyebrow,
+      .media .section-title {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .media-feature {
+        position: relative;
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), transparent 55%),
+          radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.06), transparent 55%),
+          #111318;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .media-feature img {
+        width: 100%;
+        height: auto;
+        max-height: 520px;
+        object-fit: contain;
+        display: block;
+        background: #030304;
+        padding: 20px;
+      }
+
+      .media-content {
+        position: relative;
+        padding: 22px 28px 28px;
+        background: rgba(5, 5, 6, 0.85);
+        color: var(--ink);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        border-bottom-left-radius: var(--radius);
+        border-bottom-right-radius: var(--radius);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        margin-top: -4px;
+      }
+
+      .media-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.75rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        padding: 4px 12px;
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+      }
+
+      .media-headline {
+        font-size: clamp(1.05rem, 2vw, 1.3rem);
+        font-weight: 600;
+        margin: 8px 0 4px;
+      }
+
+      .media-sub {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .concept-visual {
+        margin: 80px auto 0;
+        text-align: center;
+      }
+
+      .concept-visual figure {
+        margin: 0 auto;
+        max-width: 960px;
+        max-height: 300px;
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: #0d0d10;
+      }
+
+      .concept-visual img {
+        width: 100%;
+        height: 100%;
+        max-height: 400px;
+        object-fit: contain;
+        display: block;
+      }
+
+      .lineup {
+        position: relative;
+      }
+
+      .lineup-grid {
+        display: grid;
+        gap: 32px;
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .lineup-item {
+        background: var(--card);
+        border-radius: var(--radius);
+        padding: 16px;
+        border: 1px solid var(--line);
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .lineup-item figure {
+        margin: 0;
+        border-radius: calc(var(--radius) - 6px);
+        overflow: hidden;
+        padding: 14px;
+        background: #0c0d10;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .lineup-item figure img {
+        border-radius: 14px;
+        transition: transform 0.6s ease, filter 0.6s ease;
+      }
+
+      .lineup-item:hover figure img {
+        transform: scale(1.07);
+        filter: saturate(1.1);
+      }
+
+      .tag {
+        display: inline-flex;
+        padding: 6px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+      }
+
+      .price {
+        font-weight: 700;
+        font-size: 1.05rem;
+      }
+
+      .lineup-more {
+        margin-top: 24px;
+        text-align: center;
+      }
+
+      .lineup-desc-short {
+        display: none;
+      }
+
+      .issues-grid {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .issue-card {
+        padding: 20px;
+        border-radius: var(--radius);
+        border: 1px dashed rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.02);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .issue-card-image {
+        width: 100%;
+        aspect-ratio: 16 / 9; max-height: 120px;
+        border-radius: calc(var(--radius) - 8px);
+        overflow: hidden;
+        background: #050505;
+        margin-bottom: 8px;
+      }
+
+      .issue-card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      footer {
+        padding: 60px 24px;
+        text-align: center;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 18px;
+      }
+
+      /* デスクトップ: 1025px以上 */
+      @media (min-width: 1025px) {
+        .collage-item:nth-child(1) {
+          top: -6%;
+        }
+
+        .collage-item:nth-child(5) {
+          left: 42%;
+        }
+      }
+
+      /* タブレット: 769px〜1024px */
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .hero {
+          padding-top: 30px;
+        }
+
+        .hero-text {
+          margin-top: 40px;
+        }
+
+        .collage-item:nth-child(5) {
+          left: 52%;
+        }
+
+        .lineup-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .issues-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* モバイル: 768px以下 */
+      @media (max-width: 768px) {
+        header {
+          top: 38px;
+        }
+
+        nav ul {
+          display: none;
+        }
+
+        .hamburger {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .mobile-nav.open {
+          display: flex;
+        }
+
+        .ticker span {
+          letter-spacing: 0.08em;
+          font-size: 0.7rem;
+          padding: 10px 18px;
+        }
+
+        .hero {
+          min-height: 100vh;
+          padding: 18px 2px 40px;
+        }
+
+        .collage {
+          min-height: 100vh;
+          transform: none;
+          transform-origin: top center;
+          margin-inline: -2px;
+        }
+
+        .collage-item:nth-child(5) {
+          top: 50%;
+        }
+
+        .hero-text {
+          margin-top: 24px;
+          padding: 22px 18px 26px;
+        }
+
+        .hero-text h1 {
+          font-size: 1.9rem;
+          line-height: 1.6;
+          letter-spacing: 0.04em;
+        }
+
+        .hero-text p {
+          font-size: 0.85rem;
+        }
+
+        .media {
+          margin-top: 72px;
+        }
+
+        .media-feature img {
+          max-height: 270px;
+          padding: 12px;
+        }
+
+        .media-content {
+          padding: 18px 16px 20px;
+        }
+
+        .media-headline {
+          font-size: 1rem;
+        }
+
+        .scrap-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .scrap-card {
+          padding: 14px 12px;
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+          align-items: stretch;
+          gap: 14px;
+          min-height: auto;
+        }
+
+        .scrap-image {
+          width: 100%;
+          height: 100%;
+          aspect-ratio: 4 / 3;
+          margin-bottom: 0;
+        }
+
+        .scrap-card h3 {
+          font-size: 0.95rem;
+          line-height: 1.5;
+        }
+
+        .scrap-card p {
+          font-size: 0.82rem;
+          line-height: 1.6;
+        }
+
+        .concept-visual figure {
+          max-width: 100%;
+        }
+
+        .concept-visual-line1,
+        .concept-visual-line2 {
+          display: block;
+        }
+
+        .lineup-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 14px;
+        }
+
+        .lineup-item {
+          padding: 12px;
+        }
+
+        .lineup-desc {
+          display: none;
+        }
+
+        .lineup-desc-short {
+          display: block;
+        }
+
+        .issues-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+
+        .issue-card h4 {
+          margin-bottom: 6px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .lineup-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .lineup-item .btn {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>♨ Deep Fit Sauna Hat / 目元まで沈めて整う準備</span>
+        <span>🧖‍♀ カラーデザイナー監修 "サウナ専用カラー"</span>
+        <span>🔥 本格サウナー向けギアブランド Sauna Crown</span>
+        <span>📚 SAUNABROS掲載モデル / Amazon ブランドストア公開中</span>
+        <span>♨ Deep Fit Sauna Hat / 目元まで沈めて整う準備</span>
+        <span>🧖‍♀ カラーデザイナー監修 "サウナ専用カラー"</span>
+        <span>🔥 本格サウナー向けギアブランド Sauna Crown</span>
+        <span>📚 SAUNABROS掲載モデル / Amazon ブランドストア公開中</span>
+      </div>
+    </div>
+
+    <header>
+      <div class="nav-inner">
+        <div class="logo">
+          <img src="ロゴ/rogo.jpg" alt="Sauna Crown ロゴ" class="logo-img" />
+          <span>SAUNA CROWN</span>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#store">Store</a></li>
+            <li><a href="#concept">Concept</a></li>
+            <li><a href="#media">Media</a></li>
+            <li><a href="issues/index.html">Issues</a></li>
+            <li><a class="btn-ghost" href="#lineup">Cart</a></li>
+          </ul>
+        </nav>
+        <button class="hamburger" aria-label="open menu">☰</button>
+      </div>
+      <div class="mobile-nav">
+        <a href="#store">Store</a>
+        <a href="#concept">Concept</a>
+        <a href="#media">Media</a>
+        <a href="issues/index.html">Issues</a>
+        <a href="#lineup">Cart</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="store">
+        <div class="collage">
+          <figure class="collage-item" data-style="wide">
+            <img src="画像/カルーセル/P1036574.JPG" alt="フェスでSauna Crownを被るサウナー" />
+            <figcaption>FES DROP</figcaption>
+          </figure>
+          <figure class="collage-item" data-style="portrait">
+            <img src="画像/カルーセル/P1047830.JPG" alt="Sauna Crownモデル撮影風景" />
+            <figcaption>URBAN SNAP</figcaption>
+          </figure>
+          <figure class="collage-item" data-style="square">
+            <img src="画像/カルーセル/WqrcIfv1RJ_qW-HeDFryR_f36cc1d2ce844972adc92aa61f55e092.png" alt="蒸気とサウナハット" />
+            <figcaption>STEAM MODE</figcaption>
+          </figure>
+          <figure class="collage-item" data-style="wide">
+            <img src="画像/カルーセル/メイン.jpg" alt="サウナハットのクローズアップ" />
+            <figcaption>MAIN VISUAL</figcaption>
+          </figure>
+          <figure class="collage-item" data-style="square">
+            <img src="画像/カルーセル/没の方.png" alt="Sauna Crown ギアセット" />
+            <figcaption>GEAR SET</figcaption>
+          </figure>
+          <figure class="collage-item" data-style="square">
+            <img src="画像/カルーセル/選ばれる理由.png" alt="Sauna Crown カラーライン" />
+            <figcaption>COLOR REASON</figcaption>
+          </figure>
+          <figure class="collage-item" data-style="portrait" data-fit="contain">
+            <img src="画像/カルーセル/外気浴.jpg" alt="外気浴シーン" />
+            <figcaption>BREATHER</figcaption>
+          </figure>
+          <figure class="collage-item" data-style="portrait" data-fit="contain">
+            <img src="画像/カルーセル/１のコピー7.png" alt="Sauna Crown ディスプレイ" />
+            <figcaption>COLOR LAB</figcaption>
+          </figure>
+        </div>
+
+        <div class="hero-text">
+          <small>SAUNA CROWN IS SAUNA HAT BRAND FROM JAPAN</small>
+          <h1>
+            <span>サ室もサウナハットも、</span>
+            <span>Sauna Crownが熱い。</span>
+          </h1>
+          <p>
+            目元まで沈めて視界を閉じ、熱から頭部をバリア。カラーデザイナーと作るユニセックスカラーで、サウナフェスでも日常のサ活でもギア感を纏う。
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://www.amazon.co.jp/stores/SaunaCrown/page/FA0B8FF3-03C7-4098-9A84-69EEEC456238" target="_blank" rel="noopener">Amazon Store</a>
+            <a class="btn btn-outline" href="#lineup">Lineup</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="info-bar">SAUNA GEAR / IMMERSION SILHOUETTE / COLOR DESIGNED FOR SAUNA</div>
+
+      <section id="concept">
+        <span class="section-eyebrow">Concept</span>
+        <h2 class="section-title">整いフリークのための、歪な熱量。</h2>
+        <div class="scrap-grid">
+          <article class="scrap-card">
+            <div class="scrap-image">
+              <img src="画像/コンセプト/没入シルエット.png" alt="没入シルエット" />
+            </div>
+            <div>
+              <h3>視線を遮断する没入シルエット</h3>
+              <p>目元まで下ろせる断面で光量を絞り、呼吸と鼓動だけに集中。サ室も外気浴も自分専用のスタジオにシフトする。</p>
+            </div>
+          </article>
+          <article class="scrap-card">
+            <div class="scrap-image">
+              <img src="画像/コンセプト/サウナ専用カラー.png" alt="サウナ専用カラー" />
+            </div>
+            <div>
+              <h3>カラーラボ発・サウナ専用カラー</h3>
+              <p>ウッド、蒸気、夜空。サウナの風景から抽出したトーンで、フェスでも"分かってる感"を添えるユニセックス展開。</p>
+            </div>
+          </article>
+          <article class="scrap-card">
+            <div class="scrap-image">
+              <img src="画像/コンセプト/本格クオリティ.png" alt="本格クオリティ" />
+            </div>
+            <div>
+              <h3>コスパ良し、本格クオリティ</h3>
+              <p>綿主体で洗えるタフさと、熱保護の厚みを両立。毎週のサ活にガシガシ投入できる価格帯で提供。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="media" id="media">
+        <span class="section-eyebrow">Media</span>
+        <h2 class="section-title">サウナ雑誌「SAUNABROS」に掲載されました。</h2>
+        <div class="media-feature">
+          <img src="画像/メディア掲載.png" alt="サウナ雑誌の誌面とサウナハット" />
+          <div class="media-content">
+            <div class="media-label">
+              <span>MEDIA</span>
+              <span>SAUNABROS</span>
+            </div>
+            <p class="media-headline">サウナ専門誌『SAUNABROS』で、Sauna Crown のサウナハットが本格ギアとして紹介されました。</p>
+            <p class="media-sub">深くかぶれるシルエットや"サウナ専用カラー"へのこだわりが、サウナを愛する読者向けにピックアップされています。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="lineup" id="lineup">
+        <span class="section-eyebrow">Lineup</span>
+        <h2 class="section-title">Sauna Crown Gear Line</h2>
+        <div class="lineup-grid">
+          <article class="lineup-item">
+            <span class="tag">Calm Gray</span>
+            <figure>
+              <img src="画像/Gear　Line/20260516_complete-hat_B0DNX9YBV8.jpg" alt="完全没入ハット カームグレー" />
+            </figure>
+            <h3>完全没入ハット</h3>
+            <p class="lineup-desc">顔まわりまで覆える大きめ設計で、視線や明るさを遮り自分だけの世界に没入。綿100％の二重構造に、ループと専用袋も備えたカームグレーのハット。</p>
+            <p class="lineup-desc-short">顔まわりまで覆えて没入しやすい綿100％ハット。</p>
+            <div class="price">￥3,480</div>
+            <a class="btn btn-outline" href="https://www.amazon.co.jp/dp/B0DNX9YBV8?th=1" target="_blank" rel="noopener">Buy on Amazon</a>
+          </article>
+          <article class="lineup-item">
+            <span class="tag">Shadow Black</span>
+            <figure>
+              <img src="画像/Gear　Line/20260516_pocket-deep-hat_B0DNXBJRF5.jpg" alt="ポケット付き深めサウナハット シャドウブラック" />
+            </figure>
+            <h3>ポケット付き深めサウナハット</h3>
+            <p class="lineup-desc">目元まで深く覆える設計で、明るいサウナ室でも瞑想や内省に入りやすい一枚。ロッカーキーをしまえるポケット付きの綿100％ハット。</p>
+            <p class="lineup-desc-short">深く被れて、ロッカーキー用ポケットも備えた綿100％ハット。</p>
+            <div class="price">￥3,680</div>
+            <a class="btn btn-outline" href="https://www.amazon.co.jp/dp/B0DNXBJRF5?th=1" target="_blank" rel="noopener">Buy on Amazon</a>
+          </article>
+          <article class="lineup-item">
+            <span class="tag">Misty Gray</span>
+            <figure>
+              <img src="画像/Gear　Line/20260516_brim-hat_B0CMH2LJC8.jpg" alt="つば付きサウナハット ミスティグレー" />
+            </figure>
+            <h3>つば付きサウナハット</h3>
+            <p class="lineup-desc">長いつばで目元を隠し、周りを気にせず呼吸へ集中しやすい設計。サウナでも普段使いでもなじむ落ち着いた色合いで、洗濯機で洗えるタオル生地。</p>
+            <p class="lineup-desc-short">長いつばで目元を隠せる、洗濯可能なタオル生地ハット。</p>
+            <div class="price">￥3,280</div>
+            <a class="btn btn-outline" href="https://www.amazon.co.jp/dp/B0CMH2LJC8?th=1&amp;psc=1" target="_blank" rel="noopener">Buy on Amazon</a>
+          </article>
+          <article class="lineup-item">
+            <span class="tag">Shadow Black</span>
+            <figure>
+              <img src="画像/Gear　Line/20260516_bell-hat_B0DNXBF3MH.jpg" alt="ベル型サウナハット シャドウブラック" />
+            </figure>
+            <h3>ベル型サウナハット</h3>
+            <p class="lineup-desc">軽い被り心地でオシャレにととのえるベル型。カラーコーディネーター選定の上質なシャドウブラックと、熱や汗を受け止める綿100％素材が特徴。</p>
+            <p class="lineup-desc-short">軽い被り心地のベル型。綿100％で熱と汗を受け止めます。</p>
+            <div class="price">￥3,280</div>
+            <a class="btn btn-outline" href="https://www.amazon.co.jp/dp/B0DNXBF3MH?th=1" target="_blank" rel="noopener">Buy on Amazon</a>
+          </article>
+        </div>
+        <div class="lineup-more">
+          <a class="btn btn-outline" href="https://www.amazon.co.jp/stores/SaunaCrown/page/FA0B8FF3-03C7-4098-9A84-69EEEC456238" target="_blank" rel="noopener">
+            All Items / すべての商品を見る
+          </a>
+        </div>
+      </section>
+
+      <section class="concept-visual" aria-labelledby="concept-visual-title">
+        <span class="section-eyebrow">Concept</span>
+        <h2 class="section-title" id="concept-visual-title">
+          <span class="concept-visual-line1">Sauna Crown の</span>
+          <span class="concept-visual-line2">世界観をまるごと体感。</span>
+        </h2>
+        <figure>
+          <img src="画像/ブランドイメージ.png" alt="Sauna Crown ブランドイメージ" />
+        </figure>
+      </section>
+
+      <section id="issues">
+        <span class="section-eyebrow">Issues / Journal</span>
+        <h2 class="section-title">整うメカニズムを掘る。</h2>
+        <div class="issues-grid">
+          <article class="issue-card">
+            <div class="issue-card-image">
+              <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=400&q=80" alt="整うって結局なに？" />
+            </div>
+            <small class="tag">ISSUE 01</small>
+            <h4>整うって結局なに？自律神経へのアプローチ</h4>
+            <p>交感神経と副交感神経の波をどうサポートするか。Sauna Crownの深被り設計を解剖。</p>
+            <a class="btn btn-outline" href="issues/autonomic.html">Read More</a>
+          </article>
+          <article class="issue-card">
+            <div class="issue-card-image">
+              <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80" alt="森の中に設営したテントサウナ" loading="lazy" />
+            </div>
+            <small class="tag">ISSUE 02</small>
+            <h4>テントサウナで頭部を守る理由</h4>
+            <p>ロウリュ熱の直撃から頭部を逃がすギアとして、サウナハットの役割を検証。</p>
+            <a class="btn btn-outline" href="issues/tent.html">Read More</a>
+          </article>
+          <article class="issue-card">
+            <div class="issue-card-image">
+              <img src="https://images.unsplash.com/photo-1500336624523-d727130c3328?auto=format&fit=crop&w=400&q=80" alt="サウナハットの選び方" />
+            </div>
+            <small class="tag">JOURNAL</small>
+            <h4>サウナハットの選び方 3つのポイント</h4>
+            <p>シルエット・素材・カラー。通サウナー目線で押さえるべき指標をピックアップ。</p>
+            <a class="btn btn-outline" href="issues/choice.html">Read More</a>
+          </article>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="logo" style="margin-bottom: 12px">SAUNA CROWN</div>
+      <div class="footer-links">
+        <a href="#store">Store</a>
+        <a href="#concept">About</a>
+        <a href="issues/index.html">Issues</a>
+        <a href="#">Contact</a>
+        <a href="#">Instagram</a>
+      </div>
+      <small>© Sauna Crown 2025</small>
+    </footer>
+
+    <script>
+      (() => {
+        const observer = new IntersectionObserver(
+          entries => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+
+        document.querySelectorAll('section').forEach(section => {
+          section.classList.add('fade-up');
+          observer.observe(section);
+        });
+
+        const hamburger = document.querySelector('.hamburger');
+        const mobileNav = document.querySelector('.mobile-nav');
+        hamburger.addEventListener('click', () => {
+          mobileNav.classList.toggle('open');
+        });
+
+        mobileNav.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => mobileNav.classList.remove('open'));
+        });
+      })();
+    </script>
+    <style>
+      .fade-up {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      .fade-up.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </body>
+</html>

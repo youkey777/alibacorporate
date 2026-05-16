@@ -57,14 +57,6 @@
     {
       "source": "/relaxheal/:path*",
       "destination": "https://relaxheal.vercel.app/:path*"
-    },
-    {
-      "source": "/saunacrown/",
-      "destination": "https://saunacrwon.vercel.app/"
-    },
-    {
-      "source": "/saunacrown/:path*",
-      "destination": "https://saunacrwon.vercel.app/:path*"
     }
   ]
 }
