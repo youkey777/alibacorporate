@@ -546,7 +546,6 @@
       .concept-visual figure {
         margin: 0 auto;
         max-width: 960px;
-        max-height: 300px;
         border-radius: var(--radius);
         overflow: hidden;
         border: 1px solid var(--line);
@@ -555,8 +554,7 @@
 
       .concept-visual img {
         width: 100%;
-        height: 100%;
-        max-height: 400px;
+        height: auto;
         object-fit: contain;
         display: block;
       }
@@ -583,14 +581,22 @@
 
       .lineup-item figure {
         margin: 0;
+        aspect-ratio: 1 / 1;
         border-radius: calc(var(--radius) - 6px);
         overflow: hidden;
         padding: 14px;
         background: #0c0d10;
         border: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .lineup-item figure img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
         border-radius: 14px;
         transition: transform 0.6s ease, filter 0.6s ease;
       }
@@ -612,6 +618,27 @@
       .price {
         font-weight: 700;
         font-size: 1.05rem;
+      }
+
+      .lineup-item .btn {
+        margin-top: auto;
+        background: #f6f2ea;
+        color: #050505;
+        border-color: #f6f2ea;
+        font-weight: 800;
+        padding-inline: 14px;
+        font-size: 0.74rem;
+        letter-spacing: 0.08em;
+        text-transform: none;
+        white-space: nowrap;
+        box-shadow: 0 12px 28px rgba(246, 242, 234, 0.16);
+      }
+
+      .lineup-item .btn:hover {
+        background: var(--accent-alt);
+        border-color: var(--accent-alt);
+        transform: translateY(-3px);
+        box-shadow: 0 16px 34px rgba(255, 110, 72, 0.3);
       }
 
       .lineup-more {
@@ -860,11 +887,11 @@
     <div class="ticker" aria-hidden="true">
       <div class="ticker-track">
         <span>♨ Deep Fit Sauna Hat / 目元まで沈めて整う準備</span>
-        <span>🧖‍♀ カラーデザイナー監修 "サウナ専用カラー"</span>
+        <span>🧖‍♀ カラーコーディネーター監修 "サウナ専用カラー"</span>
         <span>🔥 本格サウナー向けギアブランド Sauna Crown</span>
         <span>📚 SAUNABROS掲載モデル / Amazon ブランドストア公開中</span>
         <span>♨ Deep Fit Sauna Hat / 目元まで沈めて整う準備</span>
-        <span>🧖‍♀ カラーデザイナー監修 "サウナ専用カラー"</span>
+        <span>🧖‍♀ カラーコーディネーター監修 "サウナ専用カラー"</span>
         <span>🔥 本格サウナー向けギアブランド Sauna Crown</span>
         <span>📚 SAUNABROS掲載モデル / Amazon ブランドストア公開中</span>
       </div>
@@ -940,7 +967,7 @@
             <span>Sauna Crownが熱い。</span>
           </h1>
           <p>
-            目元まで沈めて視界を閉じ、熱から頭部をバリア。カラーデザイナーと作るユニセックスカラーで、サウナフェスでも日常のサ活でもギア感を纏う。
+            目元まで沈めて視界を閉じ、熱から頭部をバリア。カラーコーディネーターと作るユニセックスカラーで、サウナフェスでも日常のサ活でもギア感を纏う。
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://www.amazon.co.jp/stores/SaunaCrown/page/FA0B8FF3-03C7-4098-9A84-69EEEC456238" target="_blank" rel="noopener">Amazon Store</a>
@@ -953,7 +980,7 @@
 
       <section id="concept">
         <span class="section-eyebrow">Concept</span>
-        <h2 class="section-title">整いフリークのための、歪な熱量。</h2>
+        <h2 class="section-title">ととのえフリークのための、いびつな熱量。</h2>
         <div class="scrap-grid">
           <article class="scrap-card">
             <div class="scrap-image">
@@ -969,8 +996,8 @@
               <img src="画像/コンセプト/サウナ専用カラー.png" alt="サウナ専用カラー" />
             </div>
             <div>
-              <h3>カラーラボ発・サウナ専用カラー</h3>
-              <p>ウッド、蒸気、夜空。サウナの風景から抽出したトーンで、フェスでも"分かってる感"を添えるユニセックス展開。</p>
+              <h3>カラーコーディネーターによるサウナハット専用カラー</h3>
+              <p>カラーコーディネーターがサウナの熱気、蒸気、外気浴の空気感に合わせて色を選定。おしゃれでこだわりのある色合いに仕上げたユニセックス展開。</p>
             </div>
           </article>
           <article class="scrap-card">
@@ -1006,48 +1033,48 @@
         <h2 class="section-title">Sauna Crown Gear Line</h2>
         <div class="lineup-grid">
           <article class="lineup-item">
-            <span class="tag">Calm Gray</span>
+            <span class="tag">Shadow Black</span>
             <figure>
-              <img src="画像/Gear　Line/20260516_complete-hat_B0DNX9YBV8.jpg" alt="完全没入ハット カームグレー" />
+              <img src="画像/Gear　Line/20260516_complete-hat_shadow-black_B0DNXC1LMK.jpg" alt="完全没入ハット シャドウブラック" />
             </figure>
             <h3>完全没入ハット</h3>
-            <p class="lineup-desc">顔まわりまで覆える大きめ設計で、視線や明るさを遮り自分だけの世界に没入。綿100％の二重構造に、ループと専用袋も備えたカームグレーのハット。</p>
+            <p class="lineup-desc">顔まわりまで覆える大きめ設計で、視線や明るさを遮り自分だけの世界に没入。綿100％の二重構造に、ループと専用袋も備えたシャドウブラックのハット。</p>
             <p class="lineup-desc-short">顔まわりまで覆えて没入しやすい綿100％ハット。</p>
             <div class="price">￥3,480</div>
-            <a class="btn btn-outline" href="https://www.amazon.co.jp/dp/B0DNX9YBV8?th=1" target="_blank" rel="noopener">Buy on Amazon</a>
+            <a class="btn btn-outline" href="https://www.amazon.co.jp/dp/B0DNXC1LMK" target="_blank" rel="noopener">Amazonで購入</a>
           </article>
           <article class="lineup-item">
-            <span class="tag">Shadow Black</span>
+            <span class="tag">Blue</span>
             <figure>
-              <img src="画像/Gear　Line/20260516_pocket-deep-hat_B0DNXBJRF5.jpg" alt="ポケット付き深めサウナハット シャドウブラック" />
+              <img src="画像/Gear　Line/20260516_pocket-deep-hat_blue_B0DNXCM53M.jpg" alt="ポケット付き深めサウナハット ブルー" />
             </figure>
             <h3>ポケット付き深めサウナハット</h3>
-            <p class="lineup-desc">目元まで深く覆える設計で、明るいサウナ室でも瞑想や内省に入りやすい一枚。ロッカーキーをしまえるポケット付きの綿100％ハット。</p>
+            <p class="lineup-desc">目元まで深く覆える設計で、明るいサウナ室でも瞑想や内省に入りやすい一枚。ロッカーキーをしまえるポケット付きのブルーの綿100％ハット。</p>
             <p class="lineup-desc-short">深く被れて、ロッカーキー用ポケットも備えた綿100％ハット。</p>
             <div class="price">￥3,680</div>
-            <a class="btn btn-outline" href="https://www.amazon.co.jp/dp/B0DNXBJRF5?th=1" target="_blank" rel="noopener">Buy on Amazon</a>
+            <a class="btn btn-outline" href="https://www.amazon.co.jp/dp/B0DNXCM53M" target="_blank" rel="noopener">Amazonで購入</a>
           </article>
           <article class="lineup-item">
-            <span class="tag">Misty Gray</span>
+            <span class="tag">Splash Blue</span>
             <figure>
-              <img src="画像/Gear　Line/20260516_brim-hat_B0CMH2LJC8.jpg" alt="つば付きサウナハット ミスティグレー" />
+              <img src="画像/Gear　Line/20260516_brim-hat_splash-blue_B0CMH2WRW3.jpg" alt="つば付きサウナハット スプラッシュブルー" />
             </figure>
             <h3>つば付きサウナハット</h3>
-            <p class="lineup-desc">長いつばで目元を隠し、周りを気にせず呼吸へ集中しやすい設計。サウナでも普段使いでもなじむ落ち着いた色合いで、洗濯機で洗えるタオル生地。</p>
+            <p class="lineup-desc">長いつばで目元を隠し、周りを気にせず呼吸へ集中しやすい設計。添付画像に合わせたスプラッシュブルーで、洗濯機で洗えるタオル生地。</p>
             <p class="lineup-desc-short">長いつばで目元を隠せる、洗濯可能なタオル生地ハット。</p>
             <div class="price">￥3,280</div>
-            <a class="btn btn-outline" href="https://www.amazon.co.jp/dp/B0CMH2LJC8?th=1&amp;psc=1" target="_blank" rel="noopener">Buy on Amazon</a>
+            <a class="btn btn-outline" href="https://www.amazon.co.jp/dp/B0CMH2WRW3" target="_blank" rel="noopener">Amazonで購入</a>
           </article>
           <article class="lineup-item">
-            <span class="tag">Shadow Black</span>
+            <span class="tag">Aqua Yellow</span>
             <figure>
-              <img src="画像/Gear　Line/20260516_bell-hat_B0DNXBF3MH.jpg" alt="ベル型サウナハット シャドウブラック" />
+              <img src="画像/Gear　Line/20260516_bell-hat_aqua-yellow_B0DNXBZGV9.jpg" alt="ベル型サウナハット アクアイエロー" />
             </figure>
             <h3>ベル型サウナハット</h3>
-            <p class="lineup-desc">軽い被り心地でオシャレにととのえるベル型。カラーコーディネーター選定の上質なシャドウブラックと、熱や汗を受け止める綿100％素材が特徴。</p>
+            <p class="lineup-desc">軽い被り心地でオシャレにととのえるベル型。カラーコーディネーター選定のアクアイエローと、熱や汗を受け止める綿100％素材が特徴。</p>
             <p class="lineup-desc-short">軽い被り心地のベル型。綿100％で熱と汗を受け止めます。</p>
             <div class="price">￥3,280</div>
-            <a class="btn btn-outline" href="https://www.amazon.co.jp/dp/B0DNXBF3MH?th=1" target="_blank" rel="noopener">Buy on Amazon</a>
+            <a class="btn btn-outline" href="https://www.amazon.co.jp/dp/B0DNXBZGV9" target="_blank" rel="noopener">Amazonで購入</a>
           </article>
         </div>
         <div class="lineup-more">
