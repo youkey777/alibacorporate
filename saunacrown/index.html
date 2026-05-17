@@ -579,17 +579,23 @@
         gap: 14px;
       }
 
+      .lineup-item-bell {
+        --image-scale: 1.16;
+        --image-hover-scale: 1.22;
+      }
+
       .lineup-item figure {
         margin: 0;
         aspect-ratio: 1 / 1;
-        border-radius: calc(var(--radius) - 6px);
+        border-radius: 18px;
         overflow: hidden;
-        padding: 14px;
-        background: #0c0d10;
+        padding: 0;
+        background: #f7f5f0;
         border: 1px solid rgba(255, 255, 255, 0.08);
         display: flex;
         align-items: center;
         justify-content: center;
+        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
       }
 
       .lineup-item figure img {
@@ -597,12 +603,13 @@
         height: 100%;
         object-fit: contain;
         display: block;
-        border-radius: 14px;
+        border-radius: 0;
+        transform: scale(var(--image-scale, 1));
         transition: transform 0.6s ease, filter 0.6s ease;
       }
 
       .lineup-item:hover figure img {
-        transform: scale(1.07);
+        transform: scale(var(--image-hover-scale, 1.06));
         filter: saturate(1.1);
       }
 
@@ -1030,7 +1037,7 @@
 
       <section class="lineup" id="lineup">
         <span class="section-eyebrow">Lineup</span>
-        <h2 class="section-title">Sauna Crown Gear Line</h2>
+        <h2 class="section-title">定番サウナハット</h2>
         <div class="lineup-grid">
           <article class="lineup-item">
             <span class="tag">Shadow Black</span>
@@ -1055,17 +1062,17 @@
             <a class="btn btn-outline" href="https://www.amazon.co.jp/dp/B0DNXCM53M" target="_blank" rel="noopener">Amazonで購入</a>
           </article>
           <article class="lineup-item">
-            <span class="tag">Splash Blue</span>
+            <span class="tag">Forest Green</span>
             <figure>
-              <img src="画像/Gear　Line/20260516_brim-hat_splash-blue_B0CMH2WRW3.jpg" alt="つば付きサウナハット スプラッシュブルー" />
+              <img src="画像/Gear　Line/20260516_brim-hat_forest-green_B0CMH26KMH.jpg" alt="つば付きサウナハット フォレストグリーン" />
             </figure>
             <h3>つば付きサウナハット</h3>
-            <p class="lineup-desc">長いつばで目元を隠し、周りを気にせず呼吸へ集中しやすい設計。添付画像に合わせたスプラッシュブルーで、洗濯機で洗えるタオル生地。</p>
+            <p class="lineup-desc">長いつばで目元を隠し、周りを気にせず呼吸へ集中しやすい設計。添付画像に合わせたフォレストグリーンで、洗濯機で洗えるタオル生地。</p>
             <p class="lineup-desc-short">長いつばで目元を隠せる、洗濯可能なタオル生地ハット。</p>
             <div class="price">￥3,280</div>
-            <a class="btn btn-outline" href="https://www.amazon.co.jp/dp/B0CMH2WRW3" target="_blank" rel="noopener">Amazonで購入</a>
+            <a class="btn btn-outline" href="https://www.amazon.co.jp/dp/B0CMH26KMH" target="_blank" rel="noopener">Amazonで購入</a>
           </article>
-          <article class="lineup-item">
+          <article class="lineup-item lineup-item-bell">
             <span class="tag">Aqua Yellow</span>
             <figure>
               <img src="画像/Gear　Line/20260516_bell-hat_aqua-yellow_B0DNXBZGV9.jpg" alt="ベル型サウナハット アクアイエロー" />
