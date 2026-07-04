@@ -1,6 +1,6 @@
 # aliba Inc. (合同会社aliba)
 
-> Web・SNS・AI制作事業と、ジュエリー・ウェルネス商品のD2Cブランドを運営する日本の企業。
+> Web・SNS・AI制作事業と、ジュエリー・ウェルネス・サウナ用品のD2Cブランドを運営する日本（京都）の企業。aliba（アリバ）ジュエリー、relax heal（リラックスヒール）、Sauna Crown（サウナクラウン）の3ブランドを展開。
 
 ## Corporate
 - [会社概要](https://www.aliba.online/): 合同会社alibaコーポレートサイト
@@ -11,12 +11,12 @@
 - [お問い合わせ](https://www.aliba.online/contact/): お問い合わせフォーム
 - [プライバシーポリシー](https://www.aliba.online/policies/privacy/): 個人情報保護方針
 
-## Aliva Luxe Jewelry (aliba jewelry)
-- [ジュエリーTOP](https://www.aliba.online/jewelry/): サージカルステンレス・モアサナイトの低アレルギージュエリーブランド。メンズ・レディースのピアス、ネックレス、財布を展開。
+## aliba jewelry（アリバ ジュエリー）
+- [ジュエリーTOP](https://www.aliba.online/jewelry/): aliba（アリバ）は金属アレルギー対応のサージカルステンレス・モアサナイトジュエリーブランド。メンズ・レディースのピアス、ネックレス、財布をAmazonで展開。
 - [コラム: サージカルステンレスピアスの選び方](https://www.aliba.online/jewelry/column-surgical-steel-earrings.html): 金属アレルギー対応ピアスの選び方ガイド
 
-## relax heal
-- [relax heal TOP](https://www.aliba.online/relaxheal/): 医療監修ジェルクッション・姿勢ケアブランド
+## relax heal（リラックスヒール）
+- [relax heal TOP](https://www.aliba.online/relaxheal/): relax heal（リラックスヒール）は医療監修のゲルクッション・姿勢ケアブランド。座り心地をデザインするアイテムをAmazonで展開。
 - [サービス・商品概要](https://www.aliba.online/relaxheal/service.html): 商品ラインナップと特長
 - [全商品一覧](https://www.aliba.online/relaxheal/categories/all.html): 全カテゴリの商品一覧
 - [通常サイズクッション](https://www.aliba.online/relaxheal/categories/normal.html): 標準サイズのジェルクッション
@@ -27,3 +27,13 @@
 - [低反発クッション](https://www.aliba.online/relaxheal/categories/low-rebound.html): 低反発ジェルクッション
 - [ネックストレッチャー](https://www.aliba.online/relaxheal/categories/neck-stretcher.html): 首ストレッチ・ケア製品
 - [ニュース](https://www.aliba.online/relaxheal/news/all.html): relax healのお知らせ
+
+## Sauna Crown（サウナクラウン）
+- [Sauna Crown TOP](https://www.aliba.online/saunacrown/): Sauna Crown（サウナクラウン）は日本発のサウナハット専門ブランド。目元まで沈める没入シルエットとカラーコーディネーター監修色が特徴。綿100%主体のサウナハット4モデル（¥3,280〜¥3,680）をAmazonブランドストアで販売。サウナ専門誌SAUNABROS掲載。
+- [Issues & Journal](https://www.aliba.online/saunacrown/issues/index.html): サウナーのための読み物一覧
+- [整うって結局なに？自律神経へのアプローチ](https://www.aliba.online/saunacrown/issues/autonomic.html): ととのうメカニズムとサウナハットの関係
+- [テントサウナで頭部を守る理由](https://www.aliba.online/saunacrown/issues/tent.html): ロウリュ熱から頭部を守るサウナハットの役割
+- [サウナハットの選び方 3つのポイント](https://www.aliba.online/saunacrown/issues/choice.html): シルエット・素材・カラーで選ぶサウナハット選びのガイド
+
+## Optional
+- [llms-full.txt](https://www.aliba.online/llms-full.txt): 会社・全ブランド・全商品の詳細情報（LLM向けフルテキスト）

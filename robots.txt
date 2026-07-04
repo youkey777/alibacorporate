@@ -22,6 +22,27 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
 Sitemap: https://www.aliba.online/sitemap.xml
 Sitemap: https://www.aliba.online/jewelry/sitemap.xml
 Sitemap: https://www.aliba.online/relaxheal/sitemap.xml
