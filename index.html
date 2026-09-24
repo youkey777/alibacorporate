@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -885,13 +885,14 @@
     .business-list {
       max-width: 800px;
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-auto-rows: 1fr;
       gap: 20px;
     }
 
     .business-card {
       display: flex;
+      height: 100%;
       background: #fff;
       border-radius: 12px;
       overflow: hidden;
@@ -908,6 +909,7 @@
     }
 
     .business-image {
+      position: relative;
       width: 180px;
       min-height: 100px;
       overflow: hidden;
@@ -915,21 +917,11 @@
     }
 
     .business-image img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-
-    .business-card-app .business-image {
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, #e9f1fb, #d8e7f7);
-      color: #1a5490;
-    }
-    .business-card-app .business-image span {
-      font-size: 25px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
     }
 
     .business-content {
@@ -957,8 +949,8 @@
     }
 
     .business-desc {
-      font-size: 11px;
-      color: #666;
+      font-size: 13px;
+      color: #444;
       line-height: 1.6;
       margin-bottom: 8px;
     }
@@ -1591,7 +1583,7 @@
       }
 
       .business-desc {
-        font-size: 10px;
+        font-size: 13px;
         line-height: 1.5;
         margin-bottom: 6px;
       }
@@ -1850,7 +1842,7 @@
               <div class="business-tag">WEB SERVICE</div>
               <div class="business-title">破格Webサービス</div>
               <div class="business-desc">早くリーズナブルに品質の高いウェブサービスを構築します。企画・設計・デザイン・公開まで一気通貫で対応し、運用まで見据えたサイトを提供します。</div>
-              <span class="business-link">詳しく見る →</span>
+              <span class="business-link">詳しく見る</span>
             </div>
           </a>
           <a class="business-card" href="/services/sns/">
@@ -1861,7 +1853,7 @@
               <div class="business-tag">SNS MANAGEMENT</div>
               <div class="business-title">SNS運用代行</div>
               <div class="business-desc">Instagram・XなどのSNSを、目的に合わせて企画・運用・改善。投稿設計からクリエイティブ制作、レポートまで一貫支援します。</div>
-              <span class="business-link">詳しく見る →</span>
+              <span class="business-link">詳しく見る</span>
             </div>
           </a>
           <a class="business-card" href="/services/ai/">
@@ -1872,16 +1864,16 @@
               <div class="business-tag">AI CREATION</div>
               <div class="business-title">AI画像作成</div>
               <div class="business-desc">ブランドの世界観に合わせたAIビジュアルを制作。SNS用素材、広告バナー、LP用のキービジュアルなど幅広く対応します。</div>
-              <span class="business-link">詳しく見る →</span>
+              <span class="business-link">詳しく見る</span>
             </div>
           </a>
           <a class="business-card business-card-app" href="/services/apps/">
-            <div class="business-image" aria-hidden="true"><span>APP</span></div>
+            <div class="business-image"><img src="images/business-apps-20260924-v3.png" alt="スマートフォン向けゲームアプリ" loading="lazy" decoding="async"></div>
             <div class="business-content">
               <div class="business-tag">APP DEVELOPMENT</div>
               <div class="business-title">アプリ制作</div>
               <div class="business-desc">スマホゲームの企画・制作・運営。自社アプリの開発を通じて、遊びやすさの改善に取り組んでいます。</div>
-              <span class="business-link">詳しく見る →</span>
+              <span class="business-link">詳しく見る</span>
             </div>
           </a>
         </div>
@@ -2039,7 +2031,7 @@
           <a href="/policies/personal-info/">個人情報の取り扱いについて</a>
           <a href="/policies/antisocial/">反社会的勢力に対する基本方針</a>
         </div>
-        <div class="footer-copyright">© 2025 ALIBA Inc. All Rights Reserved.</div>
+        <div class="footer-copyright">© 2025 合同会社aliba All Rights Reserved.</div>
       </div>
     </div>
   </footer>
@@ -2230,6 +2222,13 @@
         link.addEventListener('click', closeMenu);
       });
 
+      // 画像とフォント読込後も、制作事業への直接リンクの位置を保つ。
+      window.addEventListener('load', async () => {
+        if (location.hash !== '#works') return;
+        await document.fonts.ready;
+        const target = document.getElementById('works');
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - document.querySelector('.header').offsetHeight, behavior: 'instant' });
+      });
       // スムーススクロール
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -2240,7 +2239,7 @@
           const target = document.querySelector(href);
           if (target) {
             const headerHeight = document.querySelector('.header').offsetHeight;
-            const targetPosition = target.offsetTop - headerHeight;
+            const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
             window.scrollTo({
               top: targetPosition,
               behavior: 'smooth'

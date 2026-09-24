@@ -8,6 +8,7 @@
 - [SNS運用サービス](https://www.aliba.online/services/sns/): SNS運用代行サービス
 - [AI導入支援サービス](https://www.aliba.online/services/ai/): AI活用支援サービス
 - [アプリ制作](https://www.aliba.online/services/apps/): スマートフォン向けゲームアプリの企画・制作・運営。公開中の自社アプリを紹介
+- [アプリ・広告のプライバシーについて](https://www.aliba.online/policies/apps/): 広告機能を搭載するバージョンに限る情報取扱いの案内。会社のプライバシーポリシーを補足し、アプリ固有の案内を置き換えない
 - [お知らせ](https://www.aliba.online/news/): ニュース・お知らせ
 - [お問い合わせ](https://www.aliba.online/contact/): お問い合わせフォーム
 - [プライバシーポリシー](https://www.aliba.online/policies/privacy/): 個人情報保護方針

@@ -139,6 +139,7 @@ Sauna Crown（サウナクラウン）は日本発のサウナハット専門ブ
 - アプリ制作: スマートフォン向けゲームアプリの企画・制作・運営。自社アプリの開発を通じて遊びやすさの改善に取り組む。 https://www.aliba.online/services/apps/
   - おかずの居場所（iOS）: https://apps.apple.com/jp/app/id6809498156
   - 漢字くみたて合戦（iOS）: https://apps.apple.com/jp/app/id6811368161
+- アプリ・広告のプライバシー説明: 現在公開中の版と広告機能を搭載する版を区別。広告対応版は実際のSDK・情報送信、必要な同意や年齢に応じた対応を確認・整備してから配信する方針。 https://www.aliba.online/policies/apps/
 
 ## 実績・メディア掲載
 

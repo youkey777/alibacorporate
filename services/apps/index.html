@@ -21,9 +21,8 @@
     .logo-image { height: 54px; width: auto; display: block; }
     .nav-list { display: flex; gap: 28px; align-items: center; list-style: none; }
     .nav-list a { font-size: 14px; color: #333; }
-    .nav-close, .nav-overlay, .hamburger { display: none; }
-    .hero { position: relative; min-height: 440px; display: flex; align-items: center; padding: 78px 0; color: #fff; overflow: hidden; background: linear-gradient(125deg, #0f2a44, #1a5490); }
-    .hero::after { content: "APP"; position: absolute; right: max(4vw, calc((100vw - 1160px) / 2)); bottom: -44px; color: rgba(255,255,255,.07); font-size: clamp(120px, 25vw, 300px); font-weight: 700; line-height: 1; letter-spacing: .04em; pointer-events: none; }
+    .nav-close, .nav-overlay, .hamburger { border: 0; background: transparent; display: none; }
+    .hero { position: relative; min-height: 440px; display: flex; align-items: center; padding: 78px 0; color: #fff; overflow: hidden; background: linear-gradient(90deg, rgba(9,30,48,.92), rgba(9,30,48,.68) 55%, rgba(9,30,48,.18)), url("/images/business-apps-20260924-v3.png") center 58% / cover; }
     .hero-inner { position: relative; z-index: 1; display: grid; gap: 20px; max-width: 760px; }
     .back-link { font-size: 14px; opacity: .86; }
     .hero-tag, .section-label { font-size: 12px; letter-spacing: .28em; text-transform: uppercase; }
@@ -44,11 +43,20 @@
     .feature-card { padding: 25px; }
     .feature-card h3 { margin-bottom: 8px; font-size: 19px; }
     .feature-card p, .app-card p { color: var(--muted); font-size: 15px; }
-    .app-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
-    .app-card { padding: 28px; display: flex; flex-direction: column; align-items: flex-start; }
-    .app-card h3 { margin: 0 0 8px; font-size: 22px; line-height: 1.45; }
-    .app-label { display: inline-flex; align-items: center; min-height: 30px; padding: 3px 11px; border-radius: 999px; margin-bottom: 14px; background: var(--accent-soft); color: var(--accent-dark); font-size: 13px; font-weight: 500; }
-    .app-card .btn { margin-top: 20px; background: var(--accent); color: #fff; }
+    .app-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; align-items: stretch; gap: 22px; max-width: 920px; margin: 0 auto; }
+    .app-card { min-width: 0; height: 100%; padding: 24px; display: flex; flex-direction: column; align-items: stretch; gap: 16px; }
+    .app-card-head { display: flex; align-items: center; gap: 14px; min-height: 72px; }
+    .app-icon { width: 68px; height: 68px; flex: 0 0 68px; border-radius: 16px; object-fit: cover; box-shadow: 0 3px 10px rgba(15,43,70,.16); }
+    .app-title-group { min-width: 0; }
+    .app-card h3 { margin: 0; font-size: 21px; line-height: 1.4; }
+    .app-label { display: inline-flex; align-items: center; min-height: 27px; padding: 2px 10px; border-radius: 999px; margin-bottom: 7px; background: var(--accent-soft); color: var(--accent-dark); font-size: 13px; font-weight: 500; }
+    .app-card p { margin: 0; min-height: 3.6em; }
+    .app-gameplay { display: flex; margin: 0; flex: 1; min-height: 0; align-items: center; justify-content: center; padding: 12px; border-radius: 12px; background: #f2f5f8; }
+    .app-gameplay img { display: block; width: auto; height: auto; max-width: 100%; max-height: 480px; object-fit: contain; border-radius: 7px; }
+    .app-store-link { display: flex; min-height: 54px; align-items: center; justify-content: center; align-self: center; padding: 7px 12px; border-radius: 8px; transition: transform .2s ease, background .2s ease; }
+    .app-store-link img { display: block; width: 160px; height: auto; }
+    .app-store-link:hover { transform: translateY(-2px); background: #f2f5f8; }
+    .app-store-link:focus-visible { outline: 3px solid #1a5490; outline-offset: 3px; }
     .cta { padding: 54px 0; text-align: center; color: #fff; background: linear-gradient(120deg, var(--accent-dark), var(--accent)); }
     .cta h2 { font-size: clamp(23px, 3vw, 32px); }
     .cta p { margin: 10px 0 22px; color: rgba(255,255,255,.88); }
@@ -62,7 +70,7 @@
     @media (max-width: 760px) {
       .header-inner { padding: 10px 4%; }
       .logo-image { height: 44px; }
-      .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
+      .hamburger { border: 0; background: transparent; display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
       .hamburger span { width: 28px; height: 3px; border-radius: 2px; background: var(--accent); }
       .nav-list { position: fixed; top: 0; right: -100%; width: min(300px, 82vw); height: 100dvh; z-index: 2; padding: 76px 24px 24px; background: #fff; flex-direction: column; align-items: flex-start; gap: 20px; box-shadow: -4px 0 20px rgba(0,0,0,.1); transition: right .25s; }
       .nav-list.active { right: 0; }
@@ -103,7 +111,7 @@
       <div class="container hero-inner">
         <a class="back-link" href="/">← トップへ戻る</a>
         <div class="hero-tag">APP DEVELOPMENT</div>
-        <h1 class="hero-title">スマホゲームの企画・制作・運営</h1>
+        <h1 class="hero-title">スマホゲームの<br>企画・制作・運営</h1>
         <p class="hero-lead">合同会社alibaは、自社でスマートフォン向けゲームアプリを企画・制作・運営しています。アプリを届け、遊びやすさを見直しながら、より楽しめる体験を目指します。</p>
         <div class="hero-actions"><a class="btn btn-primary" href="#apps">公開中のアプリを見る</a><a class="btn btn-ghost" href="/#contact">お問い合わせ</a></div>
       </div>
@@ -120,10 +128,26 @@
     </section>
     <section class="section bg" id="apps">
       <div class="container">
-        <div class="section-header"><div class="section-label">OUR APPS</div><h2 class="section-title">公開中のアプリ</h2><p class="section-desc">合同会社alibaが制作・運営するスマートフォン向けゲームです。App Storeで詳細をご覧いただけます。</p></div>
+        <div class="section-header"><div class="section-label">OUR APPS</div><h2 class="section-title">公開中のアプリ</h2><p class="section-desc">実際のプレイ画面を掲載しています。App Storeでアプリの詳細をご確認いただけます。</p></div>
         <div class="app-grid">
-          <article class="app-card"><span class="app-label">iOSアプリ</span><h3>おかずの居場所</h3><p>合同会社alibaが制作・運営するスマートフォン向けゲームアプリです。</p><a class="btn" href="https://apps.apple.com/jp/app/id6809498156" target="_blank" rel="noopener noreferrer">App Storeで見る ↗</a></article>
-          <article class="app-card"><span class="app-label">iOSアプリ</span><h3>漢字くみたて合戦</h3><p>合同会社alibaが制作・運営するスマートフォン向けゲームアプリです。</p><a class="btn" href="https://apps.apple.com/jp/app/id6811368161" target="_blank" rel="noopener noreferrer">App Storeで見る ↗</a></article>
+          <article class="app-card">
+            <div class="app-card-head">
+              <img class="app-icon" src="/images/app-okazu-icon.jpg" alt="おかずの居場所のアプリアイコン" loading="lazy" decoding="async">
+              <div class="app-title-group"><span class="app-label">iOSゲーム</span><h3>おかずの居場所</h3></div>
+            </div>
+            <p>食材をモチーフにした色鮮やかなパズルゲームです。プレイ画面からゲームの雰囲気をご覧いただけます。</p>
+            <figure class="app-gameplay"><img src="/images/app-okazu-play.jpg" alt="おかずの居場所のプレイ画面" loading="lazy" decoding="async"></figure>
+            <a class="app-store-link" href="https://apps.apple.com/jp/app/id6809498156" target="_blank" rel="noopener noreferrer" aria-label="おかずの居場所をApp Storeで見る"><img src="/images/app-store-badge.svg" alt="App Storeからダウンロード"></a>
+          </article>
+          <article class="app-card">
+            <div class="app-card-head">
+              <img class="app-icon" src="/images/app-kanji-icon.jpg" alt="漢字くみたて合戦のアプリアイコン" loading="lazy" decoding="async">
+              <div class="app-title-group"><span class="app-label">iOSゲーム</span><h3>漢字くみたて合戦</h3></div>
+            </div>
+            <p>漢字のパーツを組み立てて遊ぶゲームです。プレイ画面から実際の画面や文字の組み立て方をご覧いただけます。</p>
+            <figure class="app-gameplay"><img src="/images/app-kanji-play.jpg" alt="漢字くみたて合戦のプレイ画面" loading="lazy" decoding="async"></figure>
+            <a class="app-store-link" href="https://apps.apple.com/jp/app/id6811368161" target="_blank" rel="noopener noreferrer" aria-label="漢字くみたて合戦をApp Storeで見る"><img src="/images/app-store-badge.svg" alt="App Storeからダウンロード"></a>
+          </article>
         </div>
       </div>
     </section>
@@ -133,7 +157,7 @@
     <div><h3>合同会社aliba</h3><p>京都を拠点に、ブランド運営と制作事業に取り組んでいます。</p></div>
     <div class="footer-nav"><h4>SITEMAP</h4><ul><li><a href="/#about">会社について</a></li><li><a href="/#works">制作事業</a></li><li><a href="/#contact">お問い合わせ</a></li></ul></div>
     <div class="footer-nav"><h4>INFORMATION</h4><ul><li><a href="/policies/apps/">アプリのプライバシーポリシー</a></li><li><a href="/policies/privacy/">会社のプライバシーポリシー</a></li><li><a href="/policies/personal-info/">個人情報の取り扱いについて</a></li><li><a href="/policies/antisocial/">反社会的勢力に対する基本方針</a></li></ul></div>
-  </div><div class="footer-bottom">© 2025 ALIBA Inc. All Rights Reserved.</div></div></footer>
+  </div><p style="font-size:11px;color:#c5cfdb;margin-bottom:16px">AppleおよびAppleのロゴは、米国その他の国で登録されたApple Inc.の商標です。App StoreはApple Inc.のサービスマークです。</p><div class="footer-bottom">© 2025 合同会社aliba All Rights Reserved.</div></div></footer>
   <script>
     const menu = document.getElementById('navList');
     const overlay = document.getElementById('navOverlay');
