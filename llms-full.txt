@@ -1,13 +1,13 @@
 # aliba Inc. (合同会社aliba) — 詳細情報
 
 このドキュメントは、合同会社alibaと運営ブランドの詳細情報をLLM・AI検索エンジン向けにまとめたものです。
-最終更新: 2026-07-04
+最終更新: 2026-09-24
 
 ## 会社概要
 
 - 法人名: 合同会社aliba（アリバ）
 - 所在地: 〒600-8233 京都府京都市下京区七条通油小路東入大黒町227番地第２キョートビル402
-- 事業内容: D2Cブランド運営（ジュエリー・癒しケア・サウナ用品）、Web制作、SNS運用代行、AI画像制作
+- 事業内容: D2Cブランド運営（ジュエリー・癒しケア・サウナ用品）、Web制作、SNS運用代行、AI画像制作、スマートフォン向けゲームアプリ制作・運営
 - コーポレートサイト: https://www.aliba.online/
 - お問い合わせ: https://www.aliba.online/contact/
 
@@ -136,6 +136,9 @@ Sauna Crown（サウナクラウン）は日本発のサウナハット専門ブ
 - 破格Webサービス（Web制作）: 企画・設計・デザイン・公開まで一気通貫。 https://www.aliba.online/services/web/
 - SNS運用代行: Instagram・X等の企画・運用・改善、クリエイティブ制作、レポートまで一貫支援。 https://www.aliba.online/services/sns/
 - AI画像作成: ブランドの世界観に合わせたAIビジュアル制作（SNS素材・広告バナー・LPキービジュアル）。 https://www.aliba.online/services/ai/
+- アプリ制作: スマートフォン向けゲームアプリの企画・制作・運営。自社アプリの開発を通じて遊びやすさの改善に取り組む。 https://www.aliba.online/services/apps/
+  - おかずの居場所（iOS）: https://apps.apple.com/jp/app/id6809498156
+  - 漢字くみたて合戦（iOS）: https://apps.apple.com/jp/app/id6811368161
 
 ## 実績・メディア掲載
 

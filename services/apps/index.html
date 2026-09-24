@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <title>アプリ制作 | 合同会社aliba</title>
+  <meta name="description" content="合同会社alibaはスマートフォン向けゲームアプリを企画・制作・運営しています。自社アプリの開発を通じて、遊びやすさの改善に取り組んでいます。">
+  <link rel="canonical" href="https://www.aliba.online/services/apps/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --accent: #1a5490; --accent-dark: #0f3d6f; --accent-soft: #e9f1fb; --ink: #1c2b3a; --muted: #5f6c7b; --bg: #f4f7fb; --card: #fff; --shadow: 0 20px 40px rgba(15,43,70,.12); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--ink); line-height: 1.8; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1160px, 92%); margin: 0 auto; }
+    .site-header { position: sticky; top: 0; z-index: 1000; background: #fff; border-bottom: 1px solid #e5e8ed; }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 13px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .logo-image { height: 54px; width: auto; display: block; }
+    .nav-list { display: flex; gap: 28px; align-items: center; list-style: none; }
+    .nav-list a { font-size: 14px; color: #333; }
+    .nav-close, .nav-overlay, .hamburger { display: none; }
+    .hero { position: relative; min-height: 440px; display: flex; align-items: center; padding: 78px 0; color: #fff; overflow: hidden; background: linear-gradient(125deg, #0f2a44, #1a5490); }
+    .hero::after { content: "APP"; position: absolute; right: max(4vw, calc((100vw - 1160px) / 2)); bottom: -44px; color: rgba(255,255,255,.07); font-size: clamp(120px, 25vw, 300px); font-weight: 700; line-height: 1; letter-spacing: .04em; pointer-events: none; }
+    .hero-inner { position: relative; z-index: 1; display: grid; gap: 20px; max-width: 760px; }
+    .back-link { font-size: 14px; opacity: .86; }
+    .hero-tag, .section-label { font-size: 12px; letter-spacing: .28em; text-transform: uppercase; }
+    .hero-title { font-size: clamp(34px, 5vw, 56px); line-height: 1.3; }
+    .hero-lead { max-width: 700px; color: rgba(255,255,255,.9); font-size: 16px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; padding: 11px 24px; border-radius: 999px; font-size: 15px; font-weight: 500; }
+    .btn-primary { background: #fff; color: var(--accent-dark); }
+    .btn-ghost { border: 1px solid rgba(255,255,255,.55); color: #fff; }
+    .section { padding: 76px 0; }
+    .section.bg { background: #fff; }
+    .section-header { text-align: center; max-width: 780px; margin: 0 auto 34px; }
+    .section-label { color: var(--accent); }
+    .section-title { margin-top: 10px; font-size: clamp(25px, 3vw, 36px); line-height: 1.4; }
+    .section-desc { margin-top: 12px; color: var(--muted); font-size: 16px; }
+    .feature-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .feature-card, .app-card { background: var(--card); border-radius: 16px; box-shadow: var(--shadow); }
+    .feature-card { padding: 25px; }
+    .feature-card h3 { margin-bottom: 8px; font-size: 19px; }
+    .feature-card p, .app-card p { color: var(--muted); font-size: 15px; }
+    .app-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
+    .app-card { padding: 28px; display: flex; flex-direction: column; align-items: flex-start; }
+    .app-card h3 { margin: 0 0 8px; font-size: 22px; line-height: 1.45; }
+    .app-label { display: inline-flex; align-items: center; min-height: 30px; padding: 3px 11px; border-radius: 999px; margin-bottom: 14px; background: var(--accent-soft); color: var(--accent-dark); font-size: 13px; font-weight: 500; }
+    .app-card .btn { margin-top: 20px; background: var(--accent); color: #fff; }
+    .cta { padding: 54px 0; text-align: center; color: #fff; background: linear-gradient(120deg, var(--accent-dark), var(--accent)); }
+    .cta h2 { font-size: clamp(23px, 3vw, 32px); }
+    .cta p { margin: 10px 0 22px; color: rgba(255,255,255,.88); }
+    .site-footer { padding: 38px 0 22px; color: #fff; background: #0f2a44; }
+    .footer-content { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+    .footer-content h3, .footer-content h4 { margin-bottom: 10px; font-size: 14px; letter-spacing: .08em; }
+    .footer-content p, .footer-content a { color: #d6dde7; font-size: 13px; }
+    .footer-nav ul { display: grid; gap: 6px; list-style: none; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.12); padding-top: 16px; color: #c5cfdb; font-size: 12px; }
+    @media (max-width: 900px) { .feature-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 760px) {
+      .header-inner { padding: 10px 4%; }
+      .logo-image { height: 44px; }
+      .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
+      .hamburger span { width: 28px; height: 3px; border-radius: 2px; background: var(--accent); }
+      .nav-list { position: fixed; top: 0; right: -100%; width: min(300px, 82vw); height: 100dvh; z-index: 2; padding: 76px 24px 24px; background: #fff; flex-direction: column; align-items: flex-start; gap: 20px; box-shadow: -4px 0 20px rgba(0,0,0,.1); transition: right .25s; }
+      .nav-list.active { right: 0; }
+      .nav-list a { font-size: 16px; }
+      .nav-close { display: flex; position: absolute; top: 16px; right: 20px; }
+      .nav-close-button { border: 0; background: none; font-size: 30px; color: var(--accent); cursor: pointer; }
+      .nav-overlay { display: block; position: fixed; inset: 0; background: rgba(0,0,0,.4); opacity: 0; visibility: hidden; z-index: -1; }
+      .nav-overlay.active { opacity: 1; visibility: visible; z-index: 1; }
+      .hero { min-height: 420px; padding: 62px 0; }
+      .hero-lead { font-size: 15px; }
+      .section { padding: 58px 0; }
+      .app-grid { grid-template-columns: 1fr; }
+      .app-card { padding: 23px; }
+      .footer-content { grid-template-columns: 1fr; }
+    }
+    @media (min-width: 600px) and (max-width: 1023px) { .container { width: min(900px, 90%); } .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .footer-content { grid-template-columns: 1fr 1fr; } }
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Service","name":"アプリ制作","serviceType":"スマートフォン向けゲームアプリの企画・制作・運営","description":"合同会社alibaによるスマートフォン向けゲームアプリの企画・制作・運営。自社アプリの開発を通じて遊びやすさの改善に取り組んでいます。","provider":{"@type":"Organization","name":"合同会社aliba","url":"https://www.aliba.online/"},"areaServed":"JP","url":"https://www.aliba.online/services/apps/"}
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" aria-label="合同会社aliba トップページ"><img class="logo-image" src="/ロゴ/aliba-logo - コピー.png?v=4" alt="aliba llc"></a>
+      <nav aria-label="メインナビゲーション">
+        <ul class="nav-list" id="navList">
+          <li class="nav-close"><button class="nav-close-button" id="navClose" type="button" aria-label="メニューを閉じる">×</button></li>
+          <li><a href="/#about">会社について</a></li><li><a href="/#service">ブランド</a></li><li><a href="/#works">制作事業</a></li><li><a href="/#contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" type="button" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav-overlay" id="navOverlay"></div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <a class="back-link" href="/">← トップへ戻る</a>
+        <div class="hero-tag">APP DEVELOPMENT</div>
+        <h1 class="hero-title">スマホゲームの企画・制作・運営</h1>
+        <p class="hero-lead">合同会社alibaは、自社でスマートフォン向けゲームアプリを企画・制作・運営しています。アプリを届け、遊びやすさを見直しながら、より楽しめる体験を目指します。</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#apps">公開中のアプリを見る</a><a class="btn btn-ghost" href="/#contact">お問い合わせ</a></div>
+      </div>
+    </section>
+    <section class="section" aria-labelledby="approach-title">
+      <div class="container">
+        <div class="section-header"><div class="section-label">WHAT WE DO</div><h2 class="section-title" id="approach-title">自社アプリを企画し、運営する</h2><p class="section-desc">企画から制作、公開後の運営までを自社で行っています。実際に遊ぶ方の視点を大切にし、操作や進行の分かりやすさを改善していきます。</p></div>
+        <div class="feature-grid">
+          <article class="feature-card"><h3>企画</h3><p>スマートフォンで楽しめるゲームを考え、遊びの流れや体験の方向性を形にします。</p></article>
+          <article class="feature-card"><h3>制作</h3><p>企画したゲームをアプリとして制作し、App Storeを通じてお届けしています。</p></article>
+          <article class="feature-card"><h3>運営・改善</h3><p>公開後もアプリを運営し、遊びやすさを見直しながら改善に取り組みます。</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section bg" id="apps">
+      <div class="container">
+        <div class="section-header"><div class="section-label">OUR APPS</div><h2 class="section-title">公開中のアプリ</h2><p class="section-desc">合同会社alibaが制作・運営するスマートフォン向けゲームです。App Storeで詳細をご覧いただけます。</p></div>
+        <div class="app-grid">
+          <article class="app-card"><span class="app-label">iOSアプリ</span><h3>おかずの居場所</h3><p>合同会社alibaが制作・運営するスマートフォン向けゲームアプリです。</p><a class="btn" href="https://apps.apple.com/jp/app/id6809498156" target="_blank" rel="noopener noreferrer">App Storeで見る ↗</a></article>
+          <article class="app-card"><span class="app-label">iOSアプリ</span><h3>漢字くみたて合戦</h3><p>合同会社alibaが制作・運営するスマートフォン向けゲームアプリです。</p><a class="btn" href="https://apps.apple.com/jp/app/id6811368161" target="_blank" rel="noopener noreferrer">App Storeで見る ↗</a></article>
+        </div>
+      </div>
+    </section>
+    <section class="cta"><div class="container"><h2>アプリ制作についてのお問い合わせ</h2><p>合同会社alibaのアプリ事業に関するお問い合わせはこちらからお寄せください。</p><a class="btn btn-primary" href="/contact/">お問い合わせフォームへ</a></div></section>
+  </main>
+  <footer class="site-footer"><div class="container"><div class="footer-content">
+    <div><h3>合同会社aliba</h3><p>京都を拠点に、ブランド運営と制作事業に取り組んでいます。</p></div>
+    <div class="footer-nav"><h4>SITEMAP</h4><ul><li><a href="/#about">会社について</a></li><li><a href="/#works">制作事業</a></li><li><a href="/#contact">お問い合わせ</a></li></ul></div>
+    <div class="footer-nav"><h4>INFORMATION</h4><ul><li><a href="/policies/apps/">アプリのプライバシーポリシー</a></li><li><a href="/policies/privacy/">会社のプライバシーポリシー</a></li><li><a href="/policies/personal-info/">個人情報の取り扱いについて</a></li><li><a href="/policies/antisocial/">反社会的勢力に対する基本方針</a></li></ul></div>
+  </div><div class="footer-bottom">© 2025 ALIBA Inc. All Rights Reserved.</div></div></footer>
+  <script>
+    const menu = document.getElementById('navList');
+    const overlay = document.getElementById('navOverlay');
+    const toggle = document.getElementById('hamburger');
+    const closeMenu = () => { menu.classList.remove('active'); overlay.classList.remove('active'); toggle.setAttribute('aria-expanded', 'false'); };
+    toggle.addEventListener('click', () => { const open = !menu.classList.contains('active'); menu.classList.toggle('active', open); overlay.classList.toggle('active', open); toggle.setAttribute('aria-expanded', String(open)); });
+    overlay.addEventListener('click', closeMenu);
+    document.getElementById('navClose').addEventListener('click', closeMenu);
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  </script>
+</body>
+</html>

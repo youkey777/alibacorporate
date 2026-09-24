@@ -1,12 +1,13 @@
 # aliba Inc. (合同会社aliba)
 
-> Web・SNS・AI制作事業と、ジュエリー・ウェルネス・サウナ用品のD2Cブランドを運営する日本（京都）の企業。aliba（アリバ）ジュエリー、relax heal（リラックスヒール）、Sauna Crown（サウナクラウン）の3ブランドを展開。
+> Web・SNS・AI・アプリ制作事業と、ジュエリー・ウェルネス・サウナ用品のD2Cブランドを運営する日本（京都）の企業。aliba（アリバ）ジュエリー、relax heal（リラックスヒール）、Sauna Crown（サウナクラウン）の3ブランドを展開。
 
 ## Corporate
 - [会社概要](https://www.aliba.online/): 合同会社alibaコーポレートサイト
 - [Web制作サービス](https://www.aliba.online/services/web/): Webサイト制作サービス
 - [SNS運用サービス](https://www.aliba.online/services/sns/): SNS運用代行サービス
 - [AI導入支援サービス](https://www.aliba.online/services/ai/): AI活用支援サービス
+- [アプリ制作](https://www.aliba.online/services/apps/): スマートフォン向けゲームアプリの企画・制作・運営。公開中の自社アプリを紹介
 - [お知らせ](https://www.aliba.online/news/): ニュース・お知らせ
 - [お問い合わせ](https://www.aliba.online/contact/): お問い合わせフォーム
 - [プライバシーポリシー](https://www.aliba.online/policies/privacy/): 個人情報保護方針
