@@ -438,7 +438,7 @@ h2,h3{ text-wrap:balance; }
 <section class="kv" id="top" aria-labelledby="kv-h">
   <div class="kv-box">
     <div class="kv-text">
-      <h1 class="kv-h" id="kv-h"><span>毎日に、</span><span>ちょっといいものを。</span></h1>
+      <h1 class="kv-h" id="kv-h"><span>くらしに、ここちよさを。</span><span>毎日に、あそびを。</span></h1>
       <p class="kv-sub" id="kv-sub"><span class="nw">合同会社aliba</span>は、日々を心地よくするブランドと、毎日にちょっとした夢中を届けるゲーム「<span class="nw">aliba games</span>」をつくる会社です。</p>
     </div>
     <picture class="kv-pic">
@@ -677,22 +677,6 @@ h2,h3{ text-wrap:balance; }
 <script>
 (() => {
 
-  /* ---- 第一画面: コピー5案の試写（?copy=1〜5。指定なしは1）※本番前に1案に固定してこの部分は外す ---- */
-  const COPIES = {
-    1: [['毎日に、', 'ちょっといいものを。'], '合同会社alibaは、日々を心地よくするブランドと、毎日にちょっとした夢中を届けるゲーム「aliba games」をつくる会社です。'],
-    2: [['身につける。すわる。', 'ととのう。あそぶ。'], '毎日のいろんな時間に寄りそうものを、ブランドとゲームでつくっています。合同会社aliba'],
-    3: [['今日は、なにで', 'ここちよくなろう。'], 'ジュエリー、座り心地のケア、サウナ、そしてゲーム。合同会社alibaは、毎日をすこし楽しくするものをつくる会社です。'],
-    4: [['くらしに、ここちよさを。', '毎日に、あそびを。'], '合同会社alibaは、日々を心地よくするブランドと、毎日にちょっとした夢中を届けるゲーム「aliba games」をつくる会社です。'],
-    5: [['ここちよいも、', 'たのしいも、つくる。'], 'ジュエリー、座り心地のケア、サウナのブランドと、ゲーム「aliba games」。合同会社alibaです。'],
-  };
-  const pick = COPIES[new URLSearchParams(location.search).get('copy')];
-  if (pick) {
-    const h = document.getElementById('kv-h');
-    h.replaceChildren(...pick[0].map(s => Object.assign(document.createElement('span'), { textContent: s })));
-    const sub = document.getElementById('kv-sub');
-    sub.textContent = pick[1];
-    sub.innerHTML = sub.innerHTML.replace(/合同会社aliba|aliba games/g, '<span class="nw">$&</span>'); /* 社名・ブランド名の途中で改行しない */
-  }
   /* ---- 切り替えの帯: 今いる区分に下線 ---- */
   const tabs = [...document.querySelectorAll('.switch .tab')];
   const secs = tabs.map(t => document.getElementById(t.dataset.tab));
