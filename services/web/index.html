@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://www.aliba.online/services/web/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --accent: #1a5490;
@@ -464,6 +464,7 @@
         height: 44px;
       }
     }</style>
+  <link rel="stylesheet" href="/css/site.css?v=20261006">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -501,36 +502,29 @@
 }
   </script>
 </head>
-<body>
-    <header class="site-header">
-    <div class="header-inner">
-      <a class="logo" href="/">
-        <img class="logo-image" src="/ロゴ/aliba-logo - コピー.png?v=4" alt="aliba llc">
-      </a>
-      <div class="header-nav">
-        <nav>
-          <ul class="nav-list" id="navList">
-            <li class="nav-close">
-              <button class="nav-close-button" type="button" aria-label="メニューを閉じる">×</button>
-            </li>
-            <li><a href="/#about">About us</a></li>
-            <li><a href="/#service">ブランド</a></li>
-            <li><a href="/#works">制作事業</a></li>
-            <li><a href="/#news">NEWS</a></li>
-            <li><a href="/#recruit">RECRUIT</a></li>
-            <li><a href="/#contact">問い合わせ</a></li>
-            <li class="nav-top"><a href="/#">トップに戻る</a></li>
-            </ul>
-        </nav>
-      </div>
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-    <div class="nav-overlay" id="navOverlay"></div>
-  </header>
+<body class="pg-service">
+    <header class="sh">
+  <div class="sh-in">
+    <a class="sh-logo" href="/" aria-label="合同会社aliba トップへ">
+      <img src="/images/brand/aliba_logo.png" alt="aliba" width="372" height="256">
+      <span>合同会社aliba</span>
+    </a>
+    <button class="sh-menu" type="button" aria-expanded="false" aria-controls="shNav" aria-label="メニューを開く">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="sh-nav" id="shNav" aria-label="メインメニュー">
+      <ul>
+        <li><a href="/#brands">ブランド</a></li>
+        <li><a class="is-games" href="/games/">aliba games</a></li>
+        <li><a href="/#works">制作事業</a></li>
+        <li><a href="/news/">NEWS</a></li>
+        <li><a href="/#recruit">採用</a></li>
+        <li><a href="/#company">会社概要</a></li>
+        <li><a class="sh-cta" href="/contact/">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
   <header class="hero">
     <div class="hero-media" aria-hidden="true">
@@ -644,76 +638,47 @@
     </div>
   </section>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-company">
-          <h3>合同会社aliba</h3>
-          <p>〒600-8223<br>京都府京都市下京区七条通油小路東入大黒町227番地第２キョートビル402</p>
-          <p>TEL: 050-3171-3449</p>
-        </div>
-        <div class="footer-nav">
-          <h4>SITEMAP</h4>
-          <ul>
-            <li><a href="/#about">About us</a></li>
-            <li><a href="/#service">ブランド</a></li>
-            <li><a href="/#works">制作事業</a></li>
-            <li><a href="/#news">NEWS</a></li>
-            <li><a href="/#recruit">RECRUIT</a></li>
-            <li><a href="/#contact">問い合わせ</a></li>
-            </ul>
-        </div>
-        <div class="footer-nav">
-          <h4>INFORMATION</h4>
-          <ul>
-            <li><a href="/policies/privacy/">プライバシーポリシー</a></li>
-            <li><a href="/policies/personal-info/">個人情報の取り扱いについて</a></li>
-            <li><a href="/policies/antisocial/">反社会的勢力に対する基本方針</a></li>
-          </ul>
+  <footer class="sf">
+  <div class="sf-wrap">
+    <div class="sf-top">
+      <div>
+        <p class="sf-name">合同会社aliba</p>
+        <p class="sf-addr">〒600-8223 京都府京都市下京区七条通油小路東入大黒町227番地第２キョートビル402<br>TEL 050-3171-3449</p>
+        <div class="sf-sns">
+          <a href="https://x.com/gamesaliba" target="_blank" rel="noopener" aria-label="aliba games の X（新しいタブで開きます）"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.youtube.com/@gamesaliba" target="_blank" rel="noopener" aria-label="aliba games の YouTube（新しいタブで開きます）"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg></a>
+          <a href="https://www.tiktok.com/@gamesaliba.online" target="_blank" rel="noopener" aria-label="aliba games の TikTok（新しいタブで開きます）"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
         </div>
       </div>
-      <div class="footer-bottom">
-        <div>© 2025 ALIBA Inc. All Rights Reserved.</div>
-        <div>お問い合わせはフォームよりお願いいたします。</div>
+      <div>
+        <p class="sf-h">SITEMAP</p>
+        <ul class="sf-list">
+          <li><a href="/#company">会社について</a></li>
+          <li><a href="/#brands">ブランド</a></li>
+          <li><a href="/games/">aliba games</a></li>
+          <li><a href="/#works">制作事業</a></li>
+          <li><a href="/news/">NEWS</a></li>
+          <li><a href="/#recruit">採用</a></li>
+          <li><a href="/contact/">お問い合わせ</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="sf-h">POLICY</p>
+        <ul class="sf-list">
+          <li><a href="/policies/privacy/">プライバシーポリシー</a></li>
+          <li><a href="/policies/personal-info/">個人情報の取り扱いについて</a></li>
+          <li><a href="/policies/antisocial/">反社会的勢力に対する基本方針</a></li>
+          <li><a href="/policies/apps/">アプリのプライバシーポリシー</a></li>
+        </ul>
       </div>
     </div>
-  </footer>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const hamburger = document.getElementById('hamburger');
-      const navList = document.getElementById('navList');
-      const navOverlay = document.getElementById('navOverlay');
-      const navCloseButton = navList ? navList.querySelector('.nav-close-button') : null;
-      if (!hamburger || !navList || !navOverlay || !navCloseButton) return;
-
-      const closeMenu = () => {
-        hamburger.classList.remove('active');
-        navList.classList.remove('active');
-        navOverlay.classList.remove('active');
-      };
-
-      const openMenu = () => {
-        hamburger.classList.add('active');
-        navList.classList.add('active');
-        navOverlay.classList.add('active');
-      };
-
-      hamburger.addEventListener('click', () => {
-        if (navList.classList.contains('active')) {
-          closeMenu();
-        } else {
-          openMenu();
-        }
-      });
-
-      navOverlay.addEventListener('click', closeMenu);
-      navCloseButton.addEventListener('click', closeMenu);
-
-      navList.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeMenu);
-      });
-    });
-  </script></body>
+    <div class="sf-bottom">
+      <p>AppleおよびAppleのロゴは、米国その他の国で登録されたApple Inc.の商標です。App StoreはApple Inc.のサービスマークです。</p>
+      <p>© 2026 合同会社aliba</p>
+    </div>
+  </div>
+</footer>
+  <script src="/js/site.js?v=20261006"></script></body>
 </html>
 
 
