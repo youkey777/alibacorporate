@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <title>合同会社aliba | 暮らしのブランドとゲーム「aliba games」</title>
-<link rel="preload" as="image" href="https://www.aliba.online/images/og-corporate.jpg">
+<link rel="preload" as="image" href="/images/home/kv.jpg" media="(min-width:1024px)" fetchpriority="high">
+<link rel="preload" as="image" href="/images/home/kv_sp.jpg" media="(max-width:1023px)" fetchpriority="high">
   <meta name="description" content="合同会社alibaは、日々を心地よくする暮らしのブランド（aliba jewelry・relax heal・Sauna Crown）と、毎日にちょっとした夢中を届けるゲーム「aliba games（アリバゲームズ）」をつくる京都の会社です。Web制作・SNS運用代行の制作事業も行っています。">
   <link rel="canonical" href="https://www.aliba.online/">
   <meta name="msvalidate.01" content="A2CB099061ACFE3265E26FF6673B09C0" />
@@ -105,7 +106,6 @@
    ========================================================= */
 :root{
   --sec-y:120px; --head-gap:48px; --card-pad:24px; --tabs:64px; --wrap:1200px;
-  --g-bg:#f58a3c;
 }
 @media (max-width:599px){ :root{ --sec-y:80px; --head-gap:32px; --tabs:60px; } }
 
@@ -151,105 +151,53 @@ h2,h3{ text-wrap:balance; }
 .px svg{ display:block; width:100%; height:100%; fill:currentColor; }
 
 /* =========================================================
-   第一画面: 左右を「対」に（名札→主見出し→絵→ボタンを同じ順・同じ高さで）
-   左＝少し暖かい灰／右＝やわらかいオレンジ。境目に aliba の丸ロゴを1つ
+   第一画面: キービジュアル（2026-10-06 早川さん追加指示 04）
+   PC: 絵を画面いっぱいに敷き、左の空いたテーブル面に見出しと添え書きを文字で置く
+       絵と文字を同じ箱（.kv-box＝絵の縦横比 1672:941）に入れ、文字の位置と大きさは箱の幅に対する割合で決める
+       → 画面の縦横比が変わっても、文字は絵の同じ場所（商品に重ならない場所）に乗る
+   スマホ・タブレット: 上に文字・下に絵（右寄りの切り出し kv_sp）
    ========================================================= */
-.hero-pair{
-  position:relative; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-  height:clamp(560px, calc(100svh - var(--hdr) - 92px), 780px);
+.kv{
+  --kvh:clamp(560px, calc(100svh - var(--hdr)), 860px);
+  position:relative; height:var(--kvh); overflow:hidden; background:#f9f6f2;
 }
-.half{ display:flex; flex-direction:column; gap:20px; padding:32px 56px 36px; min-width:0; min-height:0; }
-.kurashi{ background:#f3f2ef; }
-.asobi{ background:var(--g-bg); }
-.half-tag{
-  align-self:flex-start; display:inline-flex; align-items:baseline; gap:10px; margin:0;
-  font-size:15px; font-weight:700; letter-spacing:.06em; line-height:1;
-  padding:9px 12px; border-radius:4px; white-space:nowrap; background:var(--paper);
+.kv-box{
+  position:absolute; left:0; top:50%; transform:translateY(-50%); /* 左端（文字の場所）は切らず、はみ出す分は右と上下で切る */
+  width:max(100%, calc(var(--kvh) * 1672 / 941)); aspect-ratio:1672 / 941;
+  container-type:inline-size;
 }
-.half-tag b{ font-size:20px; letter-spacing:.12em; }
-.kurashi .half-tag{ color:var(--corp); }
-.asobi .half-tag{ color:var(--ink); }
-.asobi .half-tag b{ color:#a8440a; } /* 白地の上のオレンジ文字は濃いオレンジ（4.5:1以上） */
-.h-title{
-  font-size:clamp(28px, 2.7vw, 40px); font-weight:900; line-height:1.4; letter-spacing:.04em;
-  color:var(--ink); white-space:nowrap;
+.kv-pic, .kv-pic img{ position:absolute; inset:0; width:100%; height:100%; margin:0; }
+.kv-pic img{ object-fit:cover; }
+.kv-text{ position:absolute; left:5cqw; top:31.5%; z-index:2; }
+.kv-h{
+  font-size:min(3.4cqw, 64px); font-weight:900; line-height:1.36; letter-spacing:.02em;
+  color:var(--ink); font-feature-settings:"palt";
 }
-.frame{
-  position:relative; flex:1 1 0; min-height:0; border-radius:var(--radius); overflow:hidden;
-  box-shadow:0 16px 36px rgba(29,36,51,.16); background:var(--line);
+.kv-h span{ display:block; white-space:nowrap; }
+.kv-sub{
+  margin-top:max(20px, 1.7cqw); max-width:34cqw;
+  font-size:clamp(16px, 1.25cqw, 19px); line-height:1.9; font-weight:500; color:var(--ink);
 }
-.frame-cap{
-  position:absolute; left:0; bottom:0; z-index:4; background:var(--paper); margin:0;
-  padding:10px 16px 10px 14px; font-size:15px; font-weight:700; color:var(--ink); line-height:1.4;
-  display:flex; align-items:center; gap:12px; border-top-right-radius:4px;
+.kv-scroll{
+  position:absolute; left:5cqw; bottom:24px; z-index:3; display:none;
+  align-items:center; gap:10px; text-decoration:none; color:var(--ink);
+  font-size:12px; font-weight:700; letter-spacing:.2em;
 }
-.hero-foot{ display:flex; }
-.seam{
-  position:absolute; left:50%; top:calc(50% + 30px); z-index:6; transform:translate(-50%,-50%);
-  width:84px; height:84px; border-radius:50%; background:var(--paper);
-  box-shadow:0 6px 18px rgba(29,36,51,.18); display:flex; align-items:center; justify-content:center;
-}
-.seam img{ width:58px; height:auto; }
-.hero-lead{
-  margin:0; padding:22px var(--gutter); text-align:center; background:var(--paper);
-  border-bottom:1px solid var(--line); font-size:16px; line-height:1.8;
-}
+.kv-scroll svg{ width:16px; height:16px; }
+@media (min-width:1024px){ .kv-scroll{ display:inline-flex; left:calc(max(100%, var(--kvh) * 1672 / 941) * .05); } }
 
-/* 左の写真（7秒ごとに横へ流れる） */
-.kp-track{ display:flex; height:100%; transition:transform 1.2s cubic-bezier(.65,0,.35,1); }
-.kp-track.no-anim{ transition:none; }
-.kp-slide{ flex:0 0 100%; height:100%; margin:0; }
-.kp-slide img{ width:100%; height:100%; object-fit:cover; }
-.kp-slide[data-k="jewelry"] img{ object-position:50% 40%; }
-.kp-slide[data-k="relaxheal"] img{ object-position:45% 50%; }
-.kp-slide[data-k="sauna"] img{ object-position:50% 22%; }
-.kp-bars{ display:flex; gap:4px; }
-.kp-bars i{ width:18px; height:3px; background:var(--line); display:block; }
-.kp-bars i.on{ background:var(--corp); }
-
-/* 右の枠（左の写真枠と同じ大きさ・角丸・影）: 淡い地にキャラとピクセルの飾り */
-.stage{ background:var(--games-soft); container-type:size; }
-.stage .hill{ position:absolute; left:-8%; right:-8%; bottom:-34%; height:52%; border-radius:50% 50% 0 0; background:#fde0c2; }
-.stage .chara{
-  position:absolute; left:50%; bottom:9%; z-index:3; transform:translateX(-50%);
-  width:min(280px, 46cqw, 72cqh); height:auto;
-}
-.stage .px{ z-index:1; }
-.stage .d-cloud1{ left:5%; top:8%; width:min(130px,22cqw); aspect-ratio:120/56; color:#fff; }
-.stage .d-cloud2{ right:4%; top:44%; width:min(110px,19cqw); aspect-ratio:120/56; color:#fff; }
-.stage .d-star1{ left:13%; top:46%; width:min(40px,7cqw); aspect-ratio:1; color:#f79a4f; }
-.stage .d-star2{ right:14%; top:10%; width:min(34px,6cqw); aspect-ratio:1; color:#f79a4f; }
-.stage .d-heart{ right:20%; top:68%; width:min(38px,7cqw); aspect-ratio:7/6; color:#ef5a3c; }
-.stage .d-plus1{ left:32%; top:12%; width:min(20px,3.6cqw); aspect-ratio:1; color:#f79a4f; }
-.stage .d-plus2{ left:8%; top:72%; width:min(20px,3.6cqw); aspect-ratio:1; color:#f79a4f; }
-.stage .d-sq1{ left:24%; top:34%; width:9px; height:9px; background:#f8b27c; }
-.stage .d-sq2{ right:30%; top:24%; width:8px; height:8px; background:#f8b27c; }
-
-/* --- タブレット・スマホ: 上下に分ける（左右と同じ順のまま） --- */
 @media (max-width:1023px){
-  .hero-pair{ grid-template-columns:1fr; height:auto; }
-  .half{ padding:24px var(--gutter) 28px; gap:16px; }
-  .h-title{ font-size:34px; }
-  .frame{ flex:0 0 auto; height:340px; }
-  .stage .chara{ width:min(220px, 40cqw, 64cqh); bottom:16%; }
-  .seam{ top:50%; width:72px; height:72px; }
-  .kurashi{ padding-bottom:48px; } .asobi{ padding-top:44px; } /* 境目の丸ロゴが名札やボタンに重ならないよう、上下に同じだけ空ける */
-  .seam img{ width:50px; }
-  .hero-lead{ font-size:17px; text-align:left; }
+  .kv{ height:auto; overflow:visible; }
+  .kv-box{ position:static; transform:none; width:auto; aspect-ratio:auto; container-type:normal; }
+  .kv-text{ position:static; padding:28px var(--gutter) 24px; }
+  .kv-h{ font-size:min(calc((100vw - var(--gutter) * 2) / 12.2), 46px); }
+  .kv-sub{ max-width:36em; margin-top:14px; font-size:16px; line-height:1.8; }
+  .kv-pic{ position:static; }
+  .kv-pic img{ position:static; height:auto; aspect-ratio:1000 / 912; object-fit:cover; }
 }
 @media (max-width:599px){
-  .half{ padding:20px var(--gutter) 24px; gap:14px; }
-  .kurashi{ padding-bottom:44px; } .asobi{ padding-top:40px; }
-  .half-tag{ font-size:14px; padding:8px 10px; }
-  .half-tag b{ font-size:18px; }
-  .h-title{ font-size:25px; }
-  .frame{ height:230px; }
-  .frame-cap{ font-size:14px; padding:8px 12px; }
-  .stage .chara{ width:min(150px, 40cqw, 62cqh); bottom:20%; }
-  .seam{ width:64px; height:64px; }
-  .seam img{ width:44px; }
-  .hero-foot .btn{ width:100%; min-height:48px; }
-  .hero-lead{ font-size:16px; padding:24px var(--gutter) 28px; }
+  .kv-text{ padding:22px var(--gutter) 18px; }
+  .kv-sub{ font-size:15px; margin-top:10px; }
 }
 
 /* =========================================================
@@ -486,50 +434,19 @@ h2,h3{ text-wrap:balance; }
 </header>
 
 <main>
-<!-- ================= 第一画面（左右を対に） ================= -->
-<section class="hero" id="top" aria-labelledby="hero-h">
-  <h1 class="sr-only" id="hero-h">くらしに、ここちよさを。毎日に、あそびを。</h1>
-  <div class="hero-pair">
-    <div class="half kurashi">
-      <p class="half-tag"><b>くらし</b>ブランド</p>
-      <p class="h-title" aria-hidden="true">くらしに、ここちよさを。</p>
-      <div class="frame kurashi-photo" aria-roledescription="スライド" aria-label="ブランドの写真">
-        <div class="kp-track" id="kpTrack">
-          <figure class="kp-slide" data-k="jewelry"><img src="/images/brand/jewelry_1.jpg" alt="aliba jewelry のネックレス" width="1024" height="1024"></figure>
-          <figure class="kp-slide" data-k="relaxheal"><img src="/images/brand/relaxheal_1.jpg" alt="白い椅子に置かれた relax heal の青いゲルクッション" width="1400" height="625"></figure>
-          <figure class="kp-slide" data-k="sauna"><img src="/images/brand/sauna_2.jpg" alt="Sauna Crown のサウナハットをかぶった人" width="595" height="758"></figure>
-          <figure class="kp-slide" data-k="jewelry" aria-hidden="true"><img src="/images/brand/jewelry_1.jpg" alt="" width="1024" height="1024"></figure>
-        </div>
-        <p class="frame-cap"><span id="kpName">aliba jewelry</span><span class="kp-bars" aria-hidden="true"><i class="on"></i><i></i><i></i></span></p>
-      </div>
-      <div class="hero-foot">
-        <a class="btn btn--corp" href="#brands">ブランドを見る<svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
-      </div>
+<!-- ================= 第一画面（キービジュアル） ================= -->
+<section class="kv" id="top" aria-labelledby="kv-h">
+  <div class="kv-box">
+    <div class="kv-text">
+      <h1 class="kv-h" id="kv-h"><span>毎日に、</span><span>ちょっといいものを。</span></h1>
+      <p class="kv-sub" id="kv-sub"><span class="nw">合同会社aliba</span>は、日々を心地よくするブランドと、毎日にちょっとした夢中を届けるゲーム「<span class="nw">aliba games</span>」をつくる会社です。</p>
     </div>
-
-    <div class="half asobi">
-      <p class="half-tag"><b>あそび</b>aliba games</p>
-      <p class="h-title" aria-hidden="true">毎日に、あそびを。</p>
-      <div class="frame stage">
-        <span class="px hill"></span>
-        <span class="px d-cloud1"><svg><use href="#px-cloud"/></svg></span>
-        <span class="px d-cloud2"><svg><use href="#px-cloud"/></svg></span>
-        <span class="px d-star1"><svg><use href="#px-star"/></svg></span>
-        <span class="px d-star2"><svg><use href="#px-star"/></svg></span>
-        <span class="px d-heart"><svg><use href="#px-heart"/></svg></span>
-        <span class="px d-plus1"><svg><use href="#px-plus"/></svg></span>
-        <span class="px d-plus2"><svg><use href="#px-plus"/></svg></span>
-        <span class="px d-sq1"></span><span class="px d-sq2"></span>
-        <img class="chara" src="/images/games/chara.png" alt="aliba games のキャラクター" width="522" height="556">
-        <p class="frame-cap">aliba games（アリバゲームズ）</p>
-      </div>
-      <div class="hero-foot">
-        <a class="btn btn--white" href="#games">ゲームを見る<svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
-      </div>
-    </div>
-    <span class="seam" aria-hidden="true"><img src="/images/brand/aliba_logo.png" alt="" width="372" height="256"></span>
+    <picture class="kv-pic">
+      <source media="(max-width:1023px)" srcset="/images/home/kv_sp.jpg" width="1000" height="912">
+      <img src="/images/home/kv.jpg" alt="明るいテーブルの上に並んだ aliba jewelry のネックレス、Sauna Crown のサウナハット、relax heal のゲルクッション、aliba games のゲーム画面が映ったスマートフォン" width="2000" height="1126" fetchpriority="high">
+    </picture>
   </div>
-  <p class="hero-lead">合同会社alibaは、日々を心地よくするブランドと、毎日にちょっとした夢中を届けるゲーム「aliba games」をつくる会社です。</p>
+  <a class="kv-scroll" href="#brands">SCROLL<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
 </section>
 
 <!-- ================= 切り替えの帯（4区分） ================= -->
@@ -759,32 +676,23 @@ h2,h3{ text-wrap:balance; }
 <script src="/js/site.js?v=20261006"></script>
 <script>
 (() => {
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---- 第一画面: くらしの写真を7秒ごとに横へ流す ---- */
-  const track = document.getElementById('kpTrack');
-  const names = ['aliba jewelry', 'relax heal', 'Sauna Crown'];
-  const nameEl = document.getElementById('kpName');
-  const bars = document.querySelectorAll('.kp-bars i');
-  let idx = 0;
-  const show = (i) => {
-    track.style.transform = `translateX(-${i * 100}%)`;
-    const n = i % 3;
-    nameEl.textContent = names[n];
-    bars.forEach((b, k) => b.classList.toggle('on', k === n));
+  /* ---- 第一画面: コピー5案の試写（?copy=1〜5。指定なしは1）※本番前に1案に固定してこの部分は外す ---- */
+  const COPIES = {
+    1: [['毎日に、', 'ちょっといいものを。'], '合同会社alibaは、日々を心地よくするブランドと、毎日にちょっとした夢中を届けるゲーム「aliba games」をつくる会社です。'],
+    2: [['身につける。すわる。', 'ととのう。あそぶ。'], '毎日のいろんな時間に寄りそうものを、ブランドとゲームでつくっています。合同会社aliba'],
+    3: [['今日は、なにで', 'ここちよくなろう。'], 'ジュエリー、座り心地のケア、サウナ、そしてゲーム。合同会社alibaは、毎日をすこし楽しくするものをつくる会社です。'],
+    4: [['くらしに、ここちよさを。', '毎日に、あそびを。'], '合同会社alibaは、日々を心地よくするブランドと、毎日にちょっとした夢中を届けるゲーム「aliba games」をつくる会社です。'],
+    5: [['ここちよいも、', 'たのしいも、つくる。'], 'ジュエリー、座り心地のケア、サウナのブランドと、ゲーム「aliba games」。合同会社alibaです。'],
   };
-  track.addEventListener('transitionend', () => {
-    if (idx === 3) {
-      track.classList.add('no-anim');
-      idx = 0; show(0);
-      void track.offsetWidth;
-      track.classList.remove('no-anim');
-    }
-  });
-  if (!reduce) {
-    setInterval(() => { if (!document.hidden) { idx += 1; show(idx); } }, 7000);
+  const pick = COPIES[new URLSearchParams(location.search).get('copy')];
+  if (pick) {
+    const h = document.getElementById('kv-h');
+    h.replaceChildren(...pick[0].map(s => Object.assign(document.createElement('span'), { textContent: s })));
+    const sub = document.getElementById('kv-sub');
+    sub.textContent = pick[1];
+    sub.innerHTML = sub.innerHTML.replace(/合同会社aliba|aliba games/g, '<span class="nw">$&</span>'); /* 社名・ブランド名の途中で改行しない */
   }
-
   /* ---- 切り替えの帯: 今いる区分に下線 ---- */
   const tabs = [...document.querySelectorAll('.switch .tab')];
   const secs = tabs.map(t => document.getElementById(t.dataset.tab));
