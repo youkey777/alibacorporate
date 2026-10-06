@@ -87,16 +87,48 @@ body.home .sh{ position:relative; }
 .sf-top{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr); gap:48px; }
 .sf-name{ font-size:22px; font-weight:900; letter-spacing:.04em; margin-bottom:12px !important; }
 .sf-addr{ font-size:15px; color:#d5dde8; line-height:1.8; }
+.sf .nw{ white-space:nowrap; }
 .sf-h{ font-size:15px; font-weight:700; letter-spacing:.14em; color:#d5dde8; margin-bottom:12px !important; }
 .sf-list li a{ display:inline-flex; align-items:center; min-height:44px; min-width:44px; font-size:15px; }
 .sf-sns{ display:flex; gap:10px; margin-top:20px; }
-.sf-sns a{ width:48px; height:48px; display:flex; align-items:center; justify-content:center; border:1.5px solid rgba(255,255,255,.55); border-radius:var(--radius); }
-.sf-sns a:hover{ background:rgba(255,255,255,.12); text-decoration:none; }
-.sf-sns svg{ width:20px; height:20px; }
+.sf-sns a{ width:48px; height:48px; display:flex; border-radius:var(--radius); }
+.sf-sns a .sns-ic{ width:48px; height:48px; }
+.sf-sns a:hover{ outline:2px solid #fff; outline-offset:2px; text-decoration:none; }
 .sf-bottom{ margin-top:56px; padding-top:24px; border-top:1px solid rgba(255,255,255,.25); display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; }
 .sf-bottom p{ font-size:14px; color:#d5dde8; line-height:1.7; }
 @media (max-width:1023px){ .sf-top{ grid-template-columns:1fr 1fr; } .sf-top > div:first-child{ grid-column:1 / -1; } }
 @media (max-width:599px){ .sf-top{ grid-template-columns:1fr; gap:32px; } .sf{ padding-top:64px; } }
+
+/* =========================================================
+   SNS のアイコン（各社の公式の形と色。どのページでも同じもの）
+   X＝黒地に白のX／YouTube＝赤い角丸に白い三角／TikTok＝黒地に水色と赤がずれた音符
+   ========================================================= */
+.sns-ic{ display:inline-flex; align-items:center; justify-content:center; flex:none; border-radius:var(--radius); }
+.sns-ic svg{ display:block; }
+.sns-ic--x, .sns-ic--tt{ background:#000; }
+.sns-ic--yt{ background:#fff; box-shadow:inset 0 0 0 1px #e3e3e3; }
+.sns-ic--x svg{ width:46%; height:46%; }
+.sns-ic--yt svg{ width:64%; height:auto; }
+.sns-ic--tt svg{ width:52%; height:52%; }
+/* SNSの大きなカード（トップの あそび の区分と /games/ で共通） */
+.acct-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; margin-top:28px; }
+.acct-big{
+  position:relative; display:grid; grid-template-columns:64px minmax(0,1fr) 24px; align-items:center; gap:18px;
+  min-height:112px; padding:20px 22px; background:var(--paper); border-radius:var(--radius);
+  text-decoration:none; color:var(--ink); border:1px solid #f0dcc6; box-shadow:0 6px 16px rgba(120,60,10,.10);
+  transition:transform .2s, box-shadow .2s;
+}
+.acct-big:hover{ transform:translateY(-3px); box-shadow:0 12px 24px rgba(120,60,10,.16); }
+.acct-big .sns-ic{ width:64px; height:64px; }
+.acct-big .nm{ display:block; font-size:24px; font-weight:900; line-height:1.3; }
+.acct-big .hd{ display:block; font-size:16px; font-weight:500; color:var(--sub); overflow-wrap:anywhere; line-height:1.5; }
+.acct-big .go{ width:22px; height:22px; color:#b4490c; }
+@media (max-width:1023px){ .acct-grid{ grid-template-columns:1fr; gap:16px; } }
+@media (max-width:599px){
+  .acct-big{ grid-template-columns:56px minmax(0,1fr) 22px; min-height:92px; padding:16px 18px; gap:14px; }
+  .acct-big .sns-ic{ width:56px; height:56px; }
+  .acct-big .nm{ font-size:21px; }
+}
 
 /* =========================================================
    既存ページの見た目合わせ（本文の文言・構造は変えず、見た目だけ）
@@ -158,11 +190,13 @@ body.pg-service .btn-ghost{ border-color:rgba(255,255,255,.85); color:#fff; back
 .pg-service .process-item h3{ font-size:19px; }
 .pg-service .deliverables{ border-radius:var(--radius); background:var(--mist); border:1px solid var(--line); padding:24px 28px; }
 .pg-service .deliverables li::before{ color:var(--corp); }
-.pg-service .cta{ background:var(--corp); padding:96px 0; text-align:left; }
+/* ページ末の相談帯: フッター（紺）と続いて見えないよう、淡い青の地＋上下の線で別物に */
+.pg-service .cta{ background:#e8eef5; color:var(--ink); padding:96px 0; text-align:left; border-top:1px solid #cfd9e5; border-bottom:6px solid var(--corp-dark); }
 .pg-service .cta .container{ display:block; }
 .pg-service .cta h2{ font-size:32px; font-weight:900; line-height:1.45; }
-.pg-service .cta p{ font-size:17px; color:#e6ecf3; margin:14px 0 28px; }
-.pg-service .cta .btn-primary{ background:#fff; color:var(--corp); }
+.pg-service .cta p{ font-size:17px; color:var(--sub); margin:14px 0 28px; }
+.pg-service .cta .btn-primary{ background:var(--corp); color:#fff; }
+.pg-service .cta .btn-primary:hover{ background:var(--corp-dark); }
 .pg-service .app-label{ border-radius:4px; font-size:14px; background:#eaf0f6; color:var(--corp); }
 .pg-service .app-gameplay{ border-radius:var(--radius); background:var(--mist); }
 .pg-service .app-card h3{ font-size:21px; font-weight:900; }
@@ -176,6 +210,8 @@ body.pg-service .btn-ghost{ border-color:rgba(255,255,255,.85); color:#fff; back
   .pg-service .hero-lead{ font-size:16px; }
   .pg-service .hero-actions{ flex-direction:column; align-items:stretch; }
   .pg-service .hero-actions .btn{ width:100%; }
+  .pg-service .hero-stats{ grid-template-columns:1fr; }
+  .pg-service .feature-grid, .pg-service .media-grid{ grid-template-columns:1fr; }
   .pg-service .section{ padding:80px 0; }
   .pg-service .section-header{ margin-bottom:32px; }
   .pg-service .section-title{ font-size:26px; }
@@ -215,7 +251,7 @@ body.pg-service .btn-ghost{ border-color:rgba(255,255,255,.85); color:#fff; back
 .pg-news .news-item:hover{ transform:none; background:var(--paper); }
 .pg-news .news-date{ font-size:16px; color:var(--sub); font-weight:500; }
 .pg-news .news-category{ justify-self:start; font-size:14px; font-weight:700; letter-spacing:.08em; padding:6px 8px; border-radius:4px; background:transparent; border:1.5px solid var(--corp); color:var(--corp); line-height:1; }
-.pg-news .news-title{ font-size:16px; }
+.pg-news .news-title{ font-size:16px; word-break:auto-phrase; text-wrap:pretty; }
 .pg-news .news-arrow{ color:var(--sub); }
 .pg-news .footer-link{ text-align:left; margin-top:40px; }
 body.pg-news .btn{ background:transparent; color:var(--corp); border-color:var(--corp); }
@@ -244,6 +280,9 @@ body.pg-news .btn:hover{ background:var(--corp); color:#fff; }
 .pg-contact input, .pg-contact select, .pg-contact textarea{ font-size:16px; border:1.5px solid #c9d0db; border-radius:var(--radius); min-height:52px; padding:12px 14px; }
 .pg-contact input:focus, .pg-contact select:focus, .pg-contact textarea:focus{ border-color:var(--corp); outline:3px solid rgba(27,58,92,.25); outline-offset:0; }
 .pg-contact .note{ font-size:14px; color:var(--sub); }
+/* 「任意」「*必須」の文字色（文言は変えず、白地で4.5:1以上の濃さに） */
+.pg-contact label span[style*="#888"]{ color:var(--sub) !important; }
+.pg-contact label span[style*="#c85c5c"]{ color:#b02a2a !important; }
 .pg-contact .note a{ color:var(--corp); text-decoration:underline; }
 .pg-contact .btn{ background:var(--corp); color:#fff; width:100%; }
 .pg-contact .btn:hover{ background:var(--corp-dark); }

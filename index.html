@@ -6,7 +6,7 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <title>合同会社aliba | 暮らしのブランドとゲーム「aliba games」</title>
 <link rel="preload" as="image" href="https://www.aliba.online/images/og-corporate.jpg">
-  <meta name="description" content="合同会社alibaは、日々を心地よくする暮らしのブランド（aliba jewelry・relax heal・Sauna Crown）と、毎日にちょっとした夢中を届けるゲーム「aliba games（アリバゲームズ）」をつくる京都の会社です。Web制作・SNS運用・AI画像の制作事業も行っています。">
+  <meta name="description" content="合同会社alibaは、日々を心地よくする暮らしのブランド（aliba jewelry・relax heal・Sauna Crown）と、毎日にちょっとした夢中を届けるゲーム「aliba games（アリバゲームズ）」をつくる京都の会社です。Web制作・SNS運用代行の制作事業も行っています。">
   <link rel="canonical" href="https://www.aliba.online/">
   <meta name="msvalidate.01" content="A2CB099061ACFE3265E26FF6673B09C0" />
   <meta property="og:type" content="website">
@@ -31,7 +31,7 @@
     "alternateName": ["aliba", "アリバ", "aliba corporate"],
     "url": "https://www.aliba.online/",
     "logo": "https://www.aliba.online/%E3%83%AD%E3%82%B4/aliba-logo%20-%20%E3%82%B3%E3%83%94%E3%83%BC.png",
-    "description": "合同会社alibaは、ジュエリー・癒しケア・サウナグッズのD2Cブランド運営と、ゲームブランド「aliba games（アリバゲームズ）」でのスマートフォン向けゲームの企画・制作・運営、Web制作・SNS運用・AI画像制作の制作事業を行う京都の企業。aliba（アリバ）ジュエリー、relax heal（リラックスヒール）、Sauna Crown（サウナクラウン）の3ブランドを展開。",
+    "description": "合同会社alibaは、ジュエリー・癒しケア・サウナグッズのD2Cブランド運営と、ゲームブランド「aliba games（アリバゲームズ）」でのスマートフォン向けゲームの企画・制作・運営、Web制作・SNS運用代行の制作事業を行う京都の企業。aliba（アリバ）ジュエリー、relax heal（リラックスヒール）、Sauna Crown（サウナクラウン）の3ブランドを展開。",
     "address": {
       "@type": "PostalAddress",
       "postalCode": "600-8233",
@@ -93,17 +93,19 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/site.css?v=20261006">
 <style>
 /* =========================================================
-   トップページ（案B「ふたつの世界がとなり合う」を本番化）
-   並びは くらし（ブランド）→ あそび（aliba games）→ しごと（制作事業）
-   余白の物差し: 節の上下 --sec-y／節見出しと中身 --head-gap／カード内 --card-pad
+   トップページ（2026-10-06 早川さん追加指示: 4つの区分）
+   くらし（BRANDS・紺）→ あそび（aliba games・オレンジ）→ しごと（WORKS・深い緑）→ インフォ（INFORMATION・墨のグレー）
+   4区分とも同じ作法: 区分の頭に同じ型の名札（区分の色の短い線＋日本語＋英字）、地は区分ごとのごく淡い色、
+   見出し・本文の書体と大きさの段は4区分共通。色は名札・線・ボタンにだけ使う
+   余白の物差し: 区分の上下 --sec-y／見出しと中身 --head-gap／カード内 --card-pad
    ========================================================= */
-@property --split { syntax: '<percentage>'; inherits: true; initial-value: 50%; }
 :root{
   --sec-y:120px; --head-gap:48px; --card-pad:24px; --tabs:64px; --wrap:1200px;
+  --g-bg:#f58a3c;
 }
 @media (max-width:599px){ :root{ --sec-y:80px; --head-gap:32px; --tabs:60px; } }
 
@@ -118,15 +120,14 @@ a{ color:inherit; }
 h1,h2,h3,p,ul,dl,dd,figure{ margin:0; }
 ul{ padding:0; list-style:none; }
 :focus-visible{ outline:3px solid var(--corp); outline-offset:3px; }
-h1,h2,h3,.lead,.hero-lead,.band p,.wcard p,.games-sns p,.contact-box p,.news-list .tt{ word-break:auto-phrase; }
+h1,h2,h3,p,.news-list .tt{ word-break:auto-phrase; }
 h2,h3{ text-wrap:balance; }
-.games :focus-visible, .asobi :focus-visible{ outline-color:var(--ink); }
+.nw{ white-space:nowrap; }
 .sr-only{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
-.vid, .acct-big, .sns-chip{ position:relative; }
 .wrap{ width:100%; max-width:calc(var(--wrap) + var(--gutter) * 2); margin:0 auto; padding:0 var(--gutter); }
 [id]{ scroll-margin-top:var(--tabs); }
 
-/* ---------- ボタン（角丸6pxまで） ---------- */
+/* ---------- ボタン（角丸6pxまで。色は区分の色） ---------- */
 .btn{
   display:inline-flex; align-items:center; justify-content:center; gap:10px;
   min-height:52px; padding:0 26px; border-radius:var(--radius);
@@ -136,178 +137,141 @@ h2,h3{ text-wrap:balance; }
 .btn .arw{ width:18px; height:18px; flex:none; }
 .btn--corp{ background:var(--corp); color:#fff; }
 .btn--corp:hover{ background:var(--corp-dark); }
-.btn--corp-line{ background:transparent; color:var(--corp); border-color:var(--corp); }
-.btn--corp-line:hover{ background:var(--corp); color:#fff; }
-/* オレンジの面の上のゲームボタン: 白い面に濃い字 */
-.btn--on-games{ background:#fff; color:var(--ink); }
-.btn--on-games .arw{ color:var(--games); }
-.btn--on-games:hover{ background:var(--ink); color:#fff; }
+.btn--white{ background:#fff; color:var(--ink); }
+.btn--white .arw{ color:#a8440a; }
+.btn--white:hover{ background:var(--ink); color:#fff; }
+.btn--white:hover .arw{ color:#fff; }
+.btn--z{ background:var(--z); color:#fff; }
+.btn--z:hover{ background:var(--ink); }
+.btn--z-line, .btn--corp-line{ background:transparent; color:var(--z, var(--corp)); border-color:var(--z, var(--corp)); }
+.btn--z-line:hover, .btn--corp-line:hover{ background:var(--z, var(--corp)); color:#fff; }
 
 /* ---------- ピクセル風の飾り（SNSバナーの世界観） ---------- */
 .px{ position:absolute; display:block; pointer-events:none; }
 .px svg{ display:block; width:100%; height:100%; fill:currentColor; }
 
 /* =========================================================
-   第一画面: 左右ぴったり半分（左＝くらし・右＝あそび）
+   第一画面: 左右を「対」に（名札→主見出し→絵→ボタンを同じ順・同じ高さで）
+   左＝少し暖かい灰／右＝やわらかいオレンジ。境目に aliba の丸ロゴを1つ
    ========================================================= */
-.hero{
-  --split:50%;
-  position:relative; display:flex;
-  height:clamp(640px, calc(100svh - var(--hdr)), 880px);
-  transition:--split .5s cubic-bezier(.3,.7,.2,1);
+.hero-pair{
+  position:relative; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  height:clamp(560px, calc(100svh - var(--hdr) - 92px), 780px);
 }
-.half{ position:relative; min-width:0; overflow:hidden; }
-.kurashi{ flex:0 0 var(--split); background:var(--mist); }
-.asobi{ flex:1 1 0; background:var(--games); color:#fff; }
-@media (hover:hover) and (min-width:1024px){
-  .hero:has(.kurashi:hover){ --split:58%; }
-  .hero:has(.asobi:hover){ --split:42%; }
-}
+.half{ display:flex; flex-direction:column; gap:20px; padding:32px 56px 36px; min-width:0; min-height:0; }
+.kurashi{ background:#f3f2ef; }
+.asobi{ background:var(--g-bg); }
 .half-tag{
-  position:absolute; top:36px; z-index:2;
-  display:inline-flex; align-items:baseline; gap:10px;
+  align-self:flex-start; display:inline-flex; align-items:baseline; gap:10px; margin:0;
   font-size:15px; font-weight:700; letter-spacing:.06em; line-height:1;
-  padding:9px 12px; border-radius:4px; white-space:nowrap;
+  padding:9px 12px; border-radius:4px; white-space:nowrap; background:var(--paper);
 }
 .half-tag b{ font-size:20px; letter-spacing:.12em; }
-.kurashi .half-tag{ left:56px; color:var(--corp); background:var(--paper); }
-.asobi .half-tag{ right:40px; color:var(--ink); background:var(--paper); }
-.asobi .half-tag b{ font-family:var(--f-play); color:var(--games); }
-
-.hero-title{
-  position:absolute; inset:0; z-index:4; pointer-events:none; margin:0;
-  font-size:clamp(28px, 2.9vw, 46px); line-height:1.45; letter-spacing:.04em;
+.kurashi .half-tag{ color:var(--corp); }
+.asobi .half-tag{ color:var(--ink); }
+.asobi .half-tag b{ color:#a8440a; } /* 白地の上のオレンジ文字は濃いオレンジ（4.5:1以上） */
+.h-title{
+  font-size:clamp(28px, 2.7vw, 40px); font-weight:900; line-height:1.4; letter-spacing:.04em;
+  color:var(--ink); white-space:nowrap;
 }
-.hero-title span{ position:absolute; white-space:nowrap; }
-.hero-title .l1{ top:104px; right:calc(100% - var(--split) + 40px); font-weight:900; color:var(--ink); }
-.hero-title .l2{
-  top:calc(104px + 1.45em); left:calc(var(--split) + 40px);
-  font-family:var(--f-play); font-weight:800; color:#fff; letter-spacing:.06em;
+.frame{
+  position:relative; flex:1 1 0; min-height:0; border-radius:var(--radius); overflow:hidden;
+  box-shadow:0 16px 36px rgba(29,36,51,.16); background:var(--line);
 }
+.frame-cap{
+  position:absolute; left:0; bottom:0; z-index:4; background:var(--paper); margin:0;
+  padding:10px 16px 10px 14px; font-size:15px; font-weight:700; color:var(--ink); line-height:1.4;
+  display:flex; align-items:center; gap:12px; border-top-right-radius:4px;
+}
+.hero-foot{ display:flex; }
+.seam{
+  position:absolute; left:50%; top:calc(50% + 30px); z-index:6; transform:translate(-50%,-50%);
+  width:84px; height:84px; border-radius:50%; background:var(--paper);
+  box-shadow:0 6px 18px rgba(29,36,51,.18); display:flex; align-items:center; justify-content:center;
+}
+.seam img{ width:58px; height:auto; }
 .hero-lead{
-  position:absolute; z-index:3; pointer-events:none;
-  top:calc(104px + clamp(28px,2.9vw,46px) * 1.45 + 20px);
-  right:calc(100% - var(--split) + 40px);
-  width:min(430px, calc(var(--split) - 96px));
-  font-size:16px; line-height:1.85; color:var(--ink);
+  margin:0; padding:22px var(--gutter); text-align:center; background:var(--paper);
+  border-bottom:1px solid var(--line); font-size:16px; line-height:1.8;
 }
 
-/* 左: くらしの写真（7秒ごとに横へ流れる） */
-.kurashi-photo{
-  position:absolute; left:56px; right:40px; top:300px; bottom:116px;
-  overflow:hidden; border-radius:4px; background:var(--line);
-}
+/* 左の写真（7秒ごとに横へ流れる） */
 .kp-track{ display:flex; height:100%; transition:transform 1.2s cubic-bezier(.65,0,.35,1); }
 .kp-track.no-anim{ transition:none; }
 .kp-slide{ flex:0 0 100%; height:100%; margin:0; }
 .kp-slide img{ width:100%; height:100%; object-fit:cover; }
 .kp-slide[data-k="jewelry"] img{ object-position:50% 40%; }
-.kp-slide[data-k="relaxheal"] img{ object-position:55% 60%; }
-.kp-slide[data-k="sauna"] img{ object-position:50% 45%; }
-.kp-cap{
-  position:absolute; left:0; bottom:0; z-index:2; background:var(--paper);
-  padding:10px 16px 10px 14px; font-size:15px; font-weight:700; color:var(--ink);
-  display:flex; align-items:center; gap:12px; border-top-right-radius:4px;
-}
+.kp-slide[data-k="relaxheal"] img{ object-position:45% 50%; }
+.kp-slide[data-k="sauna"] img{ object-position:50% 22%; }
 .kp-bars{ display:flex; gap:4px; }
 .kp-bars i{ width:18px; height:3px; background:var(--line); display:block; }
 .kp-bars i.on{ background:var(--corp); }
 
-.hero-foot{ position:absolute; bottom:40px; z-index:3; }
-.kurashi .hero-foot{ right:40px; }
-.asobi .hero-foot{ left:40px; }
-
-/* 右: あそびの舞台（キャラ＋ロゴ＋ピクセルの飾り） */
-.asobi-logo{
-  position:absolute; z-index:2;
-  top:calc(104px + clamp(28px,2.9vw,46px) * 2.9 + 22px); left:40px;
-  display:flex; align-items:center; gap:12px;
-}
-.asobi-logo img{ height:30px; width:auto; }
-.asobi-logo span{ font-size:15px; font-weight:700; color:var(--ink); background:var(--paper); padding:4px 8px; border-radius:4px; line-height:1.3; }
-.stage{ position:absolute; left:40px; right:40px; top:300px; bottom:116px; container-type:size; }
-.stage::after{
-  content:""; position:absolute; left:50%; bottom:-6px; width:min(260px,52%); height:22px;
-  transform:translateX(-50%); background:rgba(122,40,0,.28); border-radius:50%; filter:blur(4px);
-}
+/* 右の枠（左の写真枠と同じ大きさ・角丸・影）: 淡い地にキャラとピクセルの飾り */
+.stage{ background:var(--games-soft); container-type:size; }
+.stage .hill{ position:absolute; left:-8%; right:-8%; bottom:-34%; height:52%; border-radius:50% 50% 0 0; background:#fde0c2; }
 .stage .chara{
-  position:absolute; left:50%; bottom:0; z-index:3; transform:translateX(-50%);
-  width:min(280px, 56cqw, 82cqh); height:auto;
+  position:absolute; left:50%; bottom:9%; z-index:3; transform:translateX(-50%);
+  width:min(280px, 46cqw, 72cqh); height:auto;
 }
-/* 飾りの置き場所（舞台の中の割合）。色はオレンジの上で読める淡い色だけ */
 .stage .px{ z-index:1; }
-.stage .d-cloud1{ left:0; top:4%; width:min(150px,26cqw); height:auto; aspect-ratio:120/56; color:rgba(255,255,255,.92); }
-.stage .d-cloud2{ right:-2%; top:52%; width:min(120px,22cqw); aspect-ratio:120/56; color:rgba(255,255,255,.8); }
-.stage .d-star1{ left:12%; top:46%; width:min(46px,8cqw); aspect-ratio:1; color:#ffe39a; }
-.stage .d-star2{ right:14%; top:8%; width:min(38px,7cqw); aspect-ratio:1; color:#fff3e6; }
-.stage .d-heart{ right:6%; top:30%; width:min(44px,8cqw); aspect-ratio:7/6; color:#fff3e6; }
-.stage .d-plus1{ left:30%; top:12%; width:min(22px,4cqw); aspect-ratio:1; color:#fff3e6; }
-.stage .d-plus2{ left:4%; top:76%; width:min(24px,4.4cqw); aspect-ratio:1; color:#ffe39a; }
-.stage .d-plus3{ right:26%; top:70%; width:min(18px,3.4cqw); aspect-ratio:1; color:#fff3e6; }
-.stage .d-sq1{ left:22%; top:34%; width:10px; height:10px; background:#ffb27a; }
-.stage .d-sq2{ right:30%; top:22%; width:8px; height:8px; background:#fff3e6; }
-.stage .d-sq3{ left:40%; top:2%; width:8px; height:8px; background:#ffe39a; }
+.stage .d-cloud1{ left:5%; top:8%; width:min(130px,22cqw); aspect-ratio:120/56; color:#fff; }
+.stage .d-cloud2{ right:4%; top:44%; width:min(110px,19cqw); aspect-ratio:120/56; color:#fff; }
+.stage .d-star1{ left:13%; top:46%; width:min(40px,7cqw); aspect-ratio:1; color:#f79a4f; }
+.stage .d-star2{ right:14%; top:10%; width:min(34px,6cqw); aspect-ratio:1; color:#f79a4f; }
+.stage .d-heart{ right:20%; top:68%; width:min(38px,7cqw); aspect-ratio:7/6; color:#ef5a3c; }
+.stage .d-plus1{ left:32%; top:12%; width:min(20px,3.6cqw); aspect-ratio:1; color:#f79a4f; }
+.stage .d-plus2{ left:8%; top:72%; width:min(20px,3.6cqw); aspect-ratio:1; color:#f79a4f; }
+.stage .d-sq1{ left:24%; top:34%; width:9px; height:9px; background:#f8b27c; }
+.stage .d-sq2{ right:30%; top:24%; width:8px; height:8px; background:#f8b27c; }
 
-/* --- 第一画面 タブレット・スマホ: 上下に分ける --- */
+/* --- タブレット・スマホ: 上下に分ける（左右と同じ順のまま） --- */
 @media (max-width:1023px){
-  .hero{ --hh:max(440px, calc((100svh - var(--hdr)) / 2)); flex-direction:column; height:auto; }
-  .half{ flex:0 0 var(--hh) !important; height:var(--hh); }
-  .hero-title{ font-size:36px; bottom:auto; height:calc(var(--hh) * 2); }
-  .hero-title .l1{ top:auto; bottom:calc(var(--hh) + 18px); left:var(--gutter); right:auto; }
-  .hero-title .l2{ top:calc(var(--hh) + 18px); left:auto; right:var(--gutter); }
-  .half-tag{ top:20px; }
-  .kurashi .half-tag{ left:var(--gutter); }
-  .asobi .half-tag{ right:auto; left:var(--gutter); top:auto; bottom:28px; }
-  .kurashi-photo{ left:var(--gutter); right:var(--gutter); top:80px; bottom:calc(36px * 1.45 + 36px); }
-  .kurashi .hero-foot{ top:14px; bottom:auto; right:var(--gutter); }
-  .kurashi .hero-foot .btn{ min-height:48px; }
-  .asobi .hero-foot{ left:auto; right:var(--gutter); bottom:20px; }
-  .asobi-logo{ top:calc(36px * 1.45 + 32px); left:auto; right:var(--gutter); }
-  .stage{ left:var(--gutter); right:var(--gutter); top:calc(36px * 1.45 + 84px); bottom:92px; }
-  .stage .chara{ width:min(240px, 50cqw, 84cqh); }
-  .hero-lead{
-    position:static; pointer-events:auto; width:auto; max-width:none; order:3;
-    padding:32px var(--gutter) 36px; background:var(--paper); border-bottom:1px solid var(--line);
-    font-size:17px;
-  }
+  .hero-pair{ grid-template-columns:1fr; height:auto; }
+  .half{ padding:24px var(--gutter) 28px; gap:16px; }
+  .h-title{ font-size:34px; }
+  .frame{ flex:0 0 auto; height:340px; }
+  .stage .chara{ width:min(220px, 40cqw, 64cqh); bottom:16%; }
+  .seam{ top:50%; width:72px; height:72px; }
+  .kurashi{ padding-bottom:48px; } .asobi{ padding-top:44px; } /* 境目の丸ロゴが名札やボタンに重ならないよう、上下に同じだけ空ける */
+  .seam img{ width:50px; }
+  .hero-lead{ font-size:17px; text-align:left; }
 }
 @media (max-width:599px){
-  .hero{ --hh:max(380px, calc((100svh - var(--hdr)) / 2)); }
-  .hero-title{ font-size:25px; }
-  .hero-title .l1{ bottom:calc(var(--hh) + 14px); }
-  .hero-title .l2{ top:calc(var(--hh) + 14px); }
+  .half{ padding:20px var(--gutter) 24px; gap:14px; }
+  .kurashi{ padding-bottom:44px; } .asobi{ padding-top:40px; }
   .half-tag{ font-size:14px; padding:8px 10px; }
   .half-tag b{ font-size:18px; }
-  .kurashi-photo{ top:72px; bottom:calc(25px * 1.45 + 30px); }
-  .kp-cap{ font-size:14px; padding:8px 12px; }
-  .asobi-logo{ top:calc(25px * 1.45 + 26px); }
-  .asobi-logo img{ height:22px; }
-  .asobi-logo span{ display:none; }
-  .stage{ top:calc(25px * 1.45 + 64px); bottom:84px; }
-  .stage .chara{ width:min(190px, 52cqw, 84cqh); }
-  .stage .d-cloud1{ top:0; }
-  .kurashi .hero-foot .btn, .asobi .hero-foot .btn{ min-height:46px; padding:0 16px; font-size:16px; }
-  .hero-lead{ padding:28px var(--gutter) 32px; font-size:16px; }
+  .h-title{ font-size:25px; }
+  .frame{ height:230px; }
+  .frame-cap{ font-size:14px; padding:8px 12px; }
+  .stage .chara{ width:min(150px, 40cqw, 62cqh); bottom:20%; }
+  .seam{ width:64px; height:64px; }
+  .seam img{ width:44px; }
+  .hero-foot .btn{ width:100%; min-height:48px; }
+  .hero-lead{ font-size:16px; padding:24px var(--gutter) 28px; }
 }
 
 /* =========================================================
-   切り替えの帯（上部に固定）: くらし → あそび → しごと
+   切り替えの帯（上部に固定）: 4区分。今いる区分の色で下線
    ========================================================= */
 .switch{ position:sticky; top:0; z-index:50; background:var(--paper); border-bottom:1px solid var(--line); height:var(--tabs); }
 .switch .in{ height:100%; display:flex; align-items:stretch; justify-content:space-between; padding:0 var(--gutter); gap:24px; }
 .switch .mini{ display:flex; align-items:center; min-width:44px; }
 .switch .mini img{ height:26px; width:auto; }
-.switch ul{ display:flex; align-items:stretch; gap:8px; }
+.switch ul{ display:flex; align-items:stretch; gap:4px; }
 .switch li{ display:flex; }
-.switch .tab{ position:relative; display:flex; align-items:center; gap:10px; padding:0 22px; text-decoration:none; color:var(--ink); white-space:nowrap; }
+.switch .tab{ position:relative; display:flex; align-items:center; gap:10px; padding:0 18px; text-decoration:none; color:var(--ink); white-space:nowrap; }
 .switch .tab b{ font-size:18px; font-weight:700; letter-spacing:.08em; }
-.switch .tab small{ font-size:14px; color:var(--sub); font-weight:500; }
+.switch .tab small{ font-size:14px; color:var(--sub); font-weight:500; letter-spacing:.08em; }
 .switch .tab::after{
-  content:""; position:absolute; left:14px; right:14px; bottom:0; height:4px;
-  background:var(--corp); transform:scaleX(0); transition:transform .3s;
+  content:""; position:absolute; left:12px; right:12px; bottom:0; height:4px;
+  background:var(--tz); transform:scaleX(0); transition:transform .3s;
 }
-.switch .tab[data-tab="games"] b{ font-family:var(--f-play); font-weight:800; }
-.switch .tab[data-tab="games"]::after{ background:var(--games); }
+.switch .tab[data-tab="brands"]{ --tz:var(--corp); }
+.switch .tab[data-tab="games"]{ --tz:var(--games); }
+.switch .tab[data-tab="works"]{ --tz:#1f6b5c; }
+.switch .tab[data-tab="info"]{ --tz:#3d4148; }
 .switch .tab.is-active::after{ transform:scaleX(1); }
 .switch .tab:hover::after{ transform:scaleX(.5); }
 .switch .tab.is-active:hover::after{ transform:scaleX(1); }
@@ -318,28 +282,42 @@ h2,h3{ text-wrap:balance; }
   .switch .in{ padding:0; }
   .switch ul{ flex:1; gap:0; }
   .switch li{ flex:1; }
-  .switch .tab{ flex:1; justify-content:center; padding:0 6px; }
+  .switch .tab{ flex:1; justify-content:center; padding:0 4px; }
 }
 @media (max-width:599px){
   .switch .tab{ flex-direction:column; justify-content:center; gap:0; line-height:1.25; }
-  .switch .tab b{ font-size:17px; }
+  .switch .tab b{ font-size:16px; }
+  .switch .tab small{ font-size:14px; letter-spacing:0; }
+  .switch .tab::after{ left:6px; right:6px; }
 }
 
 /* =========================================================
-   節の共通
+   区分の共通の作法
    ========================================================= */
-.sec{ padding:var(--sec-y) 0; }
+.zone{ padding:var(--sec-y) 0; background:var(--z-bg); }
+.zone--kurashi{ --z:var(--corp);  --z-line:var(--corp);  --z-bg:#eff3f7; }
+.zone--asobi{   --z:#a8440a;      --z-line:var(--games); --z-bg:var(--games-soft); }
+.zone--shigoto{ --z:#1f6b5c;      --z-line:#1f6b5c;      --z-bg:#edf5f2; }
+.zone--info{    --z:#3d4148;      --z-line:#3d4148;      --z-bg:#f2f2f1; }
+.zone :focus-visible{ outline-color:var(--z); }
+.zone-tag{ display:flex; align-items:center; gap:14px; margin:0 0 40px; line-height:1; }
+.zone-tag i{ display:block; width:44px; height:6px; border-radius:3px; background:var(--z-line); flex:none; }
+.zone-tag b{ font-size:30px; font-weight:900; letter-spacing:.14em; color:var(--z); }
+.zone-tag span{ font-size:15px; font-weight:700; letter-spacing:.22em; color:var(--z); }
 .sec-head{ margin-bottom:var(--head-gap); max-width:900px; }
-.kicker{ font-size:15px; font-weight:700; letter-spacing:.18em; color:var(--corp); margin-bottom:14px; line-height:1.4; }
-.sec h2{ font-size:44px; line-height:1.4; font-weight:900; letter-spacing:.03em; }
+.zone h2{ font-size:40px; line-height:1.4; font-weight:900; letter-spacing:.03em; color:var(--ink); }
+.zone h3{ font-size:26px; line-height:1.4; font-weight:900; letter-spacing:.03em; color:var(--ink); }
 .sec-head p.lead{ margin-top:20px; font-size:17px; }
-@media (max-width:1023px){ .sec h2{ font-size:34px; } }
-@media (max-width:599px){ .sec h2{ font-size:27px; } .sec-head p.lead{ font-size:16px; } }
+.sub-block + .sub-block{ margin-top:112px; }
+@media (max-width:1023px){ .zone h2{ font-size:32px; } .zone h3{ font-size:23px; } }
+@media (max-width:599px){
+  .zone h2{ font-size:26px; } .zone h3{ font-size:21px; }
+  .zone-tag{ margin-bottom:28px; gap:12px; } .zone-tag b{ font-size:26px; } .zone-tag i{ width:36px; }
+  .sec-head p.lead{ font-size:16px; }
+  .sub-block + .sub-block{ margin-top:80px; }
+}
 
-/* =========================================================
-   ブランド（写真が左右いっぱいに広がる帯・第一画面の直後）
-   ========================================================= */
-.brands{ background:var(--paper); }
+/* ---------- くらし: 写真が端まで広がる3段 ---------- */
 .band{
   display:grid;
   grid-template-columns:minmax(var(--gutter),1fr) minmax(0,600px) minmax(0,600px) minmax(var(--gutter),1fr);
@@ -352,9 +330,9 @@ h2,h3{ text-wrap:balance; }
 .band--l .band-text{ grid-column:3; grid-row:1; padding-left:72px; }
 .band--r .band-photo{ grid-column:3 / 5; grid-row:1; }
 .band--r .band-text{ grid-column:2; grid-row:1; padding-right:72px; }
-.band-logo{ height:64px; width:auto; margin-bottom:24px; }
+.band-logo{ height:64px; width:auto; margin-bottom:24px; mix-blend-mode:multiply; } /* ロゴ画像の白い四角を地になじませる */
 .band-logo.sc{ height:84px; border-radius:4px; }
-.band h3{ font-size:30px; font-weight:900; line-height:1.35; letter-spacing:.03em; margin-bottom:16px; }
+.band h3{ margin-bottom:16px; }
 .band p{ font-size:17px; margin-bottom:28px; max-width:30em; }
 @media (max-width:1023px){
   .band{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
@@ -363,7 +341,6 @@ h2,h3{ text-wrap:balance; }
   .band--l .band-text{ grid-column:2; padding:0 var(--gutter) 0 36px; }
   .band--r .band-photo{ grid-column:2; }
   .band--r .band-text{ grid-column:1; padding:0 36px 0 var(--gutter); }
-  .band h3{ font-size:25px; }
   .band p{ font-size:16px; }
 }
 @media (max-width:599px){
@@ -374,23 +351,16 @@ h2,h3{ text-wrap:balance; }
   .band + .band{ margin-top:56px; }
   .band-logo{ height:52px; margin-bottom:18px; }
   .band-logo.sc{ height:68px; }
-  .band h3{ font-size:23px; }
   .band .btn{ width:100%; }
 }
 
-/* =========================================================
-   aliba games（オレンジの濃い地）: 個別のタイトルは出さず、ブランドとSNSだけ
-   ========================================================= */
-.games{ background:var(--games); color:var(--ink); }
+/* ---------- あそび: aliba games（個別のタイトルは出さず、ブランドとSNSだけ） ---------- */
 .games-intro{ display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:56px; align-items:center; }
-.games .sec-head{ margin-bottom:0; }
-.games-kicker{ font-size:20px; font-weight:700; color:#fff; letter-spacing:.04em; line-height:1.3; margin-bottom:18px; }
-.games h2{ font-family:var(--f-play); font-weight:800; color:#fff; font-size:52px; letter-spacing:.04em; }
-/* SNSバナーと同じ世界観の札（淡い地にロゴ＋ピクセルの飾り） */
+.games-intro .sec-head{ margin-bottom:0; }
 .games-card{
-  position:relative; background:var(--games-soft); border-radius:var(--radius);
+  position:relative; background:#ffe6cc; border-radius:var(--radius);
   aspect-ratio:5/4; display:flex; align-items:center; justify-content:center; overflow:hidden;
-  box-shadow:12px 12px 0 rgba(29,36,51,.22);
+  box-shadow:0 16px 36px rgba(120,60,10,.14);
 }
 .games-card .logo-full{ position:relative; z-index:2; width:min(300px, 62%); height:auto; }
 .games-card .px{ z-index:1; }
@@ -403,91 +373,68 @@ h2,h3{ text-wrap:balance; }
 .games-card .c-plus2{ right:24%; bottom:8%; width:4.4%; aspect-ratio:1; color:#f79a4f; }
 .games-card .c-sq1{ left:16%; bottom:16%; width:10px; height:10px; background:#f8b27c; }
 .games-card .c-sq2{ right:20%; top:34%; width:8px; height:8px; background:#f8b27c; }
-.games-card .c-hill{ left:-6%; right:-6%; bottom:-30%; height:48%; border-radius:50% 50% 0 0; background:#fde0c2; }
-
+.games-card .c-hill{ left:-6%; right:-6%; bottom:-30%; height:48%; border-radius:50% 50% 0 0; background:#fdd3a8; }
 .games-sns{ margin-top:96px; }
-.games-sns h3{ font-family:var(--f-play); font-weight:800; color:#fff; font-size:34px; line-height:1.45; letter-spacing:.04em; }
 .games-sns > p{ margin-top:14px; font-size:17px; }
-.acct-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; margin-top:32px; }
-.acct-big{
-  display:grid; grid-template-columns:64px minmax(0,1fr) 24px; align-items:center; gap:18px;
-  min-height:116px; padding:20px 22px; background:var(--paper); border-radius:var(--radius);
-  text-decoration:none; color:var(--ink); box-shadow:8px 8px 0 rgba(29,36,51,.22);
-  transition:transform .2s, box-shadow .2s;
-}
-.acct-big:hover{ transform:translate(-3px,-3px); box-shadow:11px 11px 0 rgba(29,36,51,.22); }
-.acct-big .ic{ width:64px; height:64px; border-radius:var(--radius); background:var(--ink); color:#fff; display:flex; align-items:center; justify-content:center; }
-.acct-big .ic svg{ width:30px; height:30px; }
-.acct-big .nm{ display:block; font-family:var(--f-play); font-size:25px; font-weight:800; line-height:1.3; }
-.acct-big .hd{ display:block; font-size:16px; font-weight:500; color:var(--sub); overflow-wrap:anywhere; line-height:1.5; }
-.acct-big .go{ width:22px; height:22px; color:var(--games); }
-.games-more{ margin-top:64px; display:flex; justify-content:center; }
+.games-more{ margin-top:56px; display:flex; justify-content:center; }
 @media (max-width:1023px){
-  .games h2{ font-size:40px; }
   .games-intro{ grid-template-columns:1fr; gap:40px; }
   .games-card{ aspect-ratio:16/9; }
   .games-card .logo-full{ width:min(260px, 44%); }
   .games-sns{ margin-top:80px; }
-  .acct-grid{ grid-template-columns:1fr; gap:16px; }
 }
 @media (max-width:599px){
-  .games h2{ font-size:30px; }
-  .games-kicker{ font-size:19px; }
-  .games-card{ aspect-ratio:4/3; box-shadow:8px 8px 0 rgba(29,36,51,.22); }
+  .games-card{ aspect-ratio:4/3; }
   .games-card .logo-full{ width:min(220px, 62%); }
   .games-sns{ margin-top:64px; }
-  .games-sns h3{ font-size:25px; }
   .games-sns > p{ font-size:16px; }
-  .acct-big{ grid-template-columns:56px minmax(0,1fr) 22px; min-height:96px; padding:16px 18px; gap:14px; }
-  .acct-big .ic{ width:56px; height:56px; }
-  .acct-big .nm{ font-size:22px; }
-  .games-more{ margin-top:48px; }
+  .games-more{ margin-top:40px; }
   .games-more .btn{ width:100%; }
 }
 
-/* =========================================================
-   制作事業（静か: mist）
-   ========================================================= */
-.works{ background:var(--mist); }
-.works-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
-.wcard{ background:var(--paper); border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column; border:1px solid var(--line); }
+/* ---------- しごと: 制作事業（2つ） ---------- */
+.works-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+.wcard{ background:var(--paper); border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column; border:1px solid #d5e5df; }
 .wcard img{ width:100%; aspect-ratio:16/9; object-fit:cover; }
 .wcard .body{ padding:var(--card-pad); display:flex; flex-direction:column; flex:1; }
-.wcard h3{ font-size:20px; font-weight:700; line-height:1.45; margin-bottom:10px; }
+.wcard h3{ margin-bottom:10px; }
 .wcard h3 small{ font-size:15px; font-weight:500; color:var(--sub); margin-left:4px; }
 .wcard p{ font-size:16px; margin-bottom:20px; }
 .more{
   margin-top:auto; display:inline-flex; align-items:center; gap:8px; min-height:44px; align-self:flex-start;
-  font-weight:700; color:var(--corp); text-decoration:none; border-bottom:2px solid var(--corp);
+  font-weight:700; color:var(--z); text-decoration:none; border-bottom:2px solid var(--z);
 }
 .more svg{ width:16px; height:16px; }
 .more:hover{ color:var(--ink); border-color:var(--ink); }
-@media (max-width:1023px){
-  .works-grid{ grid-template-columns:1fr; gap:20px; }
-  .wcard{ display:grid; grid-template-columns:minmax(0,38%) minmax(0,1fr); }
-  .wcard img{ height:100%; aspect-ratio:auto; min-height:200px; }
-}
-@media (max-width:599px){
-  .wcard{ display:flex; }
-  .wcard img{ aspect-ratio:16/9; height:auto; min-height:0; }
-}
+@media (max-width:1023px){ .works-grid{ gap:20px; } }
+@media (max-width:599px){ .works-grid{ grid-template-columns:1fr; } }
 
-/* =========================================================
-   NEWS
-   ========================================================= */
-.news{ background:var(--paper); }
-.news-list{ border-top:1px solid var(--line); }
+/* ---------- インフォ: 新着情報・採用・会社情報・お問い合わせ ---------- */
+.news-list{ border-top:1px solid #d6d6d4; }
 .news-list a{
   display:grid; grid-template-columns:120px 92px 1fr 24px; align-items:center; gap:16px;
-  min-height:76px; padding:16px 8px; border-bottom:1px solid var(--line); text-decoration:none;
+  min-height:76px; padding:16px 8px; border-bottom:1px solid #d6d6d4; text-decoration:none;
 }
-.news-list a:hover{ background:var(--mist); }
+.news-list a:hover{ background:var(--paper); }
 .news-list time{ font-size:16px; font-weight:500; color:var(--sub); }
-.news-list .cat{ justify-self:start; font-size:14px; font-weight:700; letter-spacing:.08em; line-height:1; padding:6px 8px; border:1.5px solid var(--corp); color:var(--corp); border-radius:4px; }
-.news-list .cat.media{ background:var(--corp); color:#fff; }
+.news-list .cat{ justify-self:start; font-size:14px; font-weight:700; letter-spacing:.08em; line-height:1; padding:6px 8px; border:1.5px solid var(--z); color:var(--z); border-radius:4px; }
+.news-list .cat.media{ background:var(--z); color:#fff; }
 .news-list .tt{ font-size:16px; font-weight:500; }
 .news-list svg{ width:18px; height:18px; color:var(--sub); }
 .news-foot{ margin-top:40px; }
+.recruit-grid{ display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:64px; align-items:center; }
+.recruit-grid img{ width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:var(--radius); }
+.recruit-grid .sec-head{ margin-bottom:24px; }
+.recruit-grid p.lead{ margin-bottom:32px; font-size:17px; }
+.company-grid{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:56px; align-items:start; }
+.info{ border-top:2px solid var(--ink); }
+.info div{ display:grid; grid-template-columns:120px 1fr; gap:16px; padding:20px 4px; border-bottom:1px solid #d6d6d4; }
+.info dt{ font-weight:700; font-size:16px; }
+.info dd{ font-size:16px; }
+.contact-box{ background:var(--paper); border-radius:var(--radius); padding:40px; border-left:6px solid var(--z); }
+.contact-box h3{ margin-bottom:14px; }
+.contact-box p{ margin-bottom:28px; }
+@media (max-width:1023px){ .recruit-grid{ gap:40px; } .company-grid{ grid-template-columns:1fr; gap:48px; } }
 @media (max-width:599px){
   .news-list a{ grid-template-columns:auto 1fr 18px; grid-template-areas:"d c i" "t t i"; gap:8px 12px; padding:18px 4px; }
   .news-list time{ grid-area:d; }
@@ -495,42 +442,15 @@ h2,h3{ text-wrap:balance; }
   .news-list .tt{ grid-area:t; }
   .news-list svg{ grid-area:i; }
   .news-foot .btn{ width:100%; }
-}
-
-/* =========================================================
-   採用
-   ========================================================= */
-.recruit{ background:var(--mist); }
-.recruit .grid{ display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:64px; align-items:center; }
-.recruit img{ width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:var(--radius); }
-.recruit .sec-head{ margin-bottom:28px; }
-.recruit p.lead{ margin-bottom:32px; }
-@media (max-width:1023px){ .recruit .grid{ gap:40px; } }
-@media (max-width:599px){ .recruit .grid{ grid-template-columns:1fr; gap:32px; } .recruit .btn{ width:100%; } }
-
-/* =========================================================
-   会社情報・お問い合わせ
-   ========================================================= */
-.company{ background:var(--paper); }
-.company .grid{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:56px; align-items:start; }
-.info{ border-top:2px solid var(--ink); }
-.info div{ display:grid; grid-template-columns:120px 1fr; gap:16px; padding:20px 4px; border-bottom:1px solid var(--line); }
-.info dt{ font-weight:700; font-size:16px; }
-.info dd{ font-size:16px; }
-.contact-box{ background:var(--mist); border-radius:var(--radius); padding:40px; border-left:6px solid var(--corp); }
-.contact-box h3{ font-size:26px; font-weight:900; line-height:1.45; margin-bottom:14px; }
-.contact-box p{ margin-bottom:28px; }
-@media (max-width:1023px){ .company .grid{ grid-template-columns:1fr; gap:48px; } }
-@media (max-width:599px){
+  .recruit-grid{ grid-template-columns:1fr; gap:32px; } .recruit-grid .btn{ width:100%; }
   .info div{ grid-template-columns:1fr; gap:4px; padding:16px 4px; }
   .contact-box{ padding:28px 22px; }
-  .contact-box h3{ font-size:22px; }
   .contact-box .btn{ width:100%; }
 }
 
 @media (prefers-reduced-motion:reduce){
   html{ scroll-behavior:auto; }
-  .hero, .kp-track, .acct-big, .switch .tab::after{ transition:none !important; }
+  .kp-track, .acct-big, .switch .tab::after{ transition:none !important; }
 }
 </style>
 </head>
@@ -566,74 +486,72 @@ h2,h3{ text-wrap:balance; }
 </header>
 
 <main>
-<!-- ================= 第一画面 ================= -->
-<section class="hero" id="top" aria-label="合同会社alibaについて">
-  <h1 class="hero-title">
-    <span class="l1">くらしに、ここちよさを。</span>
-    <span class="l2">毎日に、あそびを。</span>
-  </h1>
-
-  <div class="half kurashi">
-    <p class="half-tag"><b>くらし</b>ブランド</p>
-    <div class="kurashi-photo" aria-roledescription="スライド" aria-label="ブランドの写真">
-      <div class="kp-track" id="kpTrack">
-        <figure class="kp-slide" data-k="jewelry"><img src="/images/brand/jewelry_1.jpg" alt="aliba jewelry のネックレス" width="1024" height="1024"></figure>
-        <figure class="kp-slide" data-k="relaxheal"><img src="/images/brand/relaxheal_3.jpg" alt="relax heal の黒いゲルクッション" width="1400" height="1149"></figure>
-        <figure class="kp-slide" data-k="sauna"><img src="/images/brand/sauna_1.jpg" alt="Sauna Crown のサウナハット" width="1063" height="647"></figure>
-        <figure class="kp-slide" data-k="jewelry" aria-hidden="true"><img src="/images/brand/jewelry_1.jpg" alt="" width="1024" height="1024"></figure>
+<!-- ================= 第一画面（左右を対に） ================= -->
+<section class="hero" id="top" aria-labelledby="hero-h">
+  <h1 class="sr-only" id="hero-h">くらしに、ここちよさを。毎日に、あそびを。</h1>
+  <div class="hero-pair">
+    <div class="half kurashi">
+      <p class="half-tag"><b>くらし</b>ブランド</p>
+      <p class="h-title" aria-hidden="true">くらしに、ここちよさを。</p>
+      <div class="frame kurashi-photo" aria-roledescription="スライド" aria-label="ブランドの写真">
+        <div class="kp-track" id="kpTrack">
+          <figure class="kp-slide" data-k="jewelry"><img src="/images/brand/jewelry_1.jpg" alt="aliba jewelry のネックレス" width="1024" height="1024"></figure>
+          <figure class="kp-slide" data-k="relaxheal"><img src="/images/brand/relaxheal_1.jpg" alt="白い椅子に置かれた relax heal の青いゲルクッション" width="1400" height="625"></figure>
+          <figure class="kp-slide" data-k="sauna"><img src="/images/brand/sauna_2.jpg" alt="Sauna Crown のサウナハットをかぶった人" width="595" height="758"></figure>
+          <figure class="kp-slide" data-k="jewelry" aria-hidden="true"><img src="/images/brand/jewelry_1.jpg" alt="" width="1024" height="1024"></figure>
+        </div>
+        <p class="frame-cap"><span id="kpName">aliba jewelry</span><span class="kp-bars" aria-hidden="true"><i class="on"></i><i></i><i></i></span></p>
       </div>
-      <p class="kp-cap"><span id="kpName">aliba jewelry</span><span class="kp-bars" aria-hidden="true"><i class="on"></i><i></i><i></i></span></p>
+      <div class="hero-foot">
+        <a class="btn btn--corp" href="#brands">ブランドを見る<svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+      </div>
     </div>
-    <div class="hero-foot">
-      <a class="btn btn--corp" href="#brands">ブランドを見る<svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
-    </div>
-  </div>
 
-  <div class="half asobi">
-    <p class="half-tag"><b>あそび</b>aliba games</p>
-    <div class="asobi-logo">
-      <img src="/images/games/logotype_white.png" alt="aliba games" width="659" height="102">
-      <span>アリバゲームズ</span>
+    <div class="half asobi">
+      <p class="half-tag"><b>あそび</b>aliba games</p>
+      <p class="h-title" aria-hidden="true">毎日に、あそびを。</p>
+      <div class="frame stage">
+        <span class="px hill"></span>
+        <span class="px d-cloud1"><svg><use href="#px-cloud"/></svg></span>
+        <span class="px d-cloud2"><svg><use href="#px-cloud"/></svg></span>
+        <span class="px d-star1"><svg><use href="#px-star"/></svg></span>
+        <span class="px d-star2"><svg><use href="#px-star"/></svg></span>
+        <span class="px d-heart"><svg><use href="#px-heart"/></svg></span>
+        <span class="px d-plus1"><svg><use href="#px-plus"/></svg></span>
+        <span class="px d-plus2"><svg><use href="#px-plus"/></svg></span>
+        <span class="px d-sq1"></span><span class="px d-sq2"></span>
+        <img class="chara" src="/images/games/chara.png" alt="aliba games のキャラクター" width="522" height="556">
+        <p class="frame-cap">aliba games（アリバゲームズ）</p>
+      </div>
+      <div class="hero-foot">
+        <a class="btn btn--white" href="#games">ゲームを見る<svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+      </div>
     </div>
-    <div class="stage">
-      <span class="px d-cloud1"><svg><use href="#px-cloud"/></svg></span>
-      <span class="px d-cloud2"><svg><use href="#px-cloud"/></svg></span>
-      <span class="px d-star1"><svg><use href="#px-star"/></svg></span>
-      <span class="px d-star2"><svg><use href="#px-star"/></svg></span>
-      <span class="px d-heart"><svg><use href="#px-heart"/></svg></span>
-      <span class="px d-plus1"><svg><use href="#px-plus"/></svg></span>
-      <span class="px d-plus2"><svg><use href="#px-plus"/></svg></span>
-      <span class="px d-plus3"><svg><use href="#px-plus"/></svg></span>
-      <span class="px d-sq1"></span><span class="px d-sq2"></span><span class="px d-sq3"></span>
-      <img class="chara" src="/images/games/chara.png" alt="aliba games のキャラクター" width="522" height="556">
-    </div>
-    <div class="hero-foot">
-      <a class="btn btn--on-games" href="#games">ゲームを見る<svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
-    </div>
+    <span class="seam" aria-hidden="true"><img src="/images/brand/aliba_logo.png" alt="" width="372" height="256"></span>
   </div>
-
   <p class="hero-lead">合同会社alibaは、日々を心地よくするブランドと、毎日にちょっとした夢中を届けるゲーム「aliba games」をつくる会社です。</p>
 </section>
 
-<!-- ================= 切り替えの帯 ================= -->
-<nav class="switch" aria-label="事業の切り替え">
+<!-- ================= 切り替えの帯（4区分） ================= -->
+<nav class="switch" aria-label="区分の切り替え">
   <div class="in">
     <a class="mini" href="#top" aria-label="ページの先頭へ"><img src="/images/brand/aliba_logo.png" alt="aliba" width="372" height="256"></a>
     <ul>
-      <li><a class="tab" data-tab="brands" href="#brands"><b>くらし</b><small>ブランド</small></a></li>
+      <li><a class="tab" data-tab="brands" href="#brands"><b>くらし</b><small>BRANDS</small></a></li>
       <li><a class="tab" data-tab="games" href="#games"><b>あそび</b><small>aliba games</small></a></li>
-      <li><a class="tab" data-tab="works" href="#works"><b>しごと</b><small>制作事業</small></a></li>
+      <li><a class="tab" data-tab="works" href="#works"><b>しごと</b><small>WORKS</small></a></li>
+      <li><a class="tab" data-tab="info" href="#info"><b>インフォ</b><small>INFO</small></a></li>
     </ul>
     <div class="cta"><a class="btn btn--corp" href="/contact/">お問い合わせ</a></div>
   </div>
 </nav>
 
-<!-- ================= ブランド ================= -->
-<section class="sec brands" id="brands">
+<!-- ================= くらし ================= -->
+<section class="zone zone--kurashi" id="brands" aria-labelledby="brands-h">
   <div class="wrap">
+    <p class="zone-tag"><i></i><b>くらし</b><span>BRANDS</span></p>
     <div class="sec-head">
-      <p class="kicker">BRANDS</p>
-      <h2>毎日に溶け込む、ここちよいモノを。</h2>
+      <h2 id="brands-h">毎日に溶け込む、ここちよいモノを。</h2>
       <p class="lead">ジュエリー、座り心地のケア、サウナのアイテム。毎日の中で「あると嬉しい」「あると落ち着く」ものを、自社ブランドとして企画・販売しています。</p>
     </div>
   </div>
@@ -667,16 +585,17 @@ h2,h3{ text-wrap:balance; }
       <a class="btn btn--corp-line" href="/saunacrown/">Sauna Crown を見る<svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </article>
+
 </section>
 
-<!-- ================= aliba games ================= -->
-<section class="sec games" id="games">
+<!-- ================= あそび ================= -->
+<section class="zone zone--asobi" id="games" aria-labelledby="games-h">
   <div class="wrap">
+    <p class="zone-tag"><i></i><b>あそび</b><span>aliba games</span></p>
     <div class="games-intro">
       <div class="sec-head">
-        <p class="games-kicker">aliba games（アリバゲームズ）</p>
-        <h2>指先ひとつで、ちょっと夢中に。</h2>
-        <p class="lead">aliba games は、合同会社alibaのゲームブランドです。身近な題材を、思わず次の一問に手がのびるパズルにしています。企画から制作、公開後の運営まで、すべて自社で行っています。</p>
+        <h2 id="games-h">指先ひとつで、ちょっと夢中に。</h2>
+        <p class="lead">aliba games（アリバゲームズ）は、合同会社alibaのゲームブランドです。身近な題材を、思わず次の一問に手がのびるパズルにしています。企画から制作、公開後の運営まで、すべて自社で行っています。</p>
       </div>
       <div class="games-card">
         <span class="px c-hill"></span>
@@ -697,19 +616,19 @@ h2,h3{ text-wrap:balance; }
       <p>開発のようすや、ちょっとした遊び方の動画を届けています。</p>
       <div class="acct-grid">
       <a class="acct-big" href="https://x.com/gamesaliba" target="_blank" rel="noopener">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span>
+        <span class="sns-ic sns-ic--x"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span>
         <span class="tx"><span class="nm">X</span><span class="hd">@gamesaliba</span></span>
         <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
         <span class="sr-only">（新しいタブで開きます）</span>
       </a>
       <a class="acct-big" href="https://www.youtube.com/@gamesaliba" target="_blank" rel="noopener">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg></span>
+        <span class="sns-ic sns-ic--yt"><svg viewBox="0 0 28 20" aria-hidden="true"><path fill="#FF0000" d="M27.4 3.1A3.5 3.5 0 0 0 24.9.6C22.7 0 14 0 14 0S5.3 0 3.1.6A3.5 3.5 0 0 0 .6 3.1C0 5.3 0 10 0 10s0 4.7.6 6.9a3.5 3.5 0 0 0 2.5 2.5C5.3 20 14 20 14 20s8.7 0 10.9-.6a3.5 3.5 0 0 0 2.5-2.5C28 14.7 28 10 28 10s0-4.7-.6-6.9z"/><path fill="#fff" d="M11.2 14.3 18.5 10l-7.3-4.3z"/></svg></span>
         <span class="tx"><span class="nm">YouTube</span><span class="hd">@gamesaliba</span></span>
         <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
         <span class="sr-only">（新しいタブで開きます）</span>
       </a>
       <a class="acct-big" href="https://www.tiktok.com/@gamesaliba.online" target="_blank" rel="noopener">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></span>
+        <span class="sns-ic sns-ic--tt"><svg viewBox="-1 -1 26 26" aria-hidden="true"><path fill="#25F4EE" transform="translate(-0.9 -0.9)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/><path fill="#FE2C55" transform="translate(0.9 0.9)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/><path fill="#fff" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></span>
         <span class="tx"><span class="nm">TikTok</span><span class="hd">@gamesaliba.online</span></span>
         <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
         <span class="sr-only">（新しいタブで開きます）</span>
@@ -718,17 +637,17 @@ h2,h3{ text-wrap:balance; }
     </div>
 
     <div class="games-more">
-      <a class="btn btn--on-games" href="/games/">aliba games のページへ<svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn--z" href="/games/">aliba games のページへ<svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
 </section>
 
-<!-- ================= 制作事業 ================= -->
-<section class="sec works" id="works">
+<!-- ================= しごと ================= -->
+<section class="zone zone--shigoto" id="works" aria-labelledby="works-h">
   <div class="wrap">
+    <p class="zone-tag"><i></i><b>しごと</b><span>WORKS</span></p>
     <div class="sec-head">
-      <p class="kicker">SERVICES</p>
-      <h2>自社ブランドとゲームで磨いた力を、制作にも。</h2>
+      <h2 id="works-h">自社ブランドとゲームで磨いた力を、制作にも。</h2>
     </div>
     <div class="works-grid">
       <article class="wcard">
@@ -747,68 +666,49 @@ h2,h3{ text-wrap:balance; }
           <a class="more" href="/services/sns/">詳しく見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </article>
-      <article class="wcard">
-        <img src="/images/home/business-ai.jpg" alt="AIで作成したビジュアルの例" width="800" height="534" loading="lazy">
-        <div class="body">
-          <h3>AI画像作成</h3>
-          <p>ブランドの世界観に合わせたビジュアルを、SNS・広告・LP用に。</p>
-          <a class="more" href="/services/ai/">詳しく見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-      </article>
     </div>
   </div>
 </section>
 
-<!-- ================= NEWS ================= -->
-<section class="sec news" id="news">
+<!-- ================= インフォ ================= -->
+<section class="zone zone--info" id="info" aria-labelledby="info-tag">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="kicker">NEWS</p>
-      <h2>新着情報</h2>
-    </div>
-    <div class="news-list">
+    <p class="zone-tag" id="info-tag"><i></i><b>インフォ</b><span>INFORMATION</span></p>
+
+    <div class="sub-block" id="news">
+      <div class="sec-head"><h2>新着情報</h2></div>
+      <div class="news-list">
       <a href="/news/"><time datetime="2025-09-12">2025.09.12</time><span class="cat">NEWS</span><span class="tt">aliba公式オンラインストアをリニューアルしました</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></a>
       <a href="/news/"><time datetime="2025-07-25">2025.07.25</time><span class="cat">NEWS</span><span class="tt">Sauna Crownの新作サウナハットを発売しました</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></a>
       <a href="/news/"><time datetime="2025-06-18">2025.06.18</time><span class="cat media">MEDIA</span><span class="tt">Sauna Crownが雑誌「SAUNABROS」に掲載されました</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></a>
       <a href="/news/"><time datetime="2025-03-22">2025.03.22</time><span class="cat">NEWS</span><span class="tt">Relax Healのケアアイテムが全国のサロンで採用されました</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></a>
       <a href="/news/"><time datetime="2025-03-15">2025.03.15</time><span class="cat media">MEDIA</span><span class="tt">alibaのアクセサリーが雑誌「BEGIN」に掲載されました</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></a>
-    </div>
-    <div class="news-foot"><a class="btn btn--corp-line" href="/news/">一覧を見る</a></div>
-  </div>
-</section>
-
-<!-- ================= 採用 ================= -->
-<section class="sec recruit" id="recruit">
-  <div class="wrap grid">
-    <img src="/images/home/recruit-team.jpg" alt="会議室で作業するメンバー" width="1100" height="825" loading="lazy">
-    <div>
-      <div class="sec-head">
-        <p class="kicker">RECRUIT</p>
-        <h2>つくるのが好きな人と、働きたい。</h2>
       </div>
-      <p class="lead">ブランドづくり、ゲーム開発、制作事業。職種や経験を問わず、一緒に価値を育てていける方を歓迎します。</p>
-      <a class="btn btn--corp" href="/contact/">お問い合わせから応募する<svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="news-foot"><a class="btn btn--z-line" href="/news/">一覧を見る</a></div>
     </div>
-  </div>
-</section>
 
-<!-- ================= 会社情報・お問い合わせ ================= -->
-<section class="sec company" id="company">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="kicker">COMPANY</p>
-      <h2>会社情報</h2>
+    <div class="sub-block recruit-grid" id="recruit">
+      <img src="/images/home/recruit-team.jpg" alt="会議室で作業するメンバー" width="1100" height="825" loading="lazy">
+      <div>
+        <div class="sec-head"><h2>つくるのが好きな人と、働きたい。</h2></div>
+        <p class="lead">ブランドづくり、ゲーム開発、制作事業。職種や経験を問わず、一緒に価値を育てていける方を歓迎します。</p>
+        <a class="btn btn--z" href="/contact/">お問い合わせから応募する<svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
     </div>
-    <div class="grid">
-      <dl class="info">
-        <div><dt>会社名</dt><dd>合同会社aliba</dd></div>
-        <div><dt>所在地</dt><dd>〒600-8223<br>京都府京都市下京区七条通油小路東入大黒町227番地第２キョートビル402</dd></div>
-        <div><dt>電話</dt><dd>TEL 050-3171-3449</dd></div>
-      </dl>
-      <div class="contact-box" id="contact">
-        <h3>ご相談・お問い合わせ</h3>
-        <p>ブランド、ゲーム、制作事業に関するご相談は、こちらからお気軽にどうぞ。</p>
-        <a class="btn btn--corp" href="/contact/">お問い合わせフォームへ<svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+
+    <div class="sub-block" id="company">
+      <div class="sec-head"><h2>会社情報</h2></div>
+      <div class="company-grid">
+        <dl class="info">
+          <div><dt>会社名</dt><dd>合同会社aliba</dd></div>
+          <div><dt>所在地</dt><dd>〒600-8223<br>京都府京都市下京区七条通油小路東入大黒町227番地<span class="nw">第２キョートビル402</span></dd></div>
+          <div><dt>電話</dt><dd>TEL 050-3171-3449</dd></div>
+        </dl>
+        <div class="contact-box" id="contact">
+          <h3>ご相談・お問い合わせ</h3>
+          <p>ブランド、ゲーム、制作事業に関するご相談は、こちらからお気軽にどうぞ。</p>
+          <a class="btn btn--z" href="/contact/">お問い合わせフォームへ<svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
       </div>
     </div>
   </div>
@@ -820,11 +720,11 @@ h2,h3{ text-wrap:balance; }
     <div class="sf-top">
       <div>
         <p class="sf-name">合同会社aliba</p>
-        <p class="sf-addr">〒600-8223 京都府京都市下京区七条通油小路東入大黒町227番地第２キョートビル402<br>TEL 050-3171-3449</p>
+        <p class="sf-addr">〒600-8223 京都府京都市下京区七条通油小路東入大黒町227番地<span class="nw">第２キョートビル402</span><br>TEL 050-3171-3449</p>
         <div class="sf-sns">
-          <a href="https://x.com/gamesaliba" target="_blank" rel="noopener" aria-label="aliba games の X（新しいタブで開きます）"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-          <a href="https://www.youtube.com/@gamesaliba" target="_blank" rel="noopener" aria-label="aliba games の YouTube（新しいタブで開きます）"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg></a>
-          <a href="https://www.tiktok.com/@gamesaliba.online" target="_blank" rel="noopener" aria-label="aliba games の TikTok（新しいタブで開きます）"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+          <a href="https://x.com/gamesaliba" target="_blank" rel="noopener" aria-label="aliba games の X（新しいタブで開きます）"><span class="sns-ic sns-ic--x"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span></a>
+          <a href="https://www.youtube.com/@gamesaliba" target="_blank" rel="noopener" aria-label="aliba games の YouTube（新しいタブで開きます）"><span class="sns-ic sns-ic--yt"><svg viewBox="0 0 28 20" aria-hidden="true"><path fill="#FF0000" d="M27.4 3.1A3.5 3.5 0 0 0 24.9.6C22.7 0 14 0 14 0S5.3 0 3.1.6A3.5 3.5 0 0 0 .6 3.1C0 5.3 0 10 0 10s0 4.7.6 6.9a3.5 3.5 0 0 0 2.5 2.5C5.3 20 14 20 14 20s8.7 0 10.9-.6a3.5 3.5 0 0 0 2.5-2.5C28 14.7 28 10 28 10s0-4.7-.6-6.9z"/><path fill="#fff" d="M11.2 14.3 18.5 10l-7.3-4.3z"/></svg></span></a>
+          <a href="https://www.tiktok.com/@gamesaliba.online" target="_blank" rel="noopener" aria-label="aliba games の TikTok（新しいタブで開きます）"><span class="sns-ic sns-ic--tt"><svg viewBox="-1 -1 26 26" aria-hidden="true"><path fill="#25F4EE" transform="translate(-0.9 -0.9)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/><path fill="#FE2C55" transform="translate(0.9 0.9)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/><path fill="#fff" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></span></a>
         </div>
       </div>
       <div>
@@ -885,7 +785,7 @@ h2,h3{ text-wrap:balance; }
     setInterval(() => { if (!document.hidden) { idx += 1; show(idx); } }, 7000);
   }
 
-  /* ---- 切り替えの帯: 今いる節に下線 ---- */
+  /* ---- 切り替えの帯: 今いる区分に下線 ---- */
   const tabs = [...document.querySelectorAll('.switch .tab')];
   const secs = tabs.map(t => document.getElementById(t.dataset.tab));
   const bar = document.querySelector('.switch');
