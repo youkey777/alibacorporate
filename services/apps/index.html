@@ -50,7 +50,9 @@
     .feature-card { padding: 25px; }
     .feature-card h3 { margin-bottom: 8px; font-size: 19px; }
     .feature-card p, .app-card p { color: var(--muted); font-size: 15px; }
-    .app-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; align-items: stretch; gap: 22px; max-width: 920px; margin: 0 auto; }
+    .app-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 1fr; align-items: stretch; gap: 22px; max-width: 1080px; margin: 0 auto; }
+    .app-store-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; }
+    @media (max-width: 960px) { .app-grid { grid-template-columns: 1fr; max-width: 520px; } }
     .app-card { min-width: 0; height: 100%; padding: 24px; display: flex; flex-direction: column; align-items: stretch; gap: 16px; }
     .app-card-head { display: flex; align-items: center; gap: 14px; min-height: 72px; }
     .app-icon { width: 68px; height: 68px; flex: 0 0 68px; border-radius: 16px; object-fit: cover; box-shadow: 0 3px 10px rgba(15,43,70,.16); }
@@ -144,32 +146,41 @@
         <div class="section-header"><div class="section-label">WHAT WE DO</div><h2 class="section-title" id="approach-title">自社アプリを企画し、運営する</h2><p class="section-desc">企画から制作、公開後の運営までを自社で行っています。実際に遊ぶ方の視点を大切にし、操作や進行の分かりやすさを改善していきます。</p></div>
         <div class="feature-grid">
           <article class="feature-card"><h3>企画</h3><p>スマートフォンで楽しめるゲームを考え、遊びの流れや体験の方向性を形にします。</p></article>
-          <article class="feature-card"><h3>制作</h3><p>企画したゲームをアプリとして制作し、App Storeを通じてお届けしています。</p></article>
+          <article class="feature-card"><h3>制作</h3><p>企画したゲームをアプリとして制作し、App Store と Google Play を通じてお届けしています。</p></article>
           <article class="feature-card"><h3>運営・改善</h3><p>公開後もアプリを運営し、遊びやすさを見直しながら改善に取り組みます。</p></article>
         </div>
       </div>
     </section>
     <section class="section bg" id="apps">
       <div class="container">
-        <div class="section-header"><div class="section-label">OUR APPS</div><h2 class="section-title">公開中のアプリ</h2><p class="section-desc">実際のプレイ画面を掲載しています。App Storeでアプリの詳細をご確認いただけます。</p></div>
+        <div class="section-header"><div class="section-label">OUR APPS</div><h2 class="section-title">公開中のアプリ</h2><p class="section-desc">実際のプレイ画面を掲載しています。App Store・Google Play でアプリの詳細をご確認いただけます。</p></div>
         <div class="app-grid">
           <article class="app-card">
             <div class="app-card-head">
+              <img class="app-icon" src="/images/app-karakuri-icon.jpg" alt="からくり試験場のアプリアイコン" loading="lazy" decoding="async">
+              <div class="app-title-group"><span class="app-label">スマホゲーム</span><h3>からくり試験場</h3></div>
+            </div>
+            <p>画面の中のしかけを、押す・なぞる・待つなどの操作で解く脳トレパズルです。プレイ画面から問題の雰囲気をご覧いただけます。</p>
+            <figure class="app-gameplay"><img src="/images/app-karakuri-play.jpg" alt="からくり試験場のプレイ画面" loading="lazy" decoding="async"></figure>
+            <div class="app-store-links"><a class="app-store-link" href="https://apps.apple.com/jp/app/id6816586004" target="_blank" rel="noopener noreferrer" aria-label="からくり試験場をApp Storeで見る"><img src="/images/app-store-badge.svg" alt="App Storeからダウンロード"></a><a class="app-store-link" href="https://play.google.com/store/apps/details?id=online.aliba.karakuri" target="_blank" rel="noopener noreferrer" aria-label="からくり試験場をGoogle Playで見る"><img src="/images/google-play-badge.png" alt="Google Playで手に入れよう" style="width:180px"></a></div>
+          </article>
+          <article class="app-card">
+            <div class="app-card-head">
               <img class="app-icon" src="/images/app-okazu-icon.jpg" alt="おかずの居場所のアプリアイコン" loading="lazy" decoding="async">
-              <div class="app-title-group"><span class="app-label">iOSゲーム</span><h3>おかずの居場所</h3></div>
+              <div class="app-title-group"><span class="app-label">スマホゲーム</span><h3>おかずの居場所</h3></div>
             </div>
             <p>食材をモチーフにした色鮮やかなパズルゲームです。プレイ画面からゲームの雰囲気をご覧いただけます。</p>
             <figure class="app-gameplay"><img src="/images/app-okazu-play.jpg" alt="おかずの居場所のプレイ画面" loading="lazy" decoding="async"></figure>
-            <a class="app-store-link" href="https://apps.apple.com/jp/app/id6809498156" target="_blank" rel="noopener noreferrer" aria-label="おかずの居場所をApp Storeで見る"><img src="/images/app-store-badge.svg" alt="App Storeからダウンロード"></a>
+            <div class="app-store-links"><a class="app-store-link" href="https://apps.apple.com/jp/app/id6809498156" target="_blank" rel="noopener noreferrer" aria-label="おかずの居場所をApp Storeで見る"><img src="/images/app-store-badge.svg" alt="App Storeからダウンロード"></a><a class="app-store-link" href="https://play.google.com/store/apps/details?id=online.aliba.okazunoibasho" target="_blank" rel="noopener noreferrer" aria-label="おかずの居場所をGoogle Playで見る"><img src="/images/google-play-badge.png" alt="Google Playで手に入れよう" style="width:180px"></a></div>
           </article>
           <article class="app-card">
             <div class="app-card-head">
               <img class="app-icon" src="/images/app-kanji-icon.jpg" alt="漢字くみたて合戦のアプリアイコン" loading="lazy" decoding="async">
-              <div class="app-title-group"><span class="app-label">iOSゲーム</span><h3>漢字くみたて合戦</h3></div>
+              <div class="app-title-group"><span class="app-label">スマホゲーム</span><h3>漢字くみたて合戦</h3></div>
             </div>
             <p>漢字のパーツを組み立てて遊ぶゲームです。プレイ画面から実際の画面や文字の組み立て方をご覧いただけます。</p>
             <figure class="app-gameplay"><img src="/images/app-kanji-play.jpg" alt="漢字くみたて合戦のプレイ画面" loading="lazy" decoding="async"></figure>
-            <a class="app-store-link" href="https://apps.apple.com/jp/app/id6811368161" target="_blank" rel="noopener noreferrer" aria-label="漢字くみたて合戦をApp Storeで見る"><img src="/images/app-store-badge.svg" alt="App Storeからダウンロード"></a>
+            <div class="app-store-links"><a class="app-store-link" href="https://apps.apple.com/jp/app/id6811368161" target="_blank" rel="noopener noreferrer" aria-label="漢字くみたて合戦をApp Storeで見る"><img src="/images/app-store-badge.svg" alt="App Storeからダウンロード"></a><a class="app-store-link" href="https://play.google.com/store/apps/details?id=online.aliba.kanjikumitate" target="_blank" rel="noopener noreferrer" aria-label="漢字くみたて合戦をGoogle Playで見る"><img src="/images/google-play-badge.png" alt="Google Playで手に入れよう" style="width:180px"></a></div>
           </article>
         </div>
       </div>
@@ -212,6 +223,7 @@
     </div>
     <div class="sf-bottom">
       <p>AppleおよびAppleのロゴは、米国その他の国で登録されたApple Inc.の商標です。App StoreはApple Inc.のサービスマークです。</p>
+      <p>Google Play および Google Play ロゴは Google LLC の商標です。</p>
       <p>© 2026 合同会社aliba</p>
     </div>
   </div>
