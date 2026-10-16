@@ -219,7 +219,14 @@ h2,h3{ text-wrap:balance; }
 
 /* ---------- 動画とSNS ---------- */
 .videos{ background:var(--paper); }
-.vid-list{ display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:20px; }
+.vid-groups{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+.vg{ background:#fff; border-radius:24px; padding:18px 18px 22px; border-top:8px solid var(--spine); box-shadow:0 6px 18px rgba(60,20,0,.08); }
+.vg-head{ display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink); margin-bottom:16px; }
+.vg-head img{ width:56px; height:56px; border-radius:14px; flex:none; }
+.vg-name{ display:block; font-size:21px; font-weight:900; line-height:1.3; }
+.vg-sub{ display:block; font-size:14px; font-weight:500; color:var(--sub); }
+.vg-head:hover .vg-name{ text-decoration:underline; }
+.vg-list{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
 .vid{ text-decoration:none; color:var(--ink); display:flex; flex-direction:column; gap:14px; }
 .vid .phone{ position:relative; border-radius:22px; box-shadow:0 10px 22px rgba(60,20,0,.18); transition:transform .25s; }
 .vid .phone img{ aspect-ratio:9/16; border-radius:16px; }
@@ -234,12 +241,13 @@ h2,h3{ text-wrap:balance; }
 .vid:hover .vt{ text-decoration:underline; }
 .acct-head{ margin-top:96px; font-size:28px; font-weight:900; line-height:1.45; }
 @media (max-width:1023px){
-  .vid-list{ display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:20px; margin:0 calc(var(--gutter) * -1); padding:6px var(--gutter) 20px; scroll-padding-left:var(--gutter); }
-  .vid{ flex:0 0 200px; scroll-snap-align:start; }
+  .vid-groups{ display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:16px; margin:0 calc(var(--gutter) * -1); padding:6px var(--gutter) 20px; scroll-padding-left:var(--gutter); }
+  .vg{ flex:0 0 360px; scroll-snap-align:start; }
   .acct-head{ margin-top:72px; }
 }
 @media (max-width:599px){
-  .vid{ flex-basis:160px; }
+  .vg{ flex-basis:300px; padding:14px 14px 18px; }
+  .vg-name{ font-size:19px; }
   .vid .phone{ border-radius:18px; padding:5px; }
   .vid .phone img{ border-radius:13px; }
   .vid .vt{ font-size:15px; }
