@@ -219,7 +219,7 @@ h2,h3{ text-wrap:balance; }
 
 /* ---------- 動画とSNS ---------- */
 .videos{ background:var(--paper); }
-.vid-list{ display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:24px; }
+.vid-list{ display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:20px; }
 .vid{ text-decoration:none; color:var(--ink); display:flex; flex-direction:column; gap:14px; }
 .vid .phone{ position:relative; border-radius:22px; box-shadow:0 10px 22px rgba(60,20,0,.18); transition:transform .25s; }
 .vid .phone img{ aspect-ratio:9/16; border-radius:16px; }
