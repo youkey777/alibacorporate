@@ -2,6 +2,33 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P3XDQHJBQQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var gaConfig = {};
+    try {
+      if (location.search.indexOf('internal=1') !== -1) localStorage.setItem('aliba_internal', '1');
+      if (location.search.indexOf('internal=0') !== -1) localStorage.removeItem('aliba_internal');
+      if (localStorage.getItem('aliba_internal') === '1') gaConfig.traffic_type = 'internal';
+    } catch (e) {}
+    gtag('config', 'G-P3XDQHJBQQ', gaConfig);
+    if (location.search.indexOf('internal=') !== -1) {
+      window.addEventListener('DOMContentLoaded', function () {
+        var box = document.createElement('div');
+        box.setAttribute('role', 'status');
+        box.style.cssText = 'position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9999;padding:10px 16px;border-radius:8px;background:#222;color:#fff;font-size:14px;';
+        box.textContent = gaConfig.traffic_type === 'internal'
+          ? 'この端末は、アクセス数の集計から除外されます'
+          : '除外を解除しました。この端末のアクセスは集計に入ります';
+        document.body.appendChild(box);
+        setTimeout(function () { box.remove(); }, 8000);
+      });
+    }
+  </script>
+  <!-- /GA4 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <title>個人情報の取り扱いについて｜合同会社aliba</title>
@@ -307,7 +334,7 @@
 
   <div class="container">
     <h1 class="page-title">個人情報の取り扱いについて</h1>
-    <p class="page-subtitle">制定日: 2025-12-30 / 最終改定日: 2026-09-24</p>
+    <p class="page-subtitle">制定日: 2025-12-30 / 最終改定日: 2026-10-21</p>
 
     <div class="section">
       <h2>1. 個人情報の定義</h2>
@@ -364,7 +391,7 @@
       <p>当社は個人情報保護に関する法令・ガイドラインを遵守し、取り扱いの改善を継続します。</p>
     </div>
 
-    <div class="section"><h2>12. アプリと外部サービス</h2><p>アプリの広告配信に伴う取得項目、送信先、利用目的と利用者の選択については、<a href="/policies/apps/">アプリ・広告のプライバシーについて</a>をご確認ください。端末内の保存情報、当社が保有する情報、広告事業者が保有する情報では、削除の手続きが異なります。お問い合わせ内容に応じてご案内します。</p></div><a class="link" href="/">トップへ戻る</a>
+    <div class="section"><h2>12. アプリと外部サービス</h2><p>アプリの広告配信に伴う取得項目、送信先、利用目的と利用者の選択については、<a href="/policies/apps/">アプリ・広告のプライバシーについて</a>をご確認ください。端末内の保存情報、当社が保有する情報、広告事業者が保有する情報では、削除の手続きが異なります。お問い合わせ内容に応じてご案内します。</p><p>当サイトの閲覧状況は Google アナリティクスで収集しています。収集する内容と止め方は、<a href="/policies/privacy/#analytics">プライバシーポリシーの「6. アクセス解析ツール」</a>をご確認ください。</p></div><a class="link" href="/">トップへ戻る</a>
   </div>
 
   <footer class="sf">
