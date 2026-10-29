@@ -6,8 +6,8 @@
 - [会社概要](https://www.aliba.online/): 合同会社alibaコーポレートサイト
 - [Web制作サービス](https://www.aliba.online/services/web/): Webサイト制作サービス
 - [SNS運用サービス](https://www.aliba.online/services/sns/): SNS運用代行サービス
-- [aliba games（アリバゲームズ）](https://www.aliba.online/games/): 合同会社alibaのゲームブランド。公開中のiOSゲーム「おかずの居場所 〜おべんとうパズル〜」「漢字くみたて合戦 〜筆と算盤〜」と、X（@gamesaliba）・YouTube（@gamesaliba）・TikTok（@gamesaliba.online）への案内。タイトルごとのページ: https://www.aliba.online/games/okazu/ ・ https://www.aliba.online/games/kanji/
-- [アプリ制作](https://www.aliba.online/services/apps/): スマートフォン向けゲームアプリの企画・制作・運営。公開中の自社アプリを紹介
+- [aliba games（アリバゲームズ）](https://www.aliba.online/games/): 合同会社alibaのゲームブランド。公開中のスマホゲーム（iPhone・iPad・Android）「MINE TRAIL 〜島めぐりマインスイーパー〜」「からくり試験場 〜さわって解く脳トレ〜」「漢字くみたて合戦 〜筆と算盤〜」「おかずの居場所 〜おべんとうパズル〜」と、X（@gamesaliba）・YouTube（@gamesaliba）・TikTok（@gamesaliba.online）への案内。タイトルごとのページ: https://www.aliba.online/games/minetrail/ ・ https://www.aliba.online/games/karakuri/ ・ https://www.aliba.online/games/kanji/ ・ https://www.aliba.online/games/okazu/
+- [ゲーム制作（アプリ制作）](https://www.aliba.online/services/apps/): スマートフォン向けゲームアプリの企画・制作・運営。公開中の自社アプリを紹介
 - [アプリ・広告のプライバシーについて](https://www.aliba.online/policies/apps/): 広告機能を搭載するバージョンに限る情報取扱いの案内。会社のプライバシーポリシーを補足し、アプリ固有の案内を置き換えない
 - [お知らせ](https://www.aliba.online/news/): ニュース・お知らせ
 - [お問い合わせ](https://www.aliba.online/contact/): お問い合わせフォーム

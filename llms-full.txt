@@ -135,11 +135,13 @@ Sauna Crown（サウナクラウン）は日本発のサウナハット専門ブ
 
 - 破格Webサービス（Web制作）: 企画・設計・デザイン・公開まで一気通貫。 https://www.aliba.online/services/web/
 - SNS運用代行: Instagram・X等の企画・運用・改善、クリエイティブ制作、レポートまで一貫支援。 https://www.aliba.online/services/sns/
-- アプリ制作: スマートフォン向けゲームアプリの企画・制作・運営。自社アプリの開発を通じて遊びやすさの改善に取り組む。 https://www.aliba.online/services/apps/
-  - おかずの居場所（iOS）: https://apps.apple.com/jp/app/id6809498156
-  - 漢字くみたて合戦（iOS）: https://apps.apple.com/jp/app/id6811368161
-- aliba games（アリバゲームズ）: 合同会社alibaのゲームブランド。上記2本のiOSゲームを公開中。企画から制作、公開後の運営まで自社で行う。 https://www.aliba.online/games/
-  - タイトルごとのページ: https://www.aliba.online/games/okazu/ ・ https://www.aliba.online/games/kanji/
+- ゲーム制作（アプリ制作）: スマートフォン向けゲームアプリの企画・制作・運営。自社アプリの開発を通じて遊びやすさの改善に取り組む。 https://www.aliba.online/services/apps/
+  - MINE TRAIL 〜島めぐりマインスイーパー〜（iOS）: https://apps.apple.com/jp/app/id6822429511 （Android）: https://play.google.com/store/apps/details?id=online.aliba.minetrail
+  - からくり試験場（iOS）: https://apps.apple.com/jp/app/id6816586004 （Android）: https://play.google.com/store/apps/details?id=online.aliba.karakuri
+  - 漢字くみたて合戦（iOS）: https://apps.apple.com/jp/app/id6811368161 （Android）: https://play.google.com/store/apps/details?id=online.aliba.kanjikumitate
+  - おかずの居場所（iOS）: https://apps.apple.com/jp/app/id6809498156 （Android）: https://play.google.com/store/apps/details?id=online.aliba.okazunoibasho
+- aliba games（アリバゲームズ）: 合同会社alibaのゲームブランド。上記4本のスマホゲーム（iPhone・iPad・Android）を公開中。企画から制作、公開後の運営まで自社で行う。 https://www.aliba.online/games/
+  - タイトルごとのページ: https://www.aliba.online/games/minetrail/ ・ https://www.aliba.online/games/karakuri/ ・ https://www.aliba.online/games/kanji/ ・ https://www.aliba.online/games/okazu/
   - X: https://x.com/gamesaliba
   - YouTube: https://www.youtube.com/@gamesaliba
   - TikTok: https://www.tiktok.com/@gamesaliba.online
