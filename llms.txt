@@ -16,6 +16,7 @@
 ## aliba jewelry（アリバ ジュエリー）
 - [ジュエリーTOP](https://www.aliba.online/jewelry/): aliba（アリバ）は金属アレルギー対応のサージカルステンレス・モアサナイトジュエリーブランド。メンズ・レディースのピアス、ネックレス、財布をAmazonで展開。
 - [コラム一覧](https://www.aliba.online/jewelry/columns/index.html): 金属アレルギーとジュエリーの読みもの（素材・選び方・お手入れ）
+- [コラム: メンズネックレスの選び方｜長さの基準と場面別の選び分け](https://www.aliba.online/jewelry/columns/mens-necklace-guide.html): 飾りを見せたい位置から決める長さの考え方、飾りの形と素材表記の見方、仕事・休日・贈りものでの選び分け
 - [コラム: ペアネックレスの選び方｜デザイン・素材・長さの決め方](https://www.aliba.online/jewelry/columns/pair-necklace-guide.html): ペアネックレスを選ぶ順番（デザイン・素材・長さ）、素材表記の見方、長さの測り方、贈る前に確かめたいこと
 - [コラム: サージカルステンレスジュエリーのお手入れ方法](https://www.aliba.online/jewelry/columns/surgical-steel-care.html): サージカルステンレス（316L）の日常ケア・洗い方の手順・保管のコツ・つけっぱなしで避けたいシーンを解説
 - [コラム: 金属アレルギーでも使える素材まとめ](https://www.aliba.online/jewelry/columns/metal-allergy-materials.html): サージカルステンレス・純チタン・樹脂・シルバー925など主要素材の特徴と選び方を比較表で解説
@@ -34,6 +35,7 @@
 - [ネックストレッチャー](https://www.aliba.online/relaxheal/categories/neck-stretcher.html): 首ストレッチ・ケア製品
 - [ニュース](https://www.aliba.online/relaxheal/news/all.html): relax healのお知らせ
 - [コラム一覧](https://www.aliba.online/relaxheal/column/index.html): 座り心地・姿勢ケアの読みもの
+- [コラム: ゲルクッションの厚みの選び方｜通常の厚みと極厚、どちらが合う？](https://www.aliba.online/relaxheal/column/gel-cushion-thickness.html): 底づき・座る高さ・置いたときの安定の3つで決める厚みの選び方と、敷いたあとに確かめること
 - [コラム: 車のシート用クッションの選び方｜4つのポイントと運転前の確認](https://www.aliba.online/relaxheal/column/car-seat-cushion-guide.html): 厚み・ずれにくさ・蒸れにくさ・サイズの4つと、敷いたあと運転席で確かめたいこと（JAF の運転姿勢の目安つき）
 - [コラム: 円座クッションのメリット・デメリット｜ドーナツ型が向いている人と選び方](https://www.aliba.online/relaxheal/column/donut-cushion-guide.html): 円座（ドーナツ型）のメリットとデメリット、四角い座布団型との比較、サイズと厚みの選び方
 - [コラム: ゲルクッションと低反発クッションの違いと選び方](https://www.aliba.online/relaxheal/column/gel-vs-lowrebound.html): ゲルと低反発の素材特性・通気性・季節・体格別の選び方を比較表つきで解説
