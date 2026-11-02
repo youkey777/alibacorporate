@@ -281,3 +281,16 @@ h2,h3{ text-wrap:balance; }
   html{ scroll-behavior:auto; }
   .vid .phone, .acct-big, .gcard{ transition:none !important; }
 }
+
+/* タイトルページの画面写真の先頭に置く紹介動画（2026-11-02） */
+.pv{ position:relative; }
+.pv-btn{ display:block; position:relative; }
+.pv img, .pv iframe{ display:block; width:100%; aspect-ratio:460/999; border:0; border-radius:18px; background:#000; }
+.pv img{ object-fit:contain; }
+.pv .play{
+  position:absolute; left:50%; top:50%; width:60px; height:60px; transform:translate(-50%,-50%);
+  background:rgba(29,36,51,.78); border-radius:50%; display:flex; align-items:center; justify-content:center;
+}
+.pv .play svg{ width:26px; height:26px; color:#fff; margin-left:3px; }
+.pv-tag{ position:absolute; left:10px; top:10px; background:#e8452c; color:#fff; font-size:13px; font-weight:800; padding:4px 10px; border-radius:999px; }
+@media (max-width:760px){ .pv img, .pv iframe{ border-radius:15px; } }

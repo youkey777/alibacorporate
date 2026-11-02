@@ -148,8 +148,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/site.css?v=20261017">
-  <link rel="stylesheet" href="/css/games.css?v=20261017">
+  <link rel="stylesheet" href="/css/site.css?v=20261102">
+  <link rel="stylesheet" href="/css/games.css?v=20261102">
 </head>
 <body class="games-page games-title">
 <header class="sh">
@@ -210,6 +210,7 @@
       </div>
       <div class="gbox-shots">
         <div class="shots-track" tabindex="0" role="region" aria-label="MINE TRAILの画面写真（横に送れます）">
+          <div class="phone pv"><a class="pv-btn" href="https://www.youtube.com/shorts/h9No5jZUm4U" data-yt="h9No5jZUm4U" target="_blank" rel="noopener" aria-label="MINE TRAILの紹介動画を再生"><img src="/images/games/yt/h9No5jZUm4U.jpg" alt="" width="360" height="640" loading="lazy"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4l14 8-14 8z"/></svg></span><span class="pv-tag">紹介動画</span></a></div>
           <div class="phone"><img src="/images/games/minetrail_ss1.jpg" alt="タイトル画面" width="460" height="999" loading="lazy"></div>
           <div class="phone"><img src="/images/games/minetrail_ss2.jpg" alt="今日の島・果てなき旅・冒険の道を選ぶ画面" width="460" height="999" loading="lazy"></div>
           <div class="phone"><img src="/images/games/minetrail_ss3.jpg" alt="今日の島を遊んでいる画面" width="460" height="999" loading="lazy"></div>
@@ -220,7 +221,7 @@
           <div class="phone"><img src="/images/games/minetrail_ss8.jpg" alt="ステージクリアの画面" width="460" height="999" loading="lazy"></div>
         </div>
         <div class="shots-ctrl">
-          <span class="cnt" aria-hidden="true">画面写真 8枚</span>
+          <span class="cnt" aria-hidden="true">紹介動画と画面写真 8枚</span>
           <button type="button" class="prev" aria-label="前の画面写真"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
           <button type="button" class="next" aria-label="次の画面写真"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
         </div>
@@ -315,11 +316,23 @@
   </div>
 </footer>
 
-<script src="/js/site.js?v=20261017"></script>
+<script src="/js/site.js?v=20261102"></script>
 <script>
 (() => {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   /* 画面写真の帯（自動では動かさない。矢印と指で送る） */
+  // 紹介動画は押したらその場で再生（押すまでは表紙の画像だけにして、横送りの指の動きを止めない）
+  document.querySelectorAll('.pv-btn').forEach((a) => {
+    a.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      const f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + a.dataset.yt + '?autoplay=1&playsinline=1&rel=0';
+      f.title = a.getAttribute('aria-label').replace('を再生', '');
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true;
+      a.replaceWith(f);
+    });
+  });
   document.querySelectorAll('.gbox-shots').forEach((box) => {
     const t = box.querySelector('.shots-track');
     const prev = box.querySelector('.prev');

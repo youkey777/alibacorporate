@@ -148,8 +148,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/site.css?v=20261017">
-  <link rel="stylesheet" href="/css/games.css?v=20261017">
+  <link rel="stylesheet" href="/css/site.css?v=20261102">
+  <link rel="stylesheet" href="/css/games.css?v=20261102">
 </head>
 <body class="games-page games-title">
 <header class="sh">
@@ -312,11 +312,23 @@
   </div>
 </footer>
 
-<script src="/js/site.js?v=20261017"></script>
+<script src="/js/site.js?v=20261102"></script>
 <script>
 (() => {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   /* 画面写真の帯（自動では動かさない。矢印と指で送る） */
+  // 紹介動画は押したらその場で再生（押すまでは表紙の画像だけにして、横送りの指の動きを止めない）
+  document.querySelectorAll('.pv-btn').forEach((a) => {
+    a.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      const f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + a.dataset.yt + '?autoplay=1&playsinline=1&rel=0';
+      f.title = a.getAttribute('aria-label').replace('を再生', '');
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true;
+      a.replaceWith(f);
+    });
+  });
   document.querySelectorAll('.gbox-shots').forEach((box) => {
     const t = box.querySelector('.shots-track');
     const prev = box.querySelector('.prev');
