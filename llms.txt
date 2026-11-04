@@ -1,14 +1,19 @@
 # aliba Inc. (合同会社aliba)
 
-> Web・SNS・アプリ制作事業と、ジュエリー・ウェルネス・サウナ用品のD2Cブランドを運営する日本（京都）の企業。aliba（アリバ）ジュエリー、relax heal（リラックスヒール）、Sauna Crown（サウナクラウン）の3ブランドを展開。
+> Web・SNS・アプリ制作事業と、ジュエリー・ウェルネス・サウナ用品のD2Cブランド、スマホゲームブランド aliba games（アリバゲームズ）を運営する日本（京都）の企業。aliba（アリバ）ジュエリー、relax heal（リラックスヒール）、Sauna Crown（サウナクラウン）の3ブランドに加え、ゲームブランドの aliba games を展開。
 
 ## Corporate
 - [会社概要](https://www.aliba.online/): 合同会社alibaコーポレートサイト
 - [Web制作サービス](https://www.aliba.online/services/web/): Webサイト制作サービス
 - [SNS運用サービス](https://www.aliba.online/services/sns/): SNS運用代行サービス
-- [aliba games（アリバゲームズ）](https://www.aliba.online/games/): 合同会社alibaのゲームブランド。公開中のスマホゲーム（iPhone・iPad・Android）「MINE TRAIL 〜島めぐりマインスイーパー〜」「からくり試験場 〜さわって解く脳トレ〜」「漢字くみたて合戦 〜筆と算盤〜」「おかずの居場所 〜おべんとうパズル〜」「UNDERDIG!!! 〜果てなき底へ〜」と、X（@gamesaliba）・YouTube（@gamesaliba）・TikTok（@gamesaliba.online）への案内。タイトルごとのページ: https://www.aliba.online/games/minetrail/ ・ https://www.aliba.online/games/karakuri/ ・ https://www.aliba.online/games/kanji/ ・ https://www.aliba.online/games/okazu/ ・ https://www.aliba.online/games/underdig/
+- [aliba games（アリバゲームズ）](https://www.aliba.online/games/): 合同会社alibaのゲームブランド。スマホでさっと遊べるゲームをジャンルを問わずつくり、企画から制作、公開後の運営まで自社で行う。公開中の5本はすべて iPhone・iPad・Android で無料（広告あり。MINE TRAIL・UNDERDIG!!! など、アプリ内課金のあるタイトルもある）。日本の App Store・Google Play で配信。SNS: Instagram @alibagames・X @gamesaliba・YouTube @gamesaliba・TikTok @gamesaliba.online
+  - [UNDERDIG!!! 〜果てなき底へ〜](https://www.aliba.online/games/underdig/): スコップやドリルで地面を掘り進み、鉱石やお宝を持ち帰るドット絵の地下探検アクション。掘るほど体力が減るので、帰り道の分を残して「帰還」する。5人の掘り屋の物語と、毎日ひとつ全員同じ穴に挑む「一夜坑」。2026年11月公開。App Store 9+／Google Play 3歳以上。アプリ内課金あり
+  - [MINE TRAIL 〜島めぐりマインスイーパー〜](https://www.aliba.online/games/minetrail/): 数字を手がかりに爆弾をよけて島の道を歩き、ゴールの旗をめざす「歩くマインスイーパー」。全110ステージ、毎日ひとつ新しい島が出る「今日の島」、どこまで渡れるかに挑む「果てなき旅」。2026年10月公開。App Store 4+／Google Play 3歳以上
+  - [からくり試験場 〜さわって解く脳トレ〜](https://www.aliba.online/games/karakuri/): 画面の中のしかけを指で操作して解くパズル（脳トレ）。押す・なぞる・動かす・待つの中から正しい操作を見つける。全131問。2026年10月公開。App Store 4+／Google Play 3歳以上
+  - [漢字くみたて合戦 〜筆と算盤〜](https://www.aliba.online/games/kanji/): 漢字の札を重ねて新しい漢字と熟語をつくる漢字パズル（「日」に「月」を重ねると「明」）。途中で現れる勘定人の計算にも答える。全200問、教育漢字から常用漢字まで。2026年9月公開。App Store 4+／Google Play 12歳以上（軽い暴力）
+  - [おかずの居場所 〜おべんとうパズル〜](https://www.aliba.online/games/okazu/): お弁当箱のマスにおかずをすきまなく詰めるパズル。完成するたびに「おてがみ」が届く。1章60面＋2章75面の全135面。2026年9月公開。App Store 4+／Google Play 3歳以上
 - [ゲーム制作（アプリ制作）](https://www.aliba.online/services/apps/): スマートフォン向けゲームアプリの企画・制作・運営。公開中の自社アプリを紹介
-- [アプリ・広告のプライバシーについて](https://www.aliba.online/policies/apps/): 広告機能を搭載するバージョンに限る情報取扱いの案内。会社のプライバシーポリシーを補足し、アプリ固有の案内を置き換えない
+- [アプリ・広告のプライバシーについて](https://www.aliba.online/policies/apps/): 広告を表示するアプリで使う広告配信の仕組み（Unity LevelPlay）と広告配信事業者、取り扱う情報、広告IDの扱いの案内。会社のプライバシーポリシーを補足するもの
 - [お知らせ](https://www.aliba.online/news/): ニュース・お知らせ
 - [お問い合わせ](https://www.aliba.online/contact/): お問い合わせフォーム
 - [プライバシーポリシー](https://www.aliba.online/policies/privacy/): 個人情報保護方針

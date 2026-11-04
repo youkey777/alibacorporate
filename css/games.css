@@ -294,3 +294,37 @@ h2,h3{ text-wrap:balance; }
 .pv .play svg{ width:26px; height:26px; color:#fff; margin-left:3px; }
 .pv-tag{ position:absolute; left:10px; top:10px; background:#e8452c; color:#fff; font-size:13px; font-weight:800; padding:4px 10px; border-radius:999px; }
 @media (max-width:760px){ .pv img, .pv iframe{ border-radius:15px; } }
+
+/* ---- 紹介と質問（2026-11-04 AIと検索に読まれる本文。各タイトルページと /games/ の「目的から探す・よくある質問」） ---- */
+.guide{ background:var(--paper); padding:72px 0 80px; }
+.guide .sec-head{ margin-bottom:32px; }
+.guide h3{ font-size:20px; line-height:1.5; font-weight:800; margin:28px 0 12px; }
+.guide-grid{ display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr); gap:40px; align-items:start; }
+.guide-about{ font-size:17px; line-height:1.9; }
+.guide .pts li{ position:relative; padding-left:16px; font-size:16px; line-height:1.7; }
+.guide .pts li + li{ margin-top:6px; }
+.guide .pts li::before{ content:""; position:absolute; left:2px; top:.72em; width:6px; height:6px; background:var(--g-ink); }
+.guide-spec{ border:1.5px solid var(--g-ink); border-radius:8px; background:#fff; padding:6px 20px; }
+.guide-spec > div{ padding:12px 0; }
+.guide-spec > div + div{ border-top:1px solid #ead8c8; }
+.guide-spec dt{ font-size:13px; font-weight:700; color:var(--g-ink); line-height:1.4; }
+.guide-spec dd{ font-size:15px; line-height:1.6; }
+.guide .faq-h{ margin-top:48px; }
+.faq{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:16px 24px; }
+.qa{ border:1px solid #ead8c8; border-radius:8px; background:#fff; padding:18px 20px; }
+.qa h3{ font-size:17px; margin:0 0 8px; padding-left:30px; position:relative; }
+.qa h3::before{ content:"Q"; position:absolute; left:0; top:0; width:22px; height:22px; border-radius:50%; background:var(--g-ink); color:#fff; font-size:13px; font-weight:800; text-align:center; line-height:22px; }
+.qa p{ font-size:15px; line-height:1.8; }
+.guide-games{ background:var(--mist); }
+.find-list{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.find{ display:flex; flex-direction:column; gap:4px; padding:18px 20px; border:1.5px solid var(--g-ink); border-radius:8px; background:#fff; text-decoration:none; color:var(--ink); transition:background-color .2s; }
+.find:hover{ background:#fff4ea; }
+.find-q{ font-size:13px; font-weight:700; color:var(--g-ink); line-height:1.5; }
+.find-a{ font-size:19px; font-weight:800; line-height:1.4; }
+.find-a small{ font-size:13px; font-weight:500; margin-left:6px; }
+.find-d{ font-size:14px; line-height:1.6; }
+@media (max-width:899px){
+  .guide-grid, .faq, .find-list{ grid-template-columns:1fr; }
+  .guide{ padding:48px 0 56px; }
+  .guide-about{ font-size:16px; }
+}
