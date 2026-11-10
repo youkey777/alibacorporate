@@ -21,14 +21,14 @@
   ],
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "aliba.online"
         }
       ],
-      "destination": "https://www.aliba.online/:path*",
+      "destination": "https://www.aliba.online/$1",
       "permanent": true
     },
     {
