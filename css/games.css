@@ -174,7 +174,7 @@ h2,h3{ text-wrap:balance; }
 .store{ display:inline-flex; min-height:44px; border-radius:8px; }
 .store img{ height:52px; width:auto; }
 /* 画面写真: 帯の幅にちょうど収まる枚数だけ並べ（見切れなし）、送りボタンは写真の直下。右の余白はカード左と同じ40px */
-.gbox-shots{ position:relative; padding:40px 40px 40px 4px; min-width:0; display:flex; flex-direction:column; justify-content:center; }
+.gbox-shots{ position:relative; padding:40px 40px 40px 4px; min-width:0; display:flex; flex-direction:column; justify-content:flex-start; align-self:start; }
 .shots-track{
   display:flex; gap:20px; overflow-x:auto; scroll-snap-type:x mandatory;
   padding:10px 0 20px; scrollbar-width:none; overscroll-behavior-x:contain;
@@ -196,17 +196,18 @@ h2,h3{ text-wrap:balance; }
   .g-panel{ padding:48px 0 72px; }
   .gbox{ grid-template-columns:56px minmax(0,1fr); }
   .gbox-info{ padding:36px 32px 8px; }
-  .gbox-shots{ grid-column:2; padding:16px 32px 32px; }
+  .gbox-shots{ grid-column:2; grid-row:1; padding:32px 32px 0; }
+  .gbox-info{ grid-column:2; grid-row:2; }
   .gbox-spine{ grid-row:1 / span 2; }
   .stores{ margin-top:0; }
 }
 @media (max-width:599px){
   .g-panel{ padding:32px 0 56px; }
   .gbox{ grid-template-columns:minmax(0,1fr); box-shadow:8px 8px 0 rgba(29,36,51,.22); }
-  .gbox-spine{ grid-row:auto; padding:0; height:12px; }
+  .gbox-spine{ grid-row:1; padding:0; height:12px; }
   .gbox-spine .v, .gbox-spine .v-sub{ display:none; }
-  .gbox-info{ padding:24px 20px 4px; }
-  .gbox-shots{ grid-column:1; padding:8px 20px 24px; }
+  .gbox-info{ grid-column:1; grid-row:3; padding:16px 20px 24px; }
+  .gbox-shots{ grid-column:1; grid-row:2; padding:16px 20px 0; }
   .gbox-title img{ width:64px; height:64px; }
   .gbox h1{ font-size:22px; }
   .gbox .catch{ font-size:19px; }
