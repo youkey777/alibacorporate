@@ -49,6 +49,10 @@
   ],
   "rewrites": [
     {
+      "source": "/go/:path*",
+      "destination": "/go/index.html"
+    },
+    {
       "source": "/jewelry/",
       "destination": "https://aliba-page.vercel.app/"
     },
