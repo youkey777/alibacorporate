@@ -580,5 +580,18 @@
   }));
 })();
 </script>
+<script>
+(() => {
+  /* ゲームの中の「ほかのゲーム」ボタン（/go/<ゲーム>/ingame）から来たとき（?from=<ゲーム>）は、
+     一覧で選んだゲームを中継リンク /go/<ゲーム>/from_game?from=<元のゲーム> に通して記録してからストアへ（2026-11-16） */
+  let from = '';
+  try { from = (new URLSearchParams(location.search).get('from') || '').toLowerCase(); } catch (e) {}
+  if (!/^[a-z0-9_]{1,30}$/.test(from)) return;
+  document.querySelectorAll('a[href^="/games/"]').forEach((a) => {
+    const m = a.getAttribute('href').match(/^\/games\/([a-z0-9_]+)\/$/);
+    if (m) a.setAttribute('href', '/go/' + m[1] + '/from_game?from=' + encodeURIComponent(from));
+  });
+})();
+</script>
 </body>
 </html>

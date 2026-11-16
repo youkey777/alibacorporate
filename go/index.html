@@ -29,7 +29,7 @@
   </style>
 </head>
 <body>
-  <p>ストアへ移動しています…</p>
+  <p>移動しています…</p>
   <p id="fallback"><a href="/games/">aliba games のゲーム一覧へ</a></p>
   <script>
   (function () {
@@ -44,8 +44,15 @@
     // 入口 → utm_medium
     var MEDIUM = {
       ig_ad: 'cpc', ig_post: 'social', tiktok: 'social', yt: 'social', x: 'social', line: 'social',
-      blog: 'referral', hp: 'referral', ingame: 'app', qr: 'offline'
+      blog: 'referral', hp: 'referral', ingame: 'app', from_game: 'app', qr: 'offline'
     };
+    // ゲームの中の「ほかのゲーム」ボタン（入口 ingame）は、ストアでなくゲームの一覧へ。どのゲームから来たかを ?from= で渡す。
+    // 一覧で選ばれたゲームは /go/<ゲーム>/from_game?from=<元のゲーム> を通ってストアへ（2026-11-16 本人）
+    var fromGame = '';
+    try {
+      fromGame = (new URLSearchParams(location.search).get('from') || '').toLowerCase();
+    } catch (e) {}
+    if (!/^[a-z0-9_]{1,30}$/.test(fromGame)) fromGame = '';
 
     var parts = location.pathname.replace(/^\/go\/?/, '').split('/').filter(Boolean);
     var game = (parts[0] || '').toLowerCase();
@@ -61,6 +68,8 @@
     var dest;
     if (!g) {
       dest = '/games/';
+    } else if (src === 'ingame') {
+      dest = '/games/?from=' + encodeURIComponent(game);
     } else if (isIOS) {
       dest = 'https://apps.apple.com/app/apple-store/id' + g.ios + '?pt=' + PT + '&ct=' + encodeURIComponent(src) + '&mt=8';
     } else if (isAndroid) {
@@ -83,6 +92,7 @@
       game: g ? game : 'unknown:' + game,
       src: src,
       os: os,
+      from_game: fromGame || '(none)',
       transport_type: 'beacon',
       event_callback: go
     });
